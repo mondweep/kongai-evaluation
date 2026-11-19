@@ -1,0 +1,1402 @@
+{
+ "services": [
+  {
+   "connect_timeout": 60000,
+   "enabled": true,
+   "host": "example.com",
+   "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52",
+   "name": "val-ai",
+   "port": 443,
+   "protocol": "https",
+   "read_timeout": 60000,
+   "retries": 5,
+   "tags": [
+    "validation"
+   ],
+   "write_timeout": 60000
+  },
+  {
+   "connect_timeout": 60000,
+   "enabled": true,
+   "host": "example.com",
+   "id": "c1495d6d-637b-4a05-b741-04485b0ce782",
+   "name": "val-mock-backend",
+   "port": 443,
+   "protocol": "https",
+   "read_timeout": 60000,
+   "retries": 5,
+   "tags": [
+    "validation"
+   ],
+   "write_timeout": 60000
+  }
+ ],
+ "routes": [
+  {
+   "https_redirect_status_code": 426,
+   "id": "4027d367-50d3-4d13-b236-5b78f2d39116",
+   "name": "val-chat-cost",
+   "path_handling": "v0",
+   "paths": [
+    "/chat-cost"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "603bc3c7-af90-4d5f-8307-fdba9d6fdf50",
+   "name": "val-chat-rl",
+   "path_handling": "v0",
+   "paths": [
+    "/chat-rl"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "80191105-96e4-480e-9aea-cf97988d3499",
+   "name": "val-chat-lb",
+   "path_handling": "v0",
+   "paths": [
+    "/chat-lb"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "84cf07ca-6180-48c4-961e-ab71cee21385",
+   "name": "val-chat-piiguard",
+   "path_handling": "v0",
+   "paths": [
+    "/chat-piiguard"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "85a6e78d-ee3f-4cb9-b4c8-9377461033ac",
+   "name": "val-mock-llm",
+   "path_handling": "v0",
+   "paths": [
+    "/mock-llm"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "c1495d6d-637b-4a05-b741-04485b0ce782"
+   },
+   "strip_path": false,
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "90ea3c58-2b5a-474d-b4af-7e2d15dd4127",
+   "name": "val-chat-pii",
+   "path_handling": "v0",
+   "paths": [
+    "/chat-pii"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "9997c4a4-83bd-4458-b1f4-3dad9d6ae99b",
+   "name": "val-chat-guard",
+   "path_handling": "v0",
+   "paths": [
+    "/chat-guard"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "c470c9cb-0caa-4abd-9f9d-a84faff9e79f",
+   "name": "val-chat",
+   "path_handling": "v0",
+   "paths": [
+    "/chat"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "f6224246-54bf-46f5-a737-5e1f744ab637",
+   "name": "val-chat-auth",
+   "path_handling": "v0",
+   "paths": [
+    "/chat-auth"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
+  }
+ ],
+ "plugins": [
+  {
+   "config": {
+    "anonymous": null,
+    "hide_credentials": false,
+    "identity_realms": [
+     {
+      "id": null,
+      "region": null,
+      "scope": "cp"
+     }
+    ],
+    "key_in_body": false,
+    "key_in_header": true,
+    "key_in_query": true,
+    "key_names": [
+     "apikey"
+    ],
+    "principals": {
+     "directory": "default",
+     "enabled": false,
+     "error_on_miss": true
+    },
+    "realm": null,
+    "run_on_preflight": true
+   },
+   "enabled": true,
+   "id": "0bb08bfa-a064-407e-8eb6-872138789c44",
+   "name": "key-auth",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "4027d367-50d3-4d13-b236-5b78f2d39116"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "acls": null,
+    "balancer": {
+     "algorithm": "round-robin",
+     "connect_timeout": 2000,
+     "fail_timeout": 10000,
+     "failover_criteria": [
+      "error",
+      "timeout",
+      "non_idempotent"
+     ],
+     "hash_on_header": "X-Kong-LLM-Request-ID",
+     "latency_strategy": "tpot",
+     "max_fails": 0,
+     "read_timeout": 60000,
+     "retries": 3,
+     "slots": 10000,
+     "tokens_count_strategy": "total-tokens",
+     "write_timeout": 60000
+    },
+    "embeddings": null,
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "max_request_body_size": 8192,
+    "model_name_header": true,
+    "response_streaming": "allow",
+    "targets": [
+     {
+      "auth": {
+       "allow_override": false,
+       "aws_access_key_id": null,
+       "aws_secret_access_key": null,
+       "azure_client_id": null,
+       "azure_client_secret": null,
+       "azure_tenant_id": null,
+       "azure_use_managed_identity": false,
+       "gcp_metadata_url": null,
+       "gcp_oauth_token_url": null,
+       "gcp_service_account_json": null,
+       "gcp_use_service_account": false,
+       "header_name": "Authorization",
+       "header_value": "Bearer dummy",
+       "param_location": null,
+       "param_name": null,
+       "param_value": null
+      },
+      "description": null,
+      "logging": {
+       "log_payloads": false,
+       "log_statistics": true
+      },
+      "metadata": null,
+      "model": {
+       "model_alias": null,
+       "name": "mock-a",
+       "options": {
+        "anthropic_version": null,
+        "azure_api_version": "2023-05-15",
+        "azure_deployment_id": null,
+        "azure_instance": null,
+        "bedrock": null,
+        "cache_read_cost": null,
+        "cache_write_cost": null,
+        "cache_write_cost_list": null,
+        "cohere": null,
+        "context_window_factor": null,
+        "dashscope": null,
+        "databricks": null,
+        "embeddings_dimensions": null,
+        "gemini": null,
+        "huggingface": null,
+        "input_cost": 1000,
+        "llama2_format": null,
+        "max_tokens": null,
+        "mistral_format": null,
+        "output_cost": 2000,
+        "service_tier_factor": null,
+        "temperature": null,
+        "top_k": null,
+        "top_p": null,
+        "upstream_path": null,
+        "upstream_url": "https://example.com:81/v1/chat/completions"
+       },
+       "provider": "openai"
+      },
+      "route_type": "llm/v1/chat",
+      "weight": 100
+     },
+     {
+      "auth": {
+       "allow_override": false,
+       "aws_access_key_id": null,
+       "aws_secret_access_key": null,
+       "azure_client_id": null,
+       "azure_client_secret": null,
+       "azure_tenant_id": null,
+       "azure_use_managed_identity": false,
+       "gcp_metadata_url": null,
+       "gcp_oauth_token_url": null,
+       "gcp_service_account_json": null,
+       "gcp_use_service_account": false,
+       "header_name": "Authorization",
+       "header_value": "Bearer dummy",
+       "param_location": null,
+       "param_name": null,
+       "param_value": null
+      },
+      "description": null,
+      "logging": {
+       "log_payloads": false,
+       "log_statistics": true
+      },
+      "metadata": null,
+      "model": {
+       "model_alias": null,
+       "name": "mock-b",
+       "options": {
+        "anthropic_version": null,
+        "azure_api_version": "2023-05-15",
+        "azure_deployment_id": null,
+        "azure_instance": null,
+        "bedrock": null,
+        "cache_read_cost": null,
+        "cache_write_cost": null,
+        "cache_write_cost_list": null,
+        "cohere": null,
+        "context_window_factor": null,
+        "dashscope": null,
+        "databricks": null,
+        "embeddings_dimensions": null,
+        "gemini": null,
+        "huggingface": null,
+        "input_cost": 1000,
+        "llama2_format": null,
+        "max_tokens": null,
+        "mistral_format": null,
+        "output_cost": 2000,
+        "service_tier_factor": null,
+        "temperature": null,
+        "top_k": null,
+        "top_p": null,
+        "upstream_path": null,
+        "upstream_url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mock-llm/b/v1/chat/completions"
+       },
+       "provider": "openai"
+      },
+      "route_type": "llm/v1/chat",
+      "weight": 100
+     }
+    ],
+    "vectordb": null
+   },
+   "enabled": true,
+   "id": "10f03a60-4d01-4265-9993-15e696a0d577",
+   "name": "ai-proxy-advanced",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "80191105-96e4-480e-9aea-cf97988d3499"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "auth": {
+     "allow_override": false,
+     "aws_access_key_id": null,
+     "aws_secret_access_key": null,
+     "azure_client_id": null,
+     "azure_client_secret": null,
+     "azure_tenant_id": null,
+     "azure_use_managed_identity": false,
+     "gcp_metadata_url": null,
+     "gcp_oauth_token_url": null,
+     "gcp_service_account_json": null,
+     "gcp_use_service_account": false,
+     "header_name": "Authorization",
+     "header_value": "Bearer dummy",
+     "param_location": null,
+     "param_name": null,
+     "param_value": null
+    },
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "logging": {
+     "log_payloads": false,
+     "log_statistics": true
+    },
+    "max_request_body_size": 8192,
+    "model": {
+     "model_alias": null,
+     "name": "mock",
+     "options": {
+      "anthropic_version": null,
+      "azure_api_version": "2023-05-15",
+      "azure_deployment_id": null,
+      "azure_instance": null,
+      "bedrock": null,
+      "cache_read_cost": null,
+      "cache_write_cost": null,
+      "cache_write_cost_list": null,
+      "cohere": null,
+      "context_window_factor": null,
+      "dashscope": null,
+      "databricks": null,
+      "embeddings_dimensions": null,
+      "gemini": null,
+      "huggingface": null,
+      "input_cost": 1000,
+      "llama2_format": null,
+      "max_tokens": null,
+      "mistral_format": null,
+      "output_cost": 2000,
+      "service_tier_factor": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "upstream_path": null,
+      "upstream_url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mock-llm/v1/chat/completions"
+     },
+     "provider": "openai"
+    },
+    "model_name_header": true,
+    "response_streaming": "allow",
+    "route_type": "llm/v1/chat"
+   },
+   "enabled": true,
+   "id": "385a0685-7bb8-4c34-8409-4e2740fe7758",
+   "name": "ai-proxy",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "603bc3c7-af90-4d5f-8307-fdba9d6fdf50"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "anonymous": null,
+    "hide_credentials": false,
+    "identity_realms": [
+     {
+      "id": null,
+      "region": null,
+      "scope": "cp"
+     }
+    ],
+    "key_in_body": false,
+    "key_in_header": true,
+    "key_in_query": true,
+    "key_names": [
+     "apikey"
+    ],
+    "principals": {
+     "directory": "default",
+     "enabled": false,
+     "error_on_miss": true
+    },
+    "realm": null,
+    "run_on_preflight": true
+   },
+   "enabled": true,
+   "id": "3b1b0887-99b2-4318-b6e7-4e87a26fdf01",
+   "name": "key-auth",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "603bc3c7-af90-4d5f-8307-fdba9d6fdf50"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "allow_all_conversation_history": false,
+    "allow_patterns": null,
+    "deny_patterns": [
+     "\\b(?:\\d[ -]?){13,19}\\b",
+     "\\b[A-CEGHJ-PR-TW-Z]{2}\\s?\\d{2}\\s?\\d{2}\\s?\\d{2}\\s?[A-D]\\b",
+     "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+     "(?:\\+44\\s?7\\d{3}|\\b07\\d{3})\\s?\\d{3}\\s?\\d{3}\\b",
+     "\\b[A-Z]{1,2}\\d[A-Z\\d]?\\s?\\d[A-Z]{2}\\b"
+    ],
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "match_all_roles": false,
+    "max_request_body_size": 8192
+   },
+   "enabled": true,
+   "id": "54dc7981-ce58-41bc-ac8b-1aae8446ca5e",
+   "name": "ai-prompt-guard",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https"
+   ],
+   "route": {
+    "id": "84cf07ca-6180-48c4-961e-ab71cee21385"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "custom_cost_count_function": null,
+    "decrease_by_fractions_in_redis": false,
+    "dictionary_name": "kong_rate_limiting_counters",
+    "disable_penalty": false,
+    "error_code": 429,
+    "error_hide_providers": false,
+    "error_message": "AI token rate limit exceeded for provider(s): ",
+    "header_name": null,
+    "hide_client_headers": false,
+    "identifier": "consumer",
+    "llm_format": "openai",
+    "llm_providers": [
+     {
+      "limit": [
+       1
+      ],
+      "name": "openai",
+      "window_size": [
+       300
+      ]
+     }
+    ],
+    "namespace": null,
+    "path": null,
+    "policies": null,
+    "redis": {
+     "cloud_authentication": null,
+     "cluster_addresses": null,
+     "cluster_max_redirections": 5,
+     "cluster_nodes": null,
+     "connect_timeout": 2000,
+     "connection_is_proxied": false,
+     "database": 0,
+     "host": "127.0.0.1",
+     "keepalive_backlog": null,
+     "keepalive_pool_size": 256,
+     "password": null,
+     "port": 6379,
+     "read_timeout": 2000,
+     "send_timeout": 2000,
+     "sentinel_addresses": null,
+     "sentinel_master": null,
+     "sentinel_nodes": null,
+     "sentinel_password": null,
+     "sentinel_role": null,
+     "sentinel_username": null,
+     "server_name": null,
+     "ssl": false,
+     "ssl_verify": false,
+     "timeout": 2000,
+     "username": null
+    },
+    "request_prompt_count_function": null,
+    "retry_after_jitter_max": 0,
+    "strategy": "local",
+    "sync_rate": null,
+    "tokens_count_strategy": "cost",
+    "window_type": "fixed"
+   },
+   "enabled": true,
+   "id": "70b20c08-fade-4353-b645-75922bc620f0",
+   "name": "ai-rate-limiting-advanced",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https"
+   ],
+   "route": {
+    "id": "4027d367-50d3-4d13-b236-5b78f2d39116"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "allow_all_conversation_history": true,
+    "anonymize": [
+     "all_and_credentials"
+    ],
+    "block_if_detected": false,
+    "custom_patterns": null,
+    "host": "localhost",
+    "keepalive_timeout": 60000,
+    "port": 8080,
+    "recover_redacted": true,
+    "redact_type": "placeholder",
+    "sanitization_mode": "INPUT",
+    "scheme": "http",
+    "skip_logging_sanitized_items": false,
+    "stop_on_error": true,
+    "timeout": 10000
+   },
+   "enabled": true,
+   "id": "7a285149-7c9b-4653-84a1-325d42818f72",
+   "name": "ai-sanitizer",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https"
+   ],
+   "route": {
+    "id": "90ea3c58-2b5a-474d-b4af-7e2d15dd4127"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "custom_cost_count_function": null,
+    "decrease_by_fractions_in_redis": false,
+    "dictionary_name": "kong_rate_limiting_counters",
+    "disable_penalty": false,
+    "error_code": 429,
+    "error_hide_providers": false,
+    "error_message": "AI token rate limit exceeded for provider(s): ",
+    "header_name": null,
+    "hide_client_headers": false,
+    "identifier": "consumer",
+    "llm_format": "openai",
+    "llm_providers": [
+     {
+      "limit": [
+       300
+      ],
+      "name": "openai",
+      "window_size": [
+       60
+      ]
+     }
+    ],
+    "namespace": null,
+    "path": null,
+    "policies": null,
+    "redis": {
+     "cloud_authentication": null,
+     "cluster_addresses": null,
+     "cluster_max_redirections": 5,
+     "cluster_nodes": null,
+     "connect_timeout": 2000,
+     "connection_is_proxied": false,
+     "database": 0,
+     "host": "127.0.0.1",
+     "keepalive_backlog": null,
+     "keepalive_pool_size": 256,
+     "password": null,
+     "port": 6379,
+     "read_timeout": 2000,
+     "send_timeout": 2000,
+     "sentinel_addresses": null,
+     "sentinel_master": null,
+     "sentinel_nodes": null,
+     "sentinel_password": null,
+     "sentinel_role": null,
+     "sentinel_username": null,
+     "server_name": null,
+     "ssl": false,
+     "ssl_verify": false,
+     "timeout": 2000,
+     "username": null
+    },
+    "request_prompt_count_function": null,
+    "retry_after_jitter_max": 0,
+    "strategy": "local",
+    "sync_rate": null,
+    "tokens_count_strategy": "total_tokens",
+    "window_type": "fixed"
+   },
+   "enabled": true,
+   "id": "a01bd669-209f-447a-aec4-6210ac3244e2",
+   "name": "ai-rate-limiting-advanced",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https"
+   ],
+   "route": {
+    "id": "603bc3c7-af90-4d5f-8307-fdba9d6fdf50"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "auth": {
+     "allow_override": false,
+     "aws_access_key_id": null,
+     "aws_secret_access_key": null,
+     "azure_client_id": null,
+     "azure_client_secret": null,
+     "azure_tenant_id": null,
+     "azure_use_managed_identity": false,
+     "gcp_metadata_url": null,
+     "gcp_oauth_token_url": null,
+     "gcp_service_account_json": null,
+     "gcp_use_service_account": false,
+     "header_name": "Authorization",
+     "header_value": "Bearer dummy",
+     "param_location": null,
+     "param_name": null,
+     "param_value": null
+    },
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "logging": {
+     "log_payloads": false,
+     "log_statistics": true
+    },
+    "max_request_body_size": 8192,
+    "model": {
+     "model_alias": null,
+     "name": "mock",
+     "options": {
+      "anthropic_version": null,
+      "azure_api_version": "2023-05-15",
+      "azure_deployment_id": null,
+      "azure_instance": null,
+      "bedrock": null,
+      "cache_read_cost": null,
+      "cache_write_cost": null,
+      "cache_write_cost_list": null,
+      "cohere": null,
+      "context_window_factor": null,
+      "dashscope": null,
+      "databricks": null,
+      "embeddings_dimensions": null,
+      "gemini": null,
+      "huggingface": null,
+      "input_cost": 1000,
+      "llama2_format": null,
+      "max_tokens": null,
+      "mistral_format": null,
+      "output_cost": 2000,
+      "service_tier_factor": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "upstream_path": null,
+      "upstream_url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mock-llm/v1/chat/completions"
+     },
+     "provider": "openai"
+    },
+    "model_name_header": true,
+    "response_streaming": "allow",
+    "route_type": "llm/v1/chat"
+   },
+   "enabled": true,
+   "id": "a8aef329-d48b-4ed2-a715-99cbc546818b",
+   "name": "ai-proxy",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "c470c9cb-0caa-4abd-9f9d-a84faff9e79f"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "auth": {
+     "allow_override": false,
+     "aws_access_key_id": null,
+     "aws_secret_access_key": null,
+     "azure_client_id": null,
+     "azure_client_secret": null,
+     "azure_tenant_id": null,
+     "azure_use_managed_identity": false,
+     "gcp_metadata_url": null,
+     "gcp_oauth_token_url": null,
+     "gcp_service_account_json": null,
+     "gcp_use_service_account": false,
+     "header_name": "Authorization",
+     "header_value": "Bearer dummy",
+     "param_location": null,
+     "param_name": null,
+     "param_value": null
+    },
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "logging": {
+     "log_payloads": false,
+     "log_statistics": true
+    },
+    "max_request_body_size": 8192,
+    "model": {
+     "model_alias": null,
+     "name": "mock",
+     "options": {
+      "anthropic_version": null,
+      "azure_api_version": "2023-05-15",
+      "azure_deployment_id": null,
+      "azure_instance": null,
+      "bedrock": null,
+      "cache_read_cost": null,
+      "cache_write_cost": null,
+      "cache_write_cost_list": null,
+      "cohere": null,
+      "context_window_factor": null,
+      "dashscope": null,
+      "databricks": null,
+      "embeddings_dimensions": null,
+      "gemini": null,
+      "huggingface": null,
+      "input_cost": 1000,
+      "llama2_format": null,
+      "max_tokens": null,
+      "mistral_format": null,
+      "output_cost": 2000,
+      "service_tier_factor": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "upstream_path": null,
+      "upstream_url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mock-llm/v1/chat/completions"
+     },
+     "provider": "openai"
+    },
+    "model_name_header": true,
+    "response_streaming": "allow",
+    "route_type": "llm/v1/chat"
+   },
+   "enabled": true,
+   "id": "b8ee0798-9df8-4ab4-aadd-1f895e5f289c",
+   "name": "ai-proxy",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "9997c4a4-83bd-4458-b1f4-3dad9d6ae99b"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "allow_all_conversation_history": false,
+    "allow_patterns": null,
+    "deny_patterns": [
+     "(?i)ignore\\s+(all\\s+|any\\s+)?(previous|prior|above|earlier)\\s+(instructions|rules|prompts)",
+     "(?i)\\b(DAN|do anything now)\\b",
+     "(?i)(reveal|show|print|repeat).{0,30}(system prompt|hidden instructions|initial instructions)",
+     "(?i)developer mode",
+     "(?i)\\bjailbreak",
+     "(?i)disregard.{0,30}(instructions|guidelines|rules)",
+     "(?i)pretend (you are|to be).{0,40}(no|without).{0,20}(restrictions|rules|filters|limits)"
+    ],
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "match_all_roles": false,
+    "max_request_body_size": 8192
+   },
+   "enabled": true,
+   "id": "d20f899f-c753-420a-bd94-70ce0c0480eb",
+   "name": "ai-prompt-guard",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https"
+   ],
+   "route": {
+    "id": "9997c4a4-83bd-4458-b1f4-3dad9d6ae99b"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "auth": {
+     "allow_override": false,
+     "aws_access_key_id": null,
+     "aws_secret_access_key": null,
+     "azure_client_id": null,
+     "azure_client_secret": null,
+     "azure_tenant_id": null,
+     "azure_use_managed_identity": false,
+     "gcp_metadata_url": null,
+     "gcp_oauth_token_url": null,
+     "gcp_service_account_json": null,
+     "gcp_use_service_account": false,
+     "header_name": "Authorization",
+     "header_value": "Bearer dummy",
+     "param_location": null,
+     "param_name": null,
+     "param_value": null
+    },
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "logging": {
+     "log_payloads": false,
+     "log_statistics": true
+    },
+    "max_request_body_size": 8192,
+    "model": {
+     "model_alias": null,
+     "name": "mock",
+     "options": {
+      "anthropic_version": null,
+      "azure_api_version": "2023-05-15",
+      "azure_deployment_id": null,
+      "azure_instance": null,
+      "bedrock": null,
+      "cache_read_cost": null,
+      "cache_write_cost": null,
+      "cache_write_cost_list": null,
+      "cohere": null,
+      "context_window_factor": null,
+      "dashscope": null,
+      "databricks": null,
+      "embeddings_dimensions": null,
+      "gemini": null,
+      "huggingface": null,
+      "input_cost": 1000,
+      "llama2_format": null,
+      "max_tokens": null,
+      "mistral_format": null,
+      "output_cost": 2000,
+      "service_tier_factor": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "upstream_path": null,
+      "upstream_url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mock-llm/v1/chat/completions"
+     },
+     "provider": "openai"
+    },
+    "model_name_header": true,
+    "response_streaming": "allow",
+    "route_type": "llm/v1/chat"
+   },
+   "enabled": true,
+   "id": "d4ceb28e-d86e-41a5-800c-43c1cf7c6d5b",
+   "name": "ai-proxy",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "f6224246-54bf-46f5-a737-5e1f744ab637"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "auth": {
+     "allow_override": false,
+     "aws_access_key_id": null,
+     "aws_secret_access_key": null,
+     "azure_client_id": null,
+     "azure_client_secret": null,
+     "azure_tenant_id": null,
+     "azure_use_managed_identity": false,
+     "gcp_metadata_url": null,
+     "gcp_oauth_token_url": null,
+     "gcp_service_account_json": null,
+     "gcp_use_service_account": false,
+     "header_name": "Authorization",
+     "header_value": "Bearer dummy",
+     "param_location": null,
+     "param_name": null,
+     "param_value": null
+    },
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "logging": {
+     "log_payloads": false,
+     "log_statistics": true
+    },
+    "max_request_body_size": 8192,
+    "model": {
+     "model_alias": null,
+     "name": "mock",
+     "options": {
+      "anthropic_version": null,
+      "azure_api_version": "2023-05-15",
+      "azure_deployment_id": null,
+      "azure_instance": null,
+      "bedrock": null,
+      "cache_read_cost": null,
+      "cache_write_cost": null,
+      "cache_write_cost_list": null,
+      "cohere": null,
+      "context_window_factor": null,
+      "dashscope": null,
+      "databricks": null,
+      "embeddings_dimensions": null,
+      "gemini": null,
+      "huggingface": null,
+      "input_cost": 1000,
+      "llama2_format": null,
+      "max_tokens": null,
+      "mistral_format": null,
+      "output_cost": 2000,
+      "service_tier_factor": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "upstream_path": null,
+      "upstream_url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mock-llm/v1/chat/completions"
+     },
+     "provider": "openai"
+    },
+    "model_name_header": true,
+    "response_streaming": "allow",
+    "route_type": "llm/v1/chat"
+   },
+   "enabled": true,
+   "id": "d9b59b9d-48a3-4788-befe-673039203151",
+   "name": "ai-proxy",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "90ea3c58-2b5a-474d-b4af-7e2d15dd4127"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "auth": {
+     "allow_override": false,
+     "aws_access_key_id": null,
+     "aws_secret_access_key": null,
+     "azure_client_id": null,
+     "azure_client_secret": null,
+     "azure_tenant_id": null,
+     "azure_use_managed_identity": false,
+     "gcp_metadata_url": null,
+     "gcp_oauth_token_url": null,
+     "gcp_service_account_json": null,
+     "gcp_use_service_account": false,
+     "header_name": "Authorization",
+     "header_value": "Bearer dummy",
+     "param_location": null,
+     "param_name": null,
+     "param_value": null
+    },
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "logging": {
+     "log_payloads": false,
+     "log_statistics": true
+    },
+    "max_request_body_size": 8192,
+    "model": {
+     "model_alias": null,
+     "name": "mock",
+     "options": {
+      "anthropic_version": null,
+      "azure_api_version": "2023-05-15",
+      "azure_deployment_id": null,
+      "azure_instance": null,
+      "bedrock": null,
+      "cache_read_cost": null,
+      "cache_write_cost": null,
+      "cache_write_cost_list": null,
+      "cohere": null,
+      "context_window_factor": null,
+      "dashscope": null,
+      "databricks": null,
+      "embeddings_dimensions": null,
+      "gemini": null,
+      "huggingface": null,
+      "input_cost": 1000,
+      "llama2_format": null,
+      "max_tokens": null,
+      "mistral_format": null,
+      "output_cost": 2000,
+      "service_tier_factor": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "upstream_path": null,
+      "upstream_url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mock-llm/v1/chat/completions"
+     },
+     "provider": "openai"
+    },
+    "model_name_header": true,
+    "response_streaming": "allow",
+    "route_type": "llm/v1/chat"
+   },
+   "enabled": true,
+   "id": "d9d79ad2-d645-4f23-a91f-9a0e1e39c71b",
+   "name": "ai-proxy",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "84cf07ca-6180-48c4-961e-ab71cee21385"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "access": [
+     "local path = kong.request.get_path()\nlocal raw = kong.request.get_raw_body() or \"\"\nif string.find(path, \"fail500\", 1, true) then return kong.response.exit(500, {error={message=\"mock upstream failure\"}}) end\nif string.find(path, \"fail429\", 1, true) then return kong.response.exit(429, {error={message=\"mock rate limited\"}}, {[\"Retry-After\"]=\"1\"}) end\nlocal ct = tonumber(kong.request.get_header(\"x-mock-completion-tokens\") or \"\") or 20\nlocal pt = math.ceil(#raw / 4)\nlocal tag = \"mock\"\nif string.find(path, \"/b/\", 1, true) then tag = \"mock-b\" end\nreturn kong.response.exit(200, {\n  id = \"chatcmpl-mock\", object = \"chat.completion\", created = ngx.time(), model = tag,\n  choices = {{ index = 0, finish_reason = \"stop\", message = { role = \"assistant\", content = \"RECEIVED:\" .. raw }}},\n  usage = { prompt_tokens = pt, completion_tokens = ct, total_tokens = pt + ct }\n}, {[\"X-Mock-Upstream\"]=tag})\n"
+    ],
+    "body_filter": [],
+    "certificate": [],
+    "functions": [],
+    "header_filter": [],
+    "log": [],
+    "rewrite": [],
+    "ws_client_frame": [],
+    "ws_close": [],
+    "ws_handshake": [],
+    "ws_upstream_frame": []
+   },
+   "enabled": true,
+   "id": "e3e72bf4-b2de-4a6c-84ff-2114189c0780",
+   "name": "pre-function",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https"
+   ],
+   "route": {
+    "id": "85a6e78d-ee3f-4cb9-b4c8-9377461033ac"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
+    "auth": {
+     "allow_override": false,
+     "aws_access_key_id": null,
+     "aws_secret_access_key": null,
+     "azure_client_id": null,
+     "azure_client_secret": null,
+     "azure_tenant_id": null,
+     "azure_use_managed_identity": false,
+     "gcp_metadata_url": null,
+     "gcp_oauth_token_url": null,
+     "gcp_service_account_json": null,
+     "gcp_use_service_account": false,
+     "header_name": "Authorization",
+     "header_value": "Bearer dummy",
+     "param_location": null,
+     "param_name": null,
+     "param_value": null
+    },
+    "genai_category": "text/generation",
+    "llm_format": "openai",
+    "logging": {
+     "log_payloads": false,
+     "log_statistics": true
+    },
+    "max_request_body_size": 8192,
+    "model": {
+     "model_alias": null,
+     "name": "mock",
+     "options": {
+      "anthropic_version": null,
+      "azure_api_version": "2023-05-15",
+      "azure_deployment_id": null,
+      "azure_instance": null,
+      "bedrock": null,
+      "cache_read_cost": null,
+      "cache_write_cost": null,
+      "cache_write_cost_list": null,
+      "cohere": null,
+      "context_window_factor": null,
+      "dashscope": null,
+      "databricks": null,
+      "embeddings_dimensions": null,
+      "gemini": null,
+      "huggingface": null,
+      "input_cost": 1000,
+      "llama2_format": null,
+      "max_tokens": null,
+      "mistral_format": null,
+      "output_cost": 2000,
+      "service_tier_factor": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "upstream_path": null,
+      "upstream_url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mock-llm/v1/chat/completions"
+     },
+     "provider": "openai"
+    },
+    "model_name_header": true,
+    "response_streaming": "allow",
+    "route_type": "llm/v1/chat"
+   },
+   "enabled": true,
+   "id": "f26e1a6b-befb-4d87-9320-c1c7ceab0926",
+   "name": "ai-proxy",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "4027d367-50d3-4d13-b236-5b78f2d39116"
+   },
+   "tags": [
+    "validation"
+   ]
+  }
+ ],
+ "consumers": [
+  {
+   "id": "2e6b607c-e482-49b6-ac67-c40de979cb49",
+   "tags": [
+    "validation"
+   ],
+   "username": "val-gold"
+  },
+  {
+   "id": "67a86535-9db7-44d4-9d52-f7dd5fef85eb",
+   "tags": [
+    "validation"
+   ],
+   "username": "val-cost"
+  },
+  {
+   "id": "6953b072-2175-43ae-a0b5-fb6f0ead441f",
+   "tags": [
+    "validation"
+   ],
+   "username": "val-bronze2"
+  },
+  {
+   "id": "d8223625-d6d9-4412-8e48-5826b2477c7f",
+   "tags": [
+    "validation"
+   ],
+   "username": "val-bronze"
+  }
+ ]
+}

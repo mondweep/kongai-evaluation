@@ -1,0 +1,6 @@
+keys.json
+ids.json
+reqs.json
+__pycache__/
+*.env
+.env*

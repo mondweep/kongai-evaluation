@@ -1,0 +1,398 @@
+{
+ "structured": [
+  [
+   "card",
+   400,
+   "Please refund card 4111 1111 1111 1111 for the order.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "card",
+   400,
+   "My Visa is 4012888888881881, can you check it?",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "card",
+   400,
+   "Charge 5555-5555-5555-4444 for the renewal.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "card",
+   400,
+   "Amex 378282246310005 was declined, why?",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "card",
+   400,
+   "Card number 6011 1111 1111 1117 expiry 12/29.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "ni",
+   200,
+   "My National Insurance number is QQ 12 34 56 C.",
+   "{\"created\":1795083534,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":46,\"prompt_tokens\":26},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "ni",
+   400,
+   "NI: AB123456D, please update my record.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "ni",
+   400,
+   "Employee NINO JG 10 37 59 A needs a P60.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "ni",
+   400,
+   "Can you validate ZX 99 88 77 B for payroll?",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "ni",
+   400,
+   "Tax ref uses NI number CE123456A.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "email",
+   400,
+   "Email me at jane.doe@example.com with the report.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "email",
+   400,
+   "Contact a.n.other+test@example.org about the claim.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "email",
+   400,
+   "Send it to SALES@EXAMPLE.CO.UK please.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "email",
+   400,
+   "My work address is t.person@fakecorp.example.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "email",
+   400,
+   "Forward to billing_team@demo-company.example.net.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "phone",
+   400,
+   "Call me on 07700 900123 after 5pm.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "phone",
+   400,
+   "My mobile is +44 7700 900456.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "phone",
+   400,
+   "Text 07700900789 when it ships.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "phone",
+   400,
+   "Reach the manager at +447700900321.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "phone",
+   400,
+   "Phone number 07700 900 654, ask for Sam.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "postcode",
+   400,
+   "I live at 10 Downing Lane, SW1A 2AA.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "postcode",
+   400,
+   "Deliver to flat 3, M1 1AE please.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "postcode",
+   400,
+   "Our office postcode is EC1A 1BB.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "postcode",
+   400,
+   "Send the form to B33 8TH.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ],
+  [
+   "postcode",
+   400,
+   "Postcode CR2 6XH, house number 42.",
+   "{\"error\":{\"message\":\"prompt pattern is blocked.\"}}"
+  ]
+ ],
+ "unstructured": [
+  [
+   "name",
+   200,
+   "Write a reference letter for Priya Raghunathan who worked here three years.",
+   "{\"created\":1795083543,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":54,\"prompt_tokens\":34},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "name",
+   200,
+   "Summarise the complaint from Mr Oluwaseun Adebayo about his delayed parcel.",
+   "{\"created\":1795083544,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":54,\"prompt_tokens\":34},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "name",
+   200,
+   "Draft a reply to Margaret Thornbury about her pension query.",
+   "{\"created\":1795083544,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":50,\"prompt_tokens\":30},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "address",
+   200,
+   "She lives at 14 Acacia Avenue in Little Whinging, Surrey.",
+   "{\"created\":1795083544,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":49,\"prompt_tokens\":29},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "health",
+   200,
+   "The patient, Tom Baker, was diagnosed with type 2 diabetes last March.",
+   "{\"created\":1795083545,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":52,\"prompt_tokens\":32},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "dob",
+   200,
+   "Her date of birth is 3rd of April 1987 and she banks with Barclays.",
+   "{\"created\":1795083545,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":52,\"prompt_tokens\":32},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "obf_card",
+   200,
+   "card is four one one one, one one one one, one one one one, one one one one",
+   "{\"created\":1795083546,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":54,\"prompt_tokens\":34},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "obf_email",
+   200,
+   "email jane dot doe at example dot com",
+   "{\"created\":1795083546,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":44,\"prompt_tokens\":24},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "obf_phone",
+   200,
+   "call oh seven seven oh oh nine oh oh one two three",
+   "{\"created\":1795083547,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":47,\"prompt_tokens\":27},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "obf_ni",
+   200,
+   "NI is Q Q one two three four five six C",
+   "{\"created\":1795083547,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":45,\"prompt_tokens\":25},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "split_card",
+   200,
+   "first half 4111 1111, second half 1111 1111",
+   "{\"created\":1795083548,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":46,\"prompt_tokens\":26},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "foreign",
+   200,
+   "Mi n\u00famero de tarjeta es cuatro uno uno uno y mi correo es juan arroba ejemplo punto es",
+   "{\"created\":1795083548,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":57,\"prompt_tokens\":37},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "bank",
+   200,
+   "Sort code 20-00-00 account 55779911 for the transfer.",
+   "{\"created\":1795083548,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":48,\"prompt_tokens\":28},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "passport",
+   200,
+   "Passport number 925665416 issued in London.",
+   "{\"created\":1795083549,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":46,\"prompt_tokens\":26},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "ip",
+   200,
+   "The breach came from 203.0.113.42 at midnight.",
+   "{\"created\":1795083549,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":46,\"prompt_tokens\":26},\"choices\":[{\"finish_reason"
+  ]
+ ],
+ "benign": [
+  [
+   "-",
+   200,
+   "What is the capital of France?",
+   "{\"created\":1795083550,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":42,\"prompt_tokens\":22},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Summarise the plot of Hamlet in two lines.",
+   "{\"created\":1795083550,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":45,\"prompt_tokens\":25},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Write a haiku about autumn.",
+   "{\"created\":1795083551,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":42,\"prompt_tokens\":22},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Explain how a REST API works.",
+   "{\"created\":1795083551,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":42,\"prompt_tokens\":22},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Give me three tips for better sleep.",
+   "{\"created\":1795083552,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":44,\"prompt_tokens\":24},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Translate 'good morning' into German.",
+   "{\"created\":1795083552,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":44,\"prompt_tokens\":24},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "What year did the Berlin Wall fall?",
+   "{\"created\":1795083552,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":44,\"prompt_tokens\":24},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "How many minutes are in 1440 seconds? ",
+   "{\"created\":1795083553,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":44,\"prompt_tokens\":24},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Suggest a name for a bakery.",
+   "{\"created\":1795083553,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":42,\"prompt_tokens\":22},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "List the planets in order from the sun.",
+   "{\"created\":1795083554,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":45,\"prompt_tokens\":25},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "What does HTTP 429 mean?",
+   "{\"created\":1795083554,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":41,\"prompt_tokens\":21},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Order 66 is a famous film line; explain it.",
+   "{\"created\":1795083555,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":46,\"prompt_tokens\":26},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Room 101 appears in which novel?",
+   "{\"created\":1795083555,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":43,\"prompt_tokens\":23},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Our team has 12 people and 3 managers.",
+   "{\"created\":1795083555,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":44,\"prompt_tokens\":24},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "The meeting is at 10:30 on Tuesday.",
+   "{\"created\":1795083556,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":44,\"prompt_tokens\":24},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Version 3.16 of the gateway was released.",
+   "{\"created\":1795083556,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":45,\"prompt_tokens\":25},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Explain the difference between TCP and UDP.",
+   "{\"created\":1795083557,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":46,\"prompt_tokens\":26},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Recipe for a simple tomato soup please.",
+   "{\"created\":1795083557,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":45,\"prompt_tokens\":25},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "What is 2 to the power of 16?",
+   "{\"created\":1795083558,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":42,\"prompt_tokens\":22},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Describe the water cycle.",
+   "{\"created\":1795083558,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":41,\"prompt_tokens\":21},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Write a SQL query that counts rows in a table.",
+   "{\"created\":1795083558,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":46,\"prompt_tokens\":26},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Who painted the Mona Lisa?",
+   "{\"created\":1795083559,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":41,\"prompt_tokens\":21},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "How do I reset my router?",
+   "{\"created\":1795083559,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":41,\"prompt_tokens\":21},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "What is a vector database?",
+   "{\"created\":1795083560,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":41,\"prompt_tokens\":21},\"choices\":[{\"finish_reason"
+  ],
+  [
+   "-",
+   200,
+   "Give an example of a regular expression for dates.",
+   "{\"created\":1795083560,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":47,\"prompt_tokens\":27},\"choices\":[{\"finish_reason"
+  ]
+ ]
+}
