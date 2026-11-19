@@ -1,0 +1,1180 @@
+{
+  "apps": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "created_at": "2026-11-19T12:20:03.118969Z",
+          "definition": {
+            "capabilities": [
+              {
+                "description": "Process payments",
+                "key": "sandbox_collect_payment",
+                "name": "Payment",
+                "type": "collect_payments"
+              },
+              {
+                "description": "Calculate tax for a payment",
+                "key": "sandbox_calculate_tax",
+                "name": "Calculate Tax",
+                "type": "calculate_tax"
+              },
+              {
+                "description": "Invoice a customer",
+                "key": "sandbox_invoice_customer",
+                "name": "Invoice Customer",
+                "type": "invoice_customers"
+              }
+            ],
+            "description": "Sandbox can be used to test OpenMeter without external connections.",
+            "install_methods": [
+              "no_credentials_required"
+            ],
+            "name": "Sandbox",
+            "type": "sandbox"
+          },
+          "description": "OpenMeter Sandbox App to be used for testing purposes.",
+          "id": "01M7SVZTDE11YWBQGRTHDR6FMT",
+          "labels": {},
+          "name": "Sandbox",
+          "status": "ready",
+          "type": "sandbox",
+          "updated_at": "2026-11-19T12:20:03.11897Z"
+        }
+      ],
+      "meta": {
+        "page": {
+          "number": 1,
+          "size": 20,
+          "total": 1
+        }
+      }
+    }
+  },
+  "profiles": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "apps": {
+            "invoicing": {
+              "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+            },
+            "payment": {
+              "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+            },
+            "tax": {
+              "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+            }
+          },
+          "created_at": "2026-11-19T12:20:03.132808Z",
+          "default": true,
+          "description": "Default profile for OpenMeter sandbox",
+          "id": "01M7SVZTDWXPNDJDHNRCMQ33ZR",
+          "labels": {},
+          "name": "openmeter-sandbox",
+          "supplier": {
+            "addresses": {
+              "billing_address": {
+                "country": "US"
+              }
+            },
+            "id": "",
+            "name": "OpenMeter"
+          },
+          "updated_at": "2026-11-19T12:20:03.132809Z",
+          "workflow": {
+            "collection": {
+              "alignment": {
+                "type": "subscription"
+              },
+              "interval": "PT1H"
+            },
+            "invoicing": {
+              "auto_advance": true,
+              "draft_period": "P0D",
+              "empty_invoice_mode": "create",
+              "progressive_billing": true,
+              "subscription_end_proration_mode": "bill_actual_period"
+            },
+            "payment": {
+              "collection_method": "charge_automatically"
+            },
+            "tax": {
+              "enabled": true,
+              "enforced": false
+            }
+          }
+        }
+      ],
+      "meta": {
+        "page": {
+          "size": 20,
+          "number": 1,
+          "total": 1
+        }
+      }
+    }
+  },
+  "currencies": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "code": "AED",
+          "decimal_mark": ".",
+          "name": "United Arab Emirates Dirham",
+          "precision": 2,
+          "symbol": "\u062f.\u0625",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "AFN",
+          "decimal_mark": ".",
+          "name": "Afghan Afghani",
+          "precision": 2,
+          "symbol": "\u060b",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "ALL",
+          "decimal_mark": ".",
+          "name": "Albanian Lek",
+          "precision": 2,
+          "symbol": "L",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "AMD",
+          "decimal_mark": ".",
+          "name": "Armenian Dram",
+          "precision": 2,
+          "symbol": "\u0564\u0580.",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "ANG",
+          "decimal_mark": ",",
+          "name": "Netherlands Antillean Gulden",
+          "precision": 2,
+          "symbol": "\u0192",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "AOA",
+          "decimal_mark": ".",
+          "name": "Angolan Kwanza",
+          "precision": 2,
+          "symbol": "Kz",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "ARS",
+          "decimal_mark": ",",
+          "name": "Argentine Peso",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "AUD",
+          "decimal_mark": ".",
+          "name": "Australian Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "AWG",
+          "decimal_mark": ".",
+          "name": "Aruban Florin",
+          "precision": 2,
+          "symbol": "\u0192",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "AZN",
+          "decimal_mark": ".",
+          "name": "Azerbaijani Manat",
+          "precision": 2,
+          "symbol": "\u20bc",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BAM",
+          "decimal_mark": ".",
+          "name": "Bosnia and Herzegovina Convertible Mark",
+          "precision": 2,
+          "symbol": "\u041a\u041c",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BBD",
+          "decimal_mark": ".",
+          "name": "Barbadian Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BDT",
+          "decimal_mark": ".",
+          "name": "Bangladeshi Taka",
+          "precision": 2,
+          "symbol": "\u09f3",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BGN",
+          "decimal_mark": ".",
+          "name": "Bulgarian Lev",
+          "precision": 2,
+          "symbol": "\u043b\u0432.",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BHD",
+          "decimal_mark": ".",
+          "name": "Bahraini Dinar",
+          "precision": 3,
+          "symbol": "\u062f.\u0628",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BIF",
+          "decimal_mark": ".",
+          "name": "Burundian Franc",
+          "precision": 0,
+          "symbol": "Fr",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BMD",
+          "decimal_mark": ".",
+          "name": "Bermudian Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BND",
+          "decimal_mark": ".",
+          "name": "Brunei Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BOB",
+          "decimal_mark": ".",
+          "name": "Bolivian Boliviano",
+          "precision": 2,
+          "symbol": "Bs.",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BRL",
+          "decimal_mark": ",",
+          "name": "Brazilian Real",
+          "precision": 2,
+          "symbol": "R$",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "BSD",
+          "decimal_mark": ".",
+          "name": "Bahamian Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BTN",
+          "decimal_mark": ".",
+          "name": "Bhutanese Ngultrum",
+          "precision": 2,
+          "symbol": "Nu.",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BWP",
+          "decimal_mark": ".",
+          "name": "Botswana Pula",
+          "precision": 2,
+          "symbol": "P",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "BYN",
+          "decimal_mark": ",",
+          "name": "Belarusian Ruble",
+          "precision": 2,
+          "symbol": "Br",
+          "thousand_separator": " ",
+          "type": "fiat"
+        },
+        {
+          "code": "BYR",
+          "decimal_mark": ",",
+          "name": "Belarusian Ruble",
+          "precision": 0,
+          "symbol": "Br",
+          "thousand_separator": " ",
+          "type": "fiat"
+        },
+        {
+          "code": "BZD",
+          "decimal_mark": ".",
+          "name": "Belize Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "CAD",
+          "decimal_mark": ".",
+          "name": "Canadian Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "CDF",
+          "decimal_mark": ".",
+          "name": "Congolese Franc",
+          "precision": 2,
+          "symbol": "Fr",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "CHF",
+          "decimal_mark": ".",
+          "name": "Swiss Franc",
+          "precision": 2,
+          "symbol": "CHF",
+          "thousand_separator": "'",
+          "type": "fiat"
+        },
+        {
+          "code": "CLF",
+          "decimal_mark": ",",
+          "name": "Unidad de Fomento",
+          "precision": 4,
+          "symbol": "UF",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "CLP",
+          "decimal_mark": ",",
+          "name": "Chilean Peso",
+          "precision": 0,
+          "symbol": "$",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "CNY",
+          "decimal_mark": ".",
+          "name": "Chinese Renminbi Yuan",
+          "precision": 2,
+          "symbol": "\u00a5",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "COP",
+          "decimal_mark": ",",
+          "name": "Colombian Peso",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "CRC",
+          "decimal_mark": ",",
+          "name": "Costa Rican Col\u00f3n",
+          "precision": 2,
+          "symbol": "\u20a1",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "CUC",
+          "decimal_mark": ".",
+          "name": "Cuban Convertible Peso",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "CUP",
+          "decimal_mark": ".",
+          "name": "Cuban Peso",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "CVE",
+          "decimal_mark": ".",
+          "name": "Cape Verdean Escudo",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "CZK",
+          "decimal_mark": ",",
+          "name": "Czech Koruna",
+          "precision": 2,
+          "symbol": "K\u010d",
+          "thousand_separator": " ",
+          "type": "fiat"
+        },
+        {
+          "code": "DJF",
+          "decimal_mark": ".",
+          "name": "Djiboutian Franc",
+          "precision": 0,
+          "symbol": "Fdj",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "DKK",
+          "decimal_mark": ",",
+          "name": "Danish Krone",
+          "precision": 2,
+          "symbol": "kr.",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "DOP",
+          "decimal_mark": ".",
+          "name": "Dominican Peso",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "DZD",
+          "decimal_mark": ".",
+          "name": "Algerian Dinar",
+          "precision": 2,
+          "symbol": "\u062f.\u062c",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "EGP",
+          "decimal_mark": ".",
+          "name": "Egyptian Pound",
+          "precision": 2,
+          "symbol": "\u062c.\u0645",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "ERN",
+          "decimal_mark": ".",
+          "name": "Eritrean Nakfa",
+          "precision": 2,
+          "symbol": "Nfk",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "ETB",
+          "decimal_mark": ".",
+          "name": "Ethiopian Birr",
+          "precision": 2,
+          "symbol": "Br",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "EUR",
+          "decimal_mark": ",",
+          "name": "Euro",
+          "precision": 2,
+          "symbol": "\u20ac",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "FJD",
+          "decimal_mark": ".",
+          "name": "Fijian Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "FKP",
+          "decimal_mark": ".",
+          "name": "Falkland Pound",
+          "precision": 2,
+          "symbol": "\u00a3",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "GBP",
+          "decimal_mark": ".",
+          "name": "British Pound",
+          "precision": 2,
+          "symbol": "\u00a3",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "GEL",
+          "decimal_mark": ".",
+          "name": "Georgian Lari",
+          "precision": 2,
+          "symbol": "\u20be",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "GHS",
+          "decimal_mark": ".",
+          "name": "Ghanaian Cedi",
+          "precision": 2,
+          "symbol": "\u20b5",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "GIP",
+          "decimal_mark": ".",
+          "name": "Gibraltar Pound",
+          "precision": 2,
+          "symbol": "\u00a3",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "GMD",
+          "decimal_mark": ".",
+          "name": "Gambian Dalasi",
+          "precision": 2,
+          "symbol": "D",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "GNF",
+          "decimal_mark": ".",
+          "name": "Guinean Franc",
+          "precision": 0,
+          "symbol": "Fr",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "GTQ",
+          "decimal_mark": ".",
+          "name": "Guatemalan Quetzal",
+          "precision": 2,
+          "symbol": "Q",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "GYD",
+          "decimal_mark": ".",
+          "name": "Guyanese Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "HKD",
+          "decimal_mark": ".",
+          "name": "Hong Kong Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "HNL",
+          "decimal_mark": ".",
+          "name": "Honduran Lempira",
+          "precision": 2,
+          "symbol": "L",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "HTG",
+          "decimal_mark": ".",
+          "name": "Haitian Gourde",
+          "precision": 2,
+          "symbol": "G",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "HUF",
+          "decimal_mark": ",",
+          "name": "Hungarian Forint",
+          "precision": 0,
+          "symbol": "Ft",
+          "thousand_separator": " ",
+          "type": "fiat"
+        },
+        {
+          "code": "IDR",
+          "decimal_mark": ",",
+          "name": "Indonesian Rupiah",
+          "precision": 2,
+          "symbol": "Rp",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "ILS",
+          "decimal_mark": ".",
+          "name": "Israeli New Sheqel",
+          "precision": 2,
+          "symbol": "\u20aa",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "INR",
+          "decimal_mark": ".",
+          "name": "Indian Rupee",
+          "precision": 2,
+          "symbol": "\u20b9",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "IQD",
+          "decimal_mark": ".",
+          "name": "Iraqi Dinar",
+          "precision": 3,
+          "symbol": "\u0639.\u062f",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "IRR",
+          "decimal_mark": ".",
+          "name": "Iranian Rial",
+          "precision": 2,
+          "symbol": "\ufdfc",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "ISK",
+          "decimal_mark": ",",
+          "name": "Icelandic Kr\u00f3na",
+          "precision": 0,
+          "symbol": "kr.",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "JMD",
+          "decimal_mark": ".",
+          "name": "Jamaican Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "JOD",
+          "decimal_mark": ".",
+          "name": "Jordanian Dinar",
+          "precision": 3,
+          "symbol": "\u062f.\u0627",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "JPY",
+          "decimal_mark": ".",
+          "name": "Japanese Yen",
+          "precision": 0,
+          "symbol": "\u00a5",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KES",
+          "decimal_mark": ".",
+          "name": "Kenyan Shilling",
+          "precision": 2,
+          "symbol": "KSh",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KGS",
+          "decimal_mark": ".",
+          "name": "Kyrgyzstani Som",
+          "precision": 2,
+          "symbol": "som",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KHR",
+          "decimal_mark": ".",
+          "name": "Cambodian Riel",
+          "precision": 2,
+          "symbol": "\u17db",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KMF",
+          "decimal_mark": ".",
+          "name": "Comorian Franc",
+          "precision": 0,
+          "symbol": "Fr",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KPW",
+          "decimal_mark": ".",
+          "name": "North Korean Won",
+          "precision": 2,
+          "symbol": "\u20a9",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KRW",
+          "decimal_mark": ".",
+          "name": "South Korean Won",
+          "precision": 0,
+          "symbol": "\u20a9",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KWD",
+          "decimal_mark": ".",
+          "name": "Kuwaiti Dinar",
+          "precision": 3,
+          "symbol": "\u062f.\u0643",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KYD",
+          "decimal_mark": ".",
+          "name": "Cayman Islands Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "KZT",
+          "decimal_mark": ".",
+          "name": "Kazakhstani Tenge",
+          "precision": 2,
+          "symbol": "\u20b8",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "LAK",
+          "decimal_mark": ".",
+          "name": "Lao Kip",
+          "precision": 2,
+          "symbol": "\u20ad",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "LBP",
+          "decimal_mark": ".",
+          "name": "Lebanese Pound",
+          "precision": 2,
+          "symbol": "\u0644.\u0644",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "LKR",
+          "decimal_mark": ".",
+          "name": "Sri Lankan Rupee",
+          "precision": 2,
+          "symbol": "\u20a8",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "LRD",
+          "decimal_mark": ".",
+          "name": "Liberian Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "LSL",
+          "decimal_mark": ".",
+          "name": "Lesotho Loti",
+          "precision": 2,
+          "symbol": "L",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "LYD",
+          "decimal_mark": ".",
+          "name": "Libyan Dinar",
+          "precision": 3,
+          "symbol": "\u0644.\u062f",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MAD",
+          "decimal_mark": ".",
+          "name": "Moroccan Dirham",
+          "precision": 2,
+          "symbol": "\u062f.\u0645.",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MDL",
+          "decimal_mark": ".",
+          "name": "Moldovan Leu",
+          "precision": 2,
+          "symbol": "L",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MGA",
+          "decimal_mark": ".",
+          "name": "Malagasy Ariary",
+          "precision": 5,
+          "symbol": "Ar",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MKD",
+          "decimal_mark": ".",
+          "name": "Macedonian Denar",
+          "precision": 2,
+          "symbol": "\u0434\u0435\u043d",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MMK",
+          "decimal_mark": ".",
+          "name": "Myanmar Kyat",
+          "precision": 2,
+          "symbol": "K",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MNT",
+          "decimal_mark": ".",
+          "name": "Mongolian T\u00f6gr\u00f6g",
+          "precision": 2,
+          "symbol": "\u20ae",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MOP",
+          "decimal_mark": ".",
+          "name": "Macanese Pataca",
+          "precision": 2,
+          "symbol": "P",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MRU",
+          "decimal_mark": ".",
+          "name": "Mauritanian Ouguiya",
+          "precision": 5,
+          "symbol": "UM",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MUR",
+          "decimal_mark": ".",
+          "name": "Mauritian Rupee",
+          "precision": 2,
+          "symbol": "\u20a8",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MVR",
+          "decimal_mark": ".",
+          "name": "Maldivian Rufiyaa",
+          "precision": 2,
+          "symbol": "MVR",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MWK",
+          "decimal_mark": ".",
+          "name": "Malawian Kwacha",
+          "precision": 2,
+          "symbol": "MK",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MXN",
+          "decimal_mark": ".",
+          "name": "Mexican Peso",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MYR",
+          "decimal_mark": ".",
+          "name": "Malaysian Ringgit",
+          "precision": 2,
+          "symbol": "RM",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "MZN",
+          "decimal_mark": ",",
+          "name": "Mozambican Metical",
+          "precision": 2,
+          "symbol": "MTn",
+          "thousand_separator": ".",
+          "type": "fiat"
+        },
+        {
+          "code": "NAD",
+          "decimal_mark": ".",
+          "name": "Namibian Dollar",
+          "precision": 2,
+          "symbol": "$",
+          "thousand_separator": ",",
+          "type": "fiat"
+        },
+        {
+          "code": "NGN",
+          "decimal_mark": ".",
+          "name": "Nigerian Naira",
+          "precision": 2,
+          "symbol": "\u20a6",
+          "thousand_separator": ",",
+          "type": "fiat"
+        }
+      ],
+      "meta": {
+        "page": {
+          "size": 100,
+          "number": 1,
+          "total": 171
+        }
+      }
+    }
+  },
+  "tax-codes": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "app_mappings": [],
+          "created_at": "2026-11-19T12:20:03.141085Z",
+          "id": "01M7SVZTE5YJ2YVXNA26Z35QDY",
+          "key": "default",
+          "labels": {
+            "openmeter_managed_by": "system"
+          },
+          "name": "Provider default",
+          "updated_at": "2026-11-19T12:20:03.141086Z"
+        },
+        {
+          "app_mappings": [
+            {
+              "app_type": "stripe",
+              "tax_code": "txcd_10000000"
+            }
+          ],
+          "created_at": "2026-11-19T12:20:03.14767Z",
+          "id": "01M7SVZTEBXQ3KC9N90G7CKK5D",
+          "key": "general_electronic_services",
+          "labels": {
+            "openmeter_managed_by": "system"
+          },
+          "name": "General - Electronically Supplied Services",
+          "updated_at": "2026-11-19T12:20:03.147671Z"
+        },
+        {
+          "app_mappings": [
+            {
+              "app_type": "stripe",
+              "tax_code": "txcd_10103000"
+            }
+          ],
+          "created_at": "2026-11-19T12:20:03.151142Z",
+          "id": "01M7SVZTEFRNBVJJ6JXR3BR3M2",
+          "key": "saas_personal",
+          "labels": {
+            "openmeter_managed_by": "system"
+          },
+          "name": "Software as a Service (SaaS) - Personal Use",
+          "updated_at": "2026-11-19T12:20:03.151143Z"
+        },
+        {
+          "app_mappings": [
+            {
+              "app_type": "stripe",
+              "tax_code": "txcd_10103001"
+            }
+          ],
+          "created_at": "2026-11-19T12:20:03.154208Z",
+          "id": "01M7SVZTEJXJ9NV536FMMYSCWT",
+          "key": "saas_business",
+          "labels": {
+            "openmeter_managed_by": "system"
+          },
+          "name": "Software as a Service (SaaS) - Business Use",
+          "updated_at": "2026-11-19T12:20:03.154209Z"
+        },
+        {
+          "app_mappings": [
+            {
+              "app_type": "stripe",
+              "tax_code": "txcd_10101000"
+            }
+          ],
+          "created_at": "2026-11-19T12:20:03.157138Z",
+          "id": "01M7SVZTENREVPZCAGZ7ZV97PB",
+          "key": "cloud_services",
+          "labels": {
+            "openmeter_managed_by": "system"
+          },
+          "name": "Infrastructure as a Service (IaaS) - Business Use",
+          "updated_at": "2026-11-19T12:20:03.157139Z"
+        },
+        {
+          "app_mappings": [
+            {
+              "app_type": "stripe",
+              "tax_code": "txcd_10102000"
+            }
+          ],
+          "created_at": "2026-11-19T12:20:03.160754Z",
+          "id": "01M7SVZTERY7Y6EDMT618BE7Z9",
+          "key": "paas",
+          "labels": {
+            "openmeter_managed_by": "system"
+          },
+          "name": "Platform as a Service (PaaS) - Business Use",
+          "updated_at": "2026-11-19T12:20:03.160755Z"
+        },
+        {
+          "app_mappings": [
+            {
+              "app_type": "stripe",
+              "tax_code": "txcd_00000000"
+            }
+          ],
+          "created_at": "2026-11-19T12:20:03.163502Z",
+          "id": "01M7SVZTEVBV7KG8B6CC4JE50D",
+          "key": "nontaxable",
+          "labels": {
+            "openmeter_managed_by": "system"
+          },
+          "name": "Nontaxable",
+          "updated_at": "2026-11-19T12:20:03.163502Z"
+        }
+      ],
+      "meta": {
+        "page": {
+          "size": 20,
+          "number": 1,
+          "total": 7
+        }
+      }
+    }
+  },
+  "notification/channels": {
+    "status": 200,
+    "body": {
+      "data": [],
+      "meta": {
+        "page": {
+          "size": 20,
+          "number": 1,
+          "total": 0
+        }
+      }
+    }
+  },
+  "billing/invoices": {
+    "status": 200,
+    "body": {
+      "data": [],
+      "meta": {
+        "page": {
+          "size": 20,
+          "number": 1,
+          "total": 0
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 ## Summary
 
-After closing gaps 2 to 8, 22 of the 32 Konnect menu items have been tested hands-on (5 of them only in part, and 2 can't run on serverless). Three were only seen, MCP Registries has no API on this trial, and six haven't been touched: Cost Analytics, Metering Settings, Observability Summary and Reports, Groups and Identity Providers. (It started at 8 hands-on, and was 11 after Metering & Billing.) Gap results: [gaps-evaluation.md](gaps-evaluation.md). The depth is all in the AI Gateway plugins on the serverless gateway (eight `ai-*` plugins, auth, ACL, audit, failover), plus the Dev Portal and Konnect's MCP server. Those plugins don't have their own menu item. Catalog, Identity, the Observability dashboards and most of Access Management haven't been evaluated at all.
+After the last round, 28 of the 32 Konnect menu items have been tested hands-on (5 of them only in part, and AI Models and Providers can't run on serverless). Two were only seen (Users and Catalog Integrations), and two can't be run on this trial: MCP Registries (no API) and Observability Reports (UI only). It started at 8 hands-on, was 11 after Metering & Billing and 22 after the gaps. Results: [gaps-evaluation.md](gaps-evaluation.md) and [remaining-evaluation.md](remaining-evaluation.md). What's left needs the owner (an email invite, third-party authorisation, an external IdP, the portal UI) or a self-hosted data plane.
 
 Sources: this repo ([results.md](results.md), [validation-plan.md](validation-plan.md), [devportal-demo.md](devportal-demo.md)) [ruv-stack-evaluation.md](ruv-stack-evaluation.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) and [mcp-management.md](mcp-management.md) (merged from PRs #1 to #3), plus a read-only API probe of the trial org ([results/coverage-api-probe.json](../results/coverage-api-probe.json), script [scripts/coverage/probe.py](../scripts/coverage/probe.py)). The menu list combines a menu from another Konnect org with the trial's own menu. Labels can differ between orgs.
 
@@ -17,20 +17,20 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 | Catalog | Services | Hands-on | Two catalog services mapped to gateway services, plus an API mapping | [gaps-evaluation.md](gaps-evaluation.md) gap 8 |
 | Catalog | MCP Registries | Can't run | No registry API on the trial (404 on EU and global). The catalog MCP entry was tested under AI > MCP Servers | [gaps-evaluation.md](gaps-evaluation.md) gap 4 |
 | Catalog | Integrations | Seen | 16 listed. 12 need third-party authorisation and weren't connected | [gaps-evaluation.md](gaps-evaluation.md) gap 8 |
-| Catalog | Scorecards | Partial | Scorecard from the Kong best-practices template selects services by label. No scores after a few minutes | [gaps-evaluation.md](gaps-evaluation.md) gap 8 |
+| Catalog | Scorecards | Hands-on | Scorecard from the Kong best-practices template selects services by label. Scores appeared later (33%). The auth check ignores route-level auth plugins | [gaps-evaluation.md](gaps-evaluation.md) gap 8, [remaining-evaluation.md](remaining-evaluation.md) |
 | Catalog | Resources | Hands-on | All 11 gateway services discovered automatically | [gaps-evaluation.md](gaps-evaluation.md) gap 8 |
 | Dev Portal | Portals | Hands-on | Demo portal with a published API, pages and portal MCP server. The portal MCP endpoint was probed read-only from a local machine | [devportal-demo.md](devportal-demo.md), [ruv-stack-evaluation.md](ruv-stack-evaluation.md) section 5 |
 | Dev Portal | Application Auth | Partial | On a separate eval portal: strategy, auto-added `konnect-application-auth` (401 without a key), developer, app and approved registration via API. Key issue needs the portal itself, so it wasn't run | [gaps-evaluation.md](gaps-evaluation.md) gap 6 |
 | Metering & Billing | Metering | Hands-on | `metering-and-billing` plugin feeds token and request events. Totals matched the request log exactly. Ignores `subject.field`, bills rejected requests by default | [metering-evaluation.md](metering-evaluation.md) |
 | Metering & Billing | Product Catalog | Hands-on | Feature, plan with unit price and a 1,000-token metered entitlement. Over-limit flagged in seconds, but the gateway still served the customer | [metering-evaluation.md](metering-evaluation.md) |
-| Metering & Billing | Billing | Partial | Built-in Sandbox app means no Stripe is needed. A usage charge was created, but the first invoice only comes at period end, so none was produced | [metering-evaluation.md](metering-evaluation.md) |
-| Metering & Billing | Cost Analytics | Not evaluated | | |
-| Metering & Billing | Settings | Not evaluated | | |
-| Observability | Summary | Not evaluated | | |
+| Metering & Billing | Billing | Hands-on | Built-in Sandbox app means no Stripe is needed. Cancelling a subscription produced a draft invoice, which was approved and paid ($0.02). Cadence can't be shorter than a week | [metering-evaluation.md](metering-evaluation.md), [remaining-evaluation.md](remaining-evaluation.md) |
+| Metering & Billing | Cost Analytics | Hands-on | Cost by model, forecast and field values. No per-consumer split on serverless (subject is null) | [remaining-evaluation.md](remaining-evaluation.md) |
+| Metering & Billing | Settings | Hands-on | Sandbox app, default billing profile (auto-advance, one-hour collection), currencies and tax codes. No notification channels | [remaining-evaluation.md](remaining-evaluation.md) |
+| Observability | Summary | Partial | No API. The same figures (requests, p95 by status class) came from Konnect's MCP server | [remaining-evaluation.md](remaining-evaluation.md) |
 | Observability | Dashboards | Hands-on | Five-tile dashboard (AI cost, tokens, MCP tools, latency, errors) created through `/v2/dashboards` | [gaps-evaluation.md](gaps-evaluation.md) gap 5 |
 | Observability | Explorer | Hands-on | LLM, MCP and API usage queries run through Konnect's MCP server. No public REST endpoint | [gaps-evaluation.md](gaps-evaluation.md) gap 5 |
 | Observability | Logs | Hands-on | Used as evidence: no prompt text stored by default (D4), retention 30 days (A4), MCP calls logged per tool | [results.md](results.md), [ruv-stack-evaluation.md](ruv-stack-evaluation.md) |
-| Observability | Reports | Not evaluated | No API found | |
+| Observability | Reports | Can't run | No API in REST or Konnect's MCP server. UI only | [remaining-evaluation.md](remaining-evaluation.md) |
 | Observability | Requests | Hands-on | Each AI request logged with consumer, model, tokens, cost and latency (A2), queried through `/v2/api-requests` | [results.md](results.md) |
 | Observability | Debugger | Hands-on | 45 s session on the serverless gateway captured per-plugin spans | [gaps-evaluation.md](gaps-evaluation.md) gap 5 |
 | Identity | Identity (Kong Identity) | Hands-on | Auth server and per-agent clients; the gateway does client credentials. Client deletion took 232 s to bite | [gaps-evaluation.md](gaps-evaluation.md) gap 3 |
@@ -41,11 +41,11 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 | AI | Gateways | Partial | AI gateway created and then deleted, never got nodes. All hands-on tests ran on the serverless API gateway | [virtual-model-evaluation.md](virtual-model-evaluation.md) |
 | Access Management | Users | Seen | 1 user (owner) | |
 | Access Management | Agents | Hands-on | Kong Identity principals of type agent, with gateway-checked API keys | [gaps-evaluation.md](gaps-evaluation.md) gap 2 |
-| Access Management | Groups | Not evaluated | Only the default teams exist | |
-| Access Management | Identity Providers | Not evaluated | No SSO set up | |
+| Access Management | Groups | Hands-on | Team with Viewer on one control plane: reads 200, writes 403. Removal took about 25 s to take full effect | [remaining-evaluation.md](remaining-evaluation.md) |
+| Access Management | Identity Providers | Partial | Org settings read only. Kong Identity can't be an SSO provider (no authorization-code grant), so SSO needs an external IdP | [remaining-evaluation.md](remaining-evaluation.md) |
 | Access Management | Token Vault | Partial | Secret stored write-only; one credential per provider. Only AI Gateway 2.x can use it. The Konnect config-store vault fixes S3c on serverless today | [gaps-evaluation.md](gaps-evaluation.md) gap 2 |
 | Access Management | Virtual Keys | Hands-on | Principal API keys checked by `key-auth`. Revocation took 288 s to bite | [gaps-evaluation.md](gaps-evaluation.md) gap 2 |
-| Cost Management | Cost Management | Seen | Gateway AI calls appear as `ai.usage.v1` events with no plugin. Budgets not tested. Related: token and cost limits (C1 to C3) and per-model cost caps were tested at the gateway | [results.md](results.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) |
+| Cost Management | Cost Management | Hands-on | Gateway AI calls appear as `ai.usage.v1` events with no plugin. Budgets work but only as advisory (enforce is rejected); the gateway kept serving over budget | [remaining-evaluation.md](remaining-evaluation.md), [results.md](results.md) |
 
 ### Tested but not a menu item
 

@@ -1,0 +1,1251 @@
+{
+  "create advisory": {
+    "status": 201,
+    "body": {
+      "id": "39eb9949-5888-4af2-b157-685474087c1a",
+      "name": "remaining-eval advisory",
+      "labels": {
+        "eval": "remaining-eval"
+      },
+      "scope": {
+        "filters": [
+          {
+            "field": "model",
+            "op": "eq",
+            "value": "mock"
+          }
+        ],
+        "each": null
+      },
+      "priority": 100,
+      "effect": "limit",
+      "limit": {
+        "value": "0.000001",
+        "currency": "USD"
+      },
+      "window": {
+        "type": "fixed",
+        "interval": "P1D",
+        "anchored_at": "2026-11-19T00:00:00+00:00[Europe/London]"
+      },
+      "posture": "advisory",
+      "validity": null,
+      "managed_by": {},
+      "created_by": "aed2e9a9-f20d-4d2b-ae7a-1e9458d0a110",
+      "created_at": "2026-11-19T14:09:18.061Z",
+      "updated_at": "2026-11-19T14:09:18.061Z"
+    }
+  },
+  "create enforce": {
+    "status": 400,
+    "body": {
+      "invalid_parameters": [
+        {
+          "field": "posture",
+          "reason": "must be `advisory`",
+          "source": "body"
+        }
+      ],
+      "detail": "The request is invalid",
+      "status": 400,
+      "title": "Invalid request",
+      "type": "https://kongapi.info/konnect/invalid-request",
+      "instance": "kong:trace:9db3ec7885360e9177aee320594eb50d"
+    }
+  },
+  "traffic_1": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "balance advisory": {
+    "status": 200,
+    "body": {
+      "budget": {
+        "id": "39eb9949-5888-4af2-b157-685474087c1a"
+      },
+      "window": {
+        "starts_at": "2026-11-19T00:00:00.000Z",
+        "ends_at": "2026-11-20T00:00:00.000Z"
+      },
+      "limit": {
+        "value": "0.000001",
+        "currency": "USD"
+      },
+      "consumed": {
+        "value": "50.9146558",
+        "currency": "USD"
+      },
+      "remaining": {
+        "value": "-50.9146548",
+        "currency": "USD"
+      },
+      "projected": {
+        "value": "86.24",
+        "currency": "USD"
+      },
+      "evaluated_at": "2026-11-19T14:10:07.023Z",
+      "latest_record_at": "2026-11-19T14:09:27.871Z",
+      "derived": [],
+      "derived_truncated": false
+    }
+  },
+  "traffic_2_after_limit": [
+    200,
+    200,
+    200,
+    200
+  ],
+  "balances": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "budget": {
+            "id": "39eb9949-5888-4af2-b157-685474087c1a"
+          },
+          "value": null,
+          "window": {
+            "starts_at": "2026-11-19T00:00:00.000Z",
+            "ends_at": "2026-11-20T00:00:00.000Z"
+          },
+          "consumed": {
+            "value": "50.9146558",
+            "currency": "USD"
+          },
+          "remaining": {
+            "value": "-50.9146548",
+            "currency": "USD"
+          },
+          "projected": {
+            "value": "86.24",
+            "currency": "USD"
+          },
+          "consumed_share": "50914655.8",
+          "latest_record_at": "2026-11-19T14:09:27.871Z"
+        }
+      ],
+      "meta": {
+        "evaluated_at": "2026-11-19T14:10:09.390Z",
+        "page": {
+          "size": 20,
+          "next": null,
+          "previous": null,
+          "total": 1
+        }
+      }
+    }
+  },
+  "query": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": null
+          },
+          "measures": {
+            "events": "620",
+            "unpriced_events": "8",
+            "reported_cost": {
+              "value": "39.326",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "15128",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "12360",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "27488",
+            "total_input_tokens": "15128"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock-b",
+            "subject": null
+          },
+          "measures": {
+            "events": "121",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "6.776",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "1936",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "2420",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "4356",
+            "total_input_tokens": "1936"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/c0768ca0-10fe-4cb1-961b-f5ad35c0a935"
+          },
+          "measures": {
+            "events": "61",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "5.732",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "3292",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "1220",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "4512",
+            "total_input_tokens": "3292"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/6953b072-2175-43ae-a0b5-fb6f0ead441f"
+          },
+          "measures": {
+            "events": "10",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "2.18",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "180",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "1000",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "1180",
+            "total_input_tokens": "180"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/2e6b607c-e482-49b6-ac67-c40de979cb49"
+          },
+          "measures": {
+            "events": "13",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "1.656",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "216",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "720",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "936",
+            "total_input_tokens": "216"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/67a86535-9db7-44d4-9d52-f7dd5fef85eb"
+          },
+          "measures": {
+            "events": "5",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "1.09",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "90",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "500",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "590",
+            "total_input_tokens": "90"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/d8223625-d6d9-4412-8e48-5826b2477c7f"
+          },
+          "measures": {
+            "events": "5",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.654",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "54",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "300",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "354",
+            "total_input_tokens": "54"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/8cab0169-a6a8-4207-bb4b-1b4695afc582"
+          },
+          "measures": {
+            "events": "3",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.276",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "156",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "60",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "216",
+            "total_input_tokens": "156"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "gemini-2.5-flash",
+            "subject": null
+          },
+          "measures": {
+            "events": "9",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.0089857",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "94",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "3583",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "3677",
+            "total_input_tokens": "94"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/a7b8458c-2477-458c-8809-28c77010e1c8"
+          },
+          "measures": {
+            "events": "33",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.0006198",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "1492",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "660",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "2152",
+            "total_input_tokens": "1492"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "claude-mock",
+            "subject": "consumer/8e517c81-da7c-4a0c-920a-734e08b75962"
+          },
+          "measures": {
+            "events": "1",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.000486",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "62",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "20",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "82",
+            "total_input_tokens": "62"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "claude-sonnet-4-5",
+            "subject": "consumer/8e517c81-da7c-4a0c-920a-734e08b75962"
+          },
+          "measures": {
+            "events": "1",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.000378",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "26",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "20",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "46",
+            "total_input_tokens": "26"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "gemini-2.5-flash",
+            "subject": "consumer/c0768ca0-10fe-4cb1-961b-f5ad35c0a935"
+          },
+          "measures": {
+            "events": "4",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.0003609",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "178",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "123",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "301",
+            "total_input_tokens": "178"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "cognitum-low",
+            "subject": "consumer/f92202de-0c56-4a4e-aacb-b4e0c05262da"
+          },
+          "measures": {
+            "events": "1",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.000207",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "19",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "41",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "60",
+            "total_input_tokens": "19"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/cdbbe92f-5735-44b6-addb-ad35d59d685c"
+          },
+          "measures": {
+            "events": "5",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.0000909",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "206",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "100",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "306",
+            "total_input_tokens": "206"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "cognitum-auto",
+            "subject": "consumer/f92202de-0c56-4a4e-aacb-b4e0c05262da"
+          },
+          "measures": {
+            "events": "1",
+            "unpriced_events": "0",
+            "reported_cost": {
+              "value": "0.0000662",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "19",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "9",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "28",
+            "total_input_tokens": "19"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "gemini-2.5-flash",
+            "subject": "consumer/62d25417-0dab-4e7f-95ac-86ba36e3f432"
+          },
+          "measures": {
+            "events": "1",
+            "unpriced_events": "1",
+            "reported_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "11",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "220",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "231",
+            "total_input_tokens": "11"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/723a6b93-bca0-4531-bfd7-4f8b96851421"
+          },
+          "measures": {
+            "events": "18",
+            "unpriced_events": "18",
+            "reported_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "318",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "360",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "678",
+            "total_input_tokens": "318"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "consumer/92b4e5f4-8787-4ee7-858f-94d7438e951a"
+          },
+          "measures": {
+            "events": "7",
+            "unpriced_events": "7",
+            "reported_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "161",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "140",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "301",
+            "total_input_tokens": "161"
+          },
+          "series": []
+        },
+        {
+          "dimensions": {
+            "model": "mock",
+            "subject": "principal/01a1f407-9ded-778a-bc52-f1b3afde4d59"
+          },
+          "measures": {
+            "events": "22",
+            "unpriced_events": "22",
+            "reported_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "reported_cache_cost": {
+              "value": "0",
+              "currency": "USD"
+            },
+            "input_tokens": "422",
+            "input_text_tokens": "0",
+            "input_audio_tokens": "0",
+            "input_image_tokens": "0",
+            "input_cache_read_tokens": "0",
+            "input_cache_read_text_tokens": "0",
+            "input_cache_read_audio_tokens": "0",
+            "input_cache_read_image_tokens": "0",
+            "input_cache_read_video_tokens": "0",
+            "input_cache_write_tokens": "0",
+            "input_cache_write_text_tokens": "0",
+            "input_cache_write_audio_tokens": "0",
+            "input_cache_write_image_tokens": "0",
+            "input_cache_write_video_tokens": "0",
+            "output_tokens": "440",
+            "output_text_tokens": "0",
+            "output_audio_tokens": "0",
+            "output_reasoning_tokens": "0",
+            "accepted_prediction_tokens": "0",
+            "rejected_prediction_tokens": "0",
+            "realtime_audio_ms": "0",
+            "reported_total_tokens": "862",
+            "total_input_tokens": "422"
+          },
+          "series": []
+        }
+      ],
+      "meta": {
+        "page": {
+          "size": 20,
+          "next": "WyIwIiwwLCJtb2NrIiwwLCJwcmluY2lwYWwvMDFhMWY0MDctOWRlZC03NzhhLWJjNTItZjFiM2FmZGU0ZDU5Il0",
+          "previous": null
+        }
+      }
+    }
+  },
+  "forecast": {
+    "status": 200,
+    "body": {
+      "period": {
+        "starts_at": "2026-11-01T00:00:00.000Z",
+        "ends_at": "2026-12-01T00:00:00.000Z",
+        "time_zone": "UTC"
+      },
+      "observed_at": "2026-11-19T00:00:00.000Z",
+      "generated_at": "2026-11-19T14:10:10.785Z",
+      "method": "exponential_smoothing",
+      "status": "insufficient_history",
+      "training": {
+        "starts_at": null,
+        "ends_at": "2026-11-19T00:00:00.000Z",
+        "days": 0
+      },
+      "actual": [
+        {
+          "date": "2026-11-01",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-02",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-03",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-04",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-05",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-06",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-07",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-08",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-09",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-10",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-11",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-12",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-13",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-14",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-15",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-16",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-17",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        },
+        {
+          "date": "2026-11-18",
+          "spend": {
+            "value": "0",
+            "currency": "USD"
+          },
+          "cumulative_spend": {
+            "value": "0",
+            "currency": "USD"
+          }
+        }
+      ],
+      "predicted": []
+    }
+  },
+  "field-values model": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "value": "claude-mock"
+        },
+        {
+          "value": "claude-sonnet-4-5"
+        },
+        {
+          "value": "cognitum-auto"
+        },
+        {
+          "value": "cognitum-low"
+        },
+        {
+          "value": "gemini-2.5-flash"
+        },
+        {
+          "value": "mock"
+        },
+        {
+          "value": "mock-b"
+        }
+      ],
+      "meta": {
+        "page": {
+          "size": 20,
+          "next": null,
+          "previous": null
+        }
+      }
+    }
+  }
+}
