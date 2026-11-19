@@ -1,0 +1,316 @@
+[
+ {
+  "request_start": "2026-11-19T11:08:09.950Z",
+  "response_http_status": "401",
+  "mcp_info": {},
+  "consumer": "ruv-agent-b"
+ },
+ {
+  "request_start": "2026-11-19T11:08:10.566Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "initialize",
+     "latency": 2,
+     "response_body_size": 235
+    }
+   ],
+   "mcp_session_id": "1642f60a-affe-431b-bdd1-2c090e9b7f9d"
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:11.001Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/list",
+     "latency": 5,
+     "response_body_size": 577
+    }
+   ]
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:11.413Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/list",
+     "latency": 1,
+     "response_body_size": 268
+    }
+   ]
+  },
+  "consumer": "ruv-agent-b"
+ },
+ {
+  "request_start": "2026-11-19T11:08:16.829Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/list",
+     "latency": 2,
+     "response_body_size": 577
+    }
+   ]
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:17.220Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/call",
+     "latency": 9,
+     "response_body_size": 520,
+     "tool_name": "list_orders"
+    }
+   ]
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:17.608Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/call",
+     "latency": 1,
+     "response_body_size": 272,
+     "tool_name": "delete_order"
+    }
+   ]
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:18.063Z",
+  "response_http_status": "403",
+  "mcp_info": {},
+  "consumer": "ruv-agent-b"
+ },
+ {
+  "request_start": "2026-11-19T11:08:22.741Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/call",
+     "latency": 3,
+     "response_body_size": 433,
+     "tool_name": "delete_order"
+    }
+   ]
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:23.158Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/call",
+     "error": "Invalid params",
+     "latency": 2,
+     "response_body_size": 128,
+     "tool_name": "drop_database"
+    }
+   ]
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:23.545Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/call",
+     "latency": 4,
+     "response_body_size": 440,
+     "tool_name": "delete_order"
+    }
+   ]
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:32.963Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "0",
+     "method": "initialize",
+     "latency": 4,
+     "response_body_size": 235
+    }
+   ],
+   "mcp_session_id": "f28db8f5-ed9a-4d78-96f1-5b9f8ef870b3"
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:33.350Z",
+  "response_http_status": "202",
+  "mcp_info": {
+   "rpc": [
+    {
+     "method": "notifications/initialized",
+     "latency": 2
+    }
+   ],
+   "mcp_session_id": "f28db8f5-ed9a-4d78-96f1-5b9f8ef870b3"
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:33.469Z",
+  "response_http_status": "405",
+  "mcp_info": {},
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:33.699Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "1",
+     "method": "tools/list",
+     "latency": 4,
+     "response_body_size": 577
+    }
+   ],
+   "mcp_session_id": "f28db8f5-ed9a-4d78-96f1-5b9f8ef870b3"
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:33.820Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "2",
+     "method": "tools/call",
+     "latency": 2,
+     "response_body_size": 632,
+     "tool_name": "list_orders"
+    }
+   ],
+   "mcp_session_id": "f28db8f5-ed9a-4d78-96f1-5b9f8ef870b3"
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:33.937Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "3",
+     "method": "tools/call",
+     "latency": 6,
+     "response_body_size": 545,
+     "tool_name": "delete_order"
+    }
+   ],
+   "mcp_session_id": "f28db8f5-ed9a-4d78-96f1-5b9f8ef870b3"
+  },
+  "consumer": "ruv-agent-a"
+ },
+ {
+  "request_start": "2026-11-19T11:08:34.060Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "0",
+     "method": "initialize",
+     "latency": 2,
+     "response_body_size": 235
+    }
+   ],
+   "mcp_session_id": "0388c9e7-846f-4795-9662-e5d54e4df4c3"
+  },
+  "consumer": "ruv-agent-b"
+ },
+ {
+  "request_start": "2026-11-19T11:08:34.175Z",
+  "response_http_status": "202",
+  "mcp_info": {
+   "rpc": [
+    {
+     "method": "notifications/initialized",
+     "latency": 1
+    }
+   ],
+   "mcp_session_id": "0388c9e7-846f-4795-9662-e5d54e4df4c3"
+  },
+  "consumer": "ruv-agent-b"
+ },
+ {
+  "request_start": "2026-11-19T11:08:34.290Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "method": "tools/list",
+     "id": "1",
+     "response_body_size": 268
+    }
+   ],
+   "mcp_session_id": "0388c9e7-846f-4795-9662-e5d54e4df4c3"
+  },
+  "consumer": "ruv-agent-b"
+ },
+ {
+  "request_start": "2026-11-19T11:08:34.292Z",
+  "response_http_status": "405",
+  "mcp_info": {},
+  "consumer": "ruv-agent-b"
+ },
+ {
+  "request_start": "2026-11-19T11:08:34.404Z",
+  "response_http_status": "200",
+  "mcp_info": {
+   "rpc": [
+    {
+     "id": "2",
+     "method": "tools/call",
+     "latency": 3,
+     "response_body_size": 632,
+     "tool_name": "list_orders"
+    }
+   ],
+   "mcp_session_id": "0388c9e7-846f-4795-9662-e5d54e4df4c3"
+  },
+  "consumer": "ruv-agent-b"
+ },
+ {
+  "request_start": "2026-11-19T11:08:34.522Z",
+  "response_http_status": "403",
+  "mcp_info": {},
+  "consumer": "ruv-agent-b"
+ }
+]

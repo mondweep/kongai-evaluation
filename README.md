@@ -4,6 +4,7 @@ Kong markets its AI Gateway (Konnect) as addressing five risks: data exposure, u
 
 - [docs/validation-plan.md](docs/validation-plan.md): the tests, with their pass/fail criteria
 - [docs/results.md](docs/results.md): results so far
+- [docs/ruv-stack-evaluation.md](docs/ruv-stack-evaluation.md): Kong in front of rUv's agent stack (ruflo, agentic-flow, Cognitum One), with hands-on results; probes in [ruv-stack/](ruv-stack/)
 - [docs/mcp-management.md](docs/mcp-management.md): managing Konnect conversationally through Kong's MCP server (demo and findings)
 - Living plan doc: https://claude.ai/artifact/FQJeKYkXHUhksYZXqTdK1s
 
