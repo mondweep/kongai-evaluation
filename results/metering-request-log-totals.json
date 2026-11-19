@@ -1,0 +1,36 @@
+{
+  "log_rows": 40,
+  "ai_fields": [
+    "ai",
+    "ai_count",
+    "ai_gateway",
+    "ai_gateway_consumer",
+    "ai_gateway_consumer_group",
+    "ai_gateway_data_plane_node",
+    "ai_gateway_version",
+    "consumer",
+    "consumer_group"
+  ],
+  "by_consumer_status": {
+    "cdbbe92f-5735-44b6-addb-ad35d59d685c 403": {
+      "requests": 5,
+      "prompt": 0,
+      "completion": 0
+    },
+    "a7b8458c-2477-458c-8809-28c77010e1c8 403": {
+      "requests": 6,
+      "prompt": 0,
+      "completion": 0
+    },
+    "a7b8458c-2477-458c-8809-28c77010e1c8 200": {
+      "requests": 24,
+      "prompt": 1114,
+      "completion": 480
+    },
+    "cdbbe92f-5735-44b6-addb-ad35d59d685c 200": {
+      "requests": 5,
+      "prompt": 206,
+      "completion": 100
+    }
+  }
+}
