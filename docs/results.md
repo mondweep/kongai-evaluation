@@ -16,9 +16,14 @@ All 23 `ai-*` plugins are listed for the serverless control plane and pass Konne
 | D1 Regex PII blocking (AI Prompt Guard) | Structured PII (cards, NI numbers, emails, UK mobiles, postcodes): **24/25 blocked**. The one miss was the `QQ` NI prefix, which our own regex excluded. Unstructured PII (names, addresses, health details, date of birth, obfuscated or split numbers, Spanish, sort code and account number, passport, IP address): **0/15 blocked**. False positives: **0/25** benign prompts. |
 | D1b Roles | By default (`match_all_roles: false`), PII in a **system** or **assistant** message is **not checked** and passes through. Earlier user turns and content arrays are checked. |
 | D1c Large bodies | Prompts over 8 KB were still checked and blocked. |
+| D2 AI Sanitizer redaction quality (PII service `kong/ai-pii-service:v0.3.1-en` run on a laptop, reached through a Cloudflare tunnel; `anonymize: all_and_credentials`, placeholder mode) | **Structured PII fully removed in 14/25 prompts.** Cards 5/5, emails 4/5 (one left `...rson@fakecorp.example`), UK mobiles 4/5 (missed `+44 7700 900456`), postcodes 1/5, **NI numbers 0/5** (in one it redacted the words "My National Insurance" and left the number). **Unstructured PII: 7/15 fully removed** (names, passport, IP, most of a date of birth), 5/15 partly (street address, sort code, a Spanish name, half of a split card number), **3/15 not at all** (card, phone and NI number spelled out in words). |
+| D2b False positives | **9/25 benign prompts were altered before reaching the LLM**, e.g. "What is the capital of PLACEHOLDER1?", "Who painted PLACEHOLDER1?", "Explain the difference between TCP and PLACEHOLDER1", "Write a PLACEHOLDER1 query". The LLM then answers a different question. |
+| D2c Roles | Only the **user** message is sanitized. A **system** and an **assistant** message containing a name, email and card number reached the LLM unchanged, even with `allow_all_conversation_history: true`. |
+| D2d Modes | `synthetic` swaps in realistic fake values ("Timothy Jennings", "ginasmith@example.net"). `recover_redacted: true` puts the original values back into the response, so the client sees real data while the LLM saw placeholders. `block_if_detected: true` returns HTTP 400 with the PII types found, but it also blocked "What is the capital of France?". |
+| D2e Latency | Round trip about 0.8 to 1.0 s per request in this setup, versus about 0.3 s without the sanitizer. Most of the extra is the tunnel to the laptop, so this is not a fair production figure. |
 | D4 Logs | Konnect's request logs hold tokens, cost, model and consumer, but **no prompt text** while `log_payloads` is off. Client IP and country are stored. |
 
-**Verdict:** partly demonstrated. Prompt Guard is a regex filter. It does what you configure and nothing more. Real PII redaction (AI Sanitizer) needs a self-hosted PII service, so it can't be demonstrated on serverless.
+**Verdict:** partly demonstrated. Prompt Guard is a regex filter. It does what you configure and nothing more. AI Sanitizer needs a self-hosted PII service. Once that runs, it catches names, cards and emails well, but it misses UK NI numbers and most postcodes, ignores system and assistant messages, and alters about a third of harmless prompts. Treat it as one layer, not a guarantee, and tune it with `custom_patterns` for UK identifiers.
 
 ## 2. Uncontrolled costs
 
@@ -109,4 +114,4 @@ After the test, the Gemini key was removed from Konnect.
 
 ## Still to do
 
-AI Sanitizer redaction quality (needs the PII service hosted somewhere Kong can reach).
+Nothing from the plan. Cleanup of the test setup is listed in the README.

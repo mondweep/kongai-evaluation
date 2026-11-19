@@ -30,7 +30,7 @@ Secrets never go in this repo. `KCONNECT_TOKEN` and `GEMINI_API_KEY` come from t
 
 ## Headline findings so far
 
-1. **AI Sanitizer can't run on serverless.** It needs a self-hosted PII service. It fails closed by default, but with `stop_on_error: false` it passes PII through silently.
+1. **AI Sanitizer needs a self-hosted PII service and is uneven.** Serverless can't host it (fails closed by default; with `stop_on_error: false` PII passes silently). With the service running, it fully removed PII from 14/25 structured and 7/15 unstructured prompts, missed every UK NI number, skipped system and assistant messages, and altered 9/25 harmless prompts ("capital of PLACEHOLDER1").
 2. **Prompt Guard is regex only.** It blocked 24/25 structured PII items and 14/15 direct injections, but 0/15 unstructured PII items and 0/15 paraphrased injections. System and assistant messages aren't checked by default.
 3. **Token and cost limits are soft.** Sequential overshoot is one request. A burst of 10 concurrent requests reached 3.9x the limit.
 4. **Failover doesn't work with the default settings** for LLM POSTs. You need `non_idempotent` plus the HTTP codes. DNS failures never fail over.
