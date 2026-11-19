@@ -32,7 +32,10 @@ Secrets never go in this repo. `KCONNECT_TOKEN` and `GEMINI_API_KEY` come from t
 2. **Prompt Guard is regex only.** It blocked 24/25 structured PII items and 14/15 direct injections, but 0/15 unstructured PII items and 0/15 paraphrased injections. System and assistant messages aren't checked by default.
 3. **Token and cost limits are soft.** Sequential overshoot is one request. A burst of 10 concurrent requests reached 3.9x the limit.
 4. **Failover doesn't work with the default settings** for LLM POSTs. You need `non_idempotent` plus the HTTP codes. DNS failures never fail over.
-5. **Per-request AI audit data is good** (consumer, model, tokens, cost), and prompts are not stored by default. Admin audit logs are available only by webhook.
+5. **The client's gateway API key is forwarded to the LLM provider by default** (fix: `hide_credentials: true`). Client IPs and headers go too.
+6. **Token and cost accounting is accurate.** Gemini prompt tokens matched 8/8, cost matched the formula, and hidden reasoning tokens are counted.
+7. **Gateway overhead is about 1 ms.** Auth and ACL behaved correctly (401/403).
+8. **Per-request AI audit data is good** (consumer, model, tokens, cost), and prompts are not stored by default. Admin audit logs are available only by webhook.
 
 ## Cleanup
 

@@ -51,6 +51,8 @@ All 23 `ai-*` plugins are listed for the serverless control plane and pass Konne
 | Target A hangs (2 s connect timeout) | 100% success, adding about 2.4 s per failed-over request |
 | Target A has an unresolvable hostname | **50% failed** with "name resolution failed", whatever the settings, including passive health checks |
 
+| O3 Gateway overhead (100 requests) | Kong's own processing time: **1 ms at p50 and p95**. Pass. |
+
 **Verdict:** failover works, but **not with the default settings**. POST requests to LLMs need `non_idempotent` plus the HTTP codes you care about. DNS failures never fail over.
 
 ## 5. Security
@@ -58,10 +60,25 @@ All 23 `ai-*` plugins are listed for the serverless control plane and pass Konne
 | Test | Result |
 |---|---|
 | S4 Prompt injection (AI Prompt Guard, 7 regexes) | Direct attacks: **14/15 blocked**. Paraphrased, obfuscated, foreign-language, base64 and indirect (in a document) attacks: **0/15 blocked**. False positives: 0/25. |
-| S1–S3 | Pending |
+| S1 Authentication | No key, wrong key and revoked key: **401** every time. Valid key: 200. |
+| S2 Authorisation (ACL) | Consumer outside the allowed group: **403**. |
+| S3 Provider key secrecy | A canary provider key never appeared in responses, headers or error bodies (malformed request, auth failures). |
+| S3b What reaches the LLM provider | **By default the client's gateway API key is forwarded to the LLM provider**, along with the client IP (`x-real-ip`, `x-forwarded-for`), consumer username and every custom client header. Setting `hide_credentials: true` on key-auth stops the key. The IP headers still go. |
+| S3c Provider key storage | The Gemini key sits in plain text in the plugin config, readable through the Konnect API by any admin. Production should use a vault reference. |
 
 AI Semantic Prompt Guard, Semantic Response Guard and Semantic Cache all need Redis or pgvector plus an embeddings model. Serverless can't provide these, so they aren't tested yet.
 
+## Real model (Gemini 2.5 Flash, free tier, via Kong)
+
+| Test | Result |
+|---|---|
+| Smoke test | Pass. Kong translated OpenAI-format requests to Gemini and back. |
+| C4 Token accuracy | Prompt tokens matched Google's own `countTokens` in **8/8** cases. Completion tokens include Gemini's hidden "thinking" tokens, which are billed as output, so Kong counts what you pay for. |
+| C4b Cost accuracy | The cost in Konnect's logs matched `(prompt×0.30 + completion×2.50)/1M` within rounding (under 0.01%) for all 6 logged calls. |
+| Observation | Hidden reasoning tokens dominated the cost. "Give a two-word synonym for happy" used **1,707 thinking tokens**. Token limits that count only visible output would badly under-count, but Kong doesn't. |
+
+After the test, the Gemini key was removed from Konnect.
+
 ## Still to do
 
-S1–S3 (authentication, ACL, key secrecy), O3 latency overhead, real-model checks with Gemini (C4 token accuracy, smoke tests), A1 with a webhook receiver, and semantic plugins if a vector DB is approved.
+A1 with a webhook receiver, and semantic plugins if a vector DB is approved.

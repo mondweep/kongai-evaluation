@@ -247,6 +247,30 @@
    "tags": [
     "validation"
    ]
+  },
+  {
+   "https_redirect_status_code": 426,
+   "id": "fa01b335-bcb1-4f82-a0ca-4a51e00aed13",
+   "name": "val-gemini",
+   "path_handling": "v0",
+   "paths": [
+    "/gemini"
+   ],
+   "preserve_host": false,
+   "protocols": [
+    "http",
+    "https"
+   ],
+   "regex_priority": 0,
+   "request_buffering": true,
+   "response_buffering": true,
+   "service": {
+    "id": "12e1cc87-f95e-4d4b-ad71-684525f11f52"
+   },
+   "strip_path": true,
+   "tags": [
+    "validation"
+   ]
   }
  ],
  "plugins": [
@@ -335,7 +359,7 @@
        "gcp_service_account_json": null,
        "gcp_use_service_account": false,
        "header_name": "Authorization",
-       "header_value": "Bearer dummy",
+       "header_value": "<redacted>",
        "param_location": null,
        "param_name": null,
        "param_value": null
@@ -396,7 +420,7 @@
        "gcp_service_account_json": null,
        "gcp_use_service_account": false,
        "header_name": "Authorization",
-       "header_value": "Bearer dummy",
+       "header_value": "<redacted>",
        "param_location": null,
        "param_name": null,
        "param_value": null
@@ -479,7 +503,7 @@
      "gcp_service_account_json": null,
      "gcp_use_service_account": false,
      "header_name": "Authorization",
-     "header_value": "Bearer dummy",
+     "header_value": "<redacted>",
      "param_location": null,
      "param_name": null,
      "param_value": null
@@ -623,6 +647,34 @@
   },
   {
    "config": {
+    "allow": [
+     "gold"
+    ],
+    "allow_when": null,
+    "always_use_authenticated_groups": false,
+    "deny": null,
+    "deny_when": null,
+    "hide_groups_header": false,
+    "include_consumer_groups": false
+   },
+   "enabled": true,
+   "id": "58c0c750-b348-4ed3-b1ba-16e2bb003a27",
+   "name": "acl",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https"
+   ],
+   "route": {
+    "id": "f6224246-54bf-46f5-a737-5e1f744ab637"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
     "custom_cost_count_function": null,
     "decrease_by_fractions_in_redis": false,
     "dictionary_name": "kong_rate_limiting_counters",
@@ -735,6 +787,49 @@
   },
   {
    "config": {
+    "anonymous": null,
+    "hide_credentials": true,
+    "identity_realms": [
+     {
+      "id": null,
+      "region": null,
+      "scope": "cp"
+     }
+    ],
+    "key_in_body": false,
+    "key_in_header": true,
+    "key_in_query": true,
+    "key_names": [
+     "apikey"
+    ],
+    "principals": {
+     "directory": "default",
+     "enabled": false,
+     "error_on_miss": true
+    },
+    "realm": null,
+    "run_on_preflight": true
+   },
+   "enabled": true,
+   "id": "9bff3f0f-c50b-4dbf-8633-3cd915709036",
+   "name": "key-auth",
+   "protocols": [
+    "grpc",
+    "grpcs",
+    "http",
+    "https",
+    "ws",
+    "wss"
+   ],
+   "route": {
+    "id": "f6224246-54bf-46f5-a737-5e1f744ab637"
+   },
+   "tags": [
+    "validation"
+   ]
+  },
+  {
+   "config": {
     "custom_cost_count_function": null,
     "decrease_by_fractions_in_redis": false,
     "dictionary_name": "kong_rate_limiting_counters",
@@ -825,7 +920,7 @@
      "gcp_service_account_json": null,
      "gcp_use_service_account": false,
      "header_name": "Authorization",
-     "header_value": "Bearer dummy",
+     "header_value": "<redacted>",
      "param_location": null,
      "param_name": null,
      "param_value": null
@@ -907,7 +1002,7 @@
      "gcp_service_account_json": null,
      "gcp_use_service_account": false,
      "header_name": "Authorization",
-     "header_value": "Bearer dummy",
+     "header_value": "<redacted>",
      "param_location": null,
      "param_name": null,
      "param_value": null
@@ -1023,7 +1118,7 @@
      "gcp_service_account_json": null,
      "gcp_use_service_account": false,
      "header_name": "Authorization",
-     "header_value": "Bearer dummy",
+     "header_value": "<redacted>",
      "param_location": null,
      "param_name": null,
      "param_value": null
@@ -1105,7 +1200,7 @@
      "gcp_service_account_json": null,
      "gcp_use_service_account": false,
      "header_name": "Authorization",
-     "header_value": "Bearer dummy",
+     "header_value": "<redacted>",
      "param_location": null,
      "param_name": null,
      "param_value": null
@@ -1187,7 +1282,7 @@
      "gcp_service_account_json": null,
      "gcp_use_service_account": false,
      "header_name": "Authorization",
-     "header_value": "Bearer dummy",
+     "header_value": "<redacted>",
      "param_location": null,
      "param_name": null,
      "param_value": null
@@ -1257,7 +1352,7 @@
   {
    "config": {
     "access": [
-     "local path = kong.request.get_path()\nlocal raw = kong.request.get_raw_body() or \"\"\nif string.find(path, \"fail500\", 1, true) then return kong.response.exit(500, {error={message=\"mock upstream failure\"}}) end\nif string.find(path, \"fail429\", 1, true) then return kong.response.exit(429, {error={message=\"mock rate limited\"}}, {[\"Retry-After\"]=\"1\"}) end\nlocal ct = tonumber(kong.request.get_header(\"x-mock-completion-tokens\") or \"\") or 20\nlocal pt = math.ceil(#raw / 4)\nlocal tag = \"mock\"\nif string.find(path, \"/b/\", 1, true) then tag = \"mock-b\" end\nreturn kong.response.exit(200, {\n  id = \"chatcmpl-mock\", object = \"chat.completion\", created = ngx.time(), model = tag,\n  choices = {{ index = 0, finish_reason = \"stop\", message = { role = \"assistant\", content = \"RECEIVED:\" .. raw }}},\n  usage = { prompt_tokens = pt, completion_tokens = ct, total_tokens = pt + ct }\n}, {[\"X-Mock-Upstream\"]=tag})\n"
+     "local path = kong.request.get_path()\nlocal raw = kong.request.get_raw_body() or \"\"\nif string.find(path, \"fail500\", 1, true) then return kong.response.exit(500, {error={message=\"mock upstream failure\"}}) end\nif string.find(path, \"fail429\", 1, true) then return kong.response.exit(429, {error={message=\"mock rate limited\"}}, {[\"Retry-After\"]=\"1\"}) end\nlocal ct = tonumber(kong.request.get_header(\"x-mock-completion-tokens\") or \"\") or 20\nlocal pt = math.ceil(#raw / 4)\nlocal hdrs = \"\"\nfor k, v in pairs(kong.request.get_headers()) do hdrs = hdrs .. k .. \"=\" .. tostring(v) .. \";\" end\nlocal tag = \"mock\"\nif string.find(path, \"/b/\", 1, true) then tag = \"mock-b\" end\nreturn kong.response.exit(200, {\n  id = \"chatcmpl-mock\", object = \"chat.completion\", created = ngx.time(), model = tag,\n  choices = {{ index = 0, finish_reason = \"stop\", message = { role = \"assistant\", content = \"RECEIVED:\" .. raw .. \" HEADERS:\" .. hdrs }}},\n  usage = { prompt_tokens = pt, completion_tokens = ct, total_tokens = pt + ct }\n}, {[\"X-Mock-Upstream\"]=tag})\n"
     ],
     "body_filter": [],
     "certificate": [],
@@ -1301,7 +1396,7 @@
      "gcp_service_account_json": null,
      "gcp_use_service_account": false,
      "header_name": "Authorization",
-     "header_value": "Bearer dummy",
+     "header_value": "<redacted>",
      "param_location": null,
      "param_name": null,
      "param_value": null
