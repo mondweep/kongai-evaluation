@@ -1,0 +1,463 @@
+{
+ "structured": [
+  {
+   "cat": "card",
+   "status": 200,
+   "sent": "Please refund card 4111 1111 1111 1111 for the order.",
+   "llm_saw": "Please refund card PLACEHOLDER1 for the order.",
+   "changed": true
+  },
+  {
+   "cat": "card",
+   "status": 200,
+   "sent": "My Visa is 4012888888881881, can you check it?",
+   "llm_saw": "My PLACEHOLDER2 is PLACEHOLDER1, can you check it?",
+   "changed": true
+  },
+  {
+   "cat": "card",
+   "status": 200,
+   "sent": "Charge 5555-5555-5555-4444 for the renewal.",
+   "llm_saw": "Charge PLACEHOLDER1 for the renewal.",
+   "changed": true
+  },
+  {
+   "cat": "card",
+   "status": 200,
+   "sent": "Amex 378282246310005 was declined, why?",
+   "llm_saw": "PLACEHOLDER2 PLACEHOLDER1 was declined, why?",
+   "changed": true
+  },
+  {
+   "cat": "card",
+   "status": 200,
+   "sent": "Card number 6011 1111 1111 1117 expiry 12/29.",
+   "llm_saw": "Card number PLACEHOLDER2 expiry PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "ni",
+   "status": 200,
+   "sent": "My National Insurance number is QQ 12 34 56 C.",
+   "llm_saw": "PLACEHOLDER1 number is QQ 12 34 56 C.",
+   "changed": true
+  },
+  {
+   "cat": "ni",
+   "status": 200,
+   "sent": "NI: AB123456D, please update my record.",
+   "llm_saw": "NI: AB123456D, please update my record.",
+   "changed": false
+  },
+  {
+   "cat": "ni",
+   "status": 200,
+   "sent": "Employee NINO JG 10 37 59 A needs a P60.",
+   "llm_saw": "Employee PLACEHOLDER2 10 PLACEHOLDER1 A needs a P60.",
+   "changed": true
+  },
+  {
+   "cat": "ni",
+   "status": 200,
+   "sent": "Can you validate ZX 99 88 77 B for payroll?",
+   "llm_saw": "Can you validate ZX 99 88 77 B for payroll?",
+   "changed": false
+  },
+  {
+   "cat": "ni",
+   "status": 200,
+   "sent": "Tax ref uses NI number CE123456A.",
+   "llm_saw": "Tax ref uses PLACEHOLDER1 number CE123456A.",
+   "changed": true
+  },
+  {
+   "cat": "email",
+   "status": 200,
+   "sent": "Email me at jane.doe@example.com with the report.",
+   "llm_saw": "PLACEHOLDER2 me at PLACEHOLDER1 with the report.",
+   "changed": true
+  },
+  {
+   "cat": "email",
+   "status": 200,
+   "sent": "Contact a.n.other+test@example.org about the claim.",
+   "llm_saw": "Contact PLACEHOLDER1 about the claim.",
+   "changed": true
+  },
+  {
+   "cat": "email",
+   "status": 200,
+   "sent": "Send it to SALES@EXAMPLE.CO.UK please.",
+   "llm_saw": "Send it to PLACEHOLDER1 please.",
+   "changed": true
+  },
+  {
+   "cat": "email",
+   "status": 200,
+   "sent": "My work address is t.person@fakecorp.example.",
+   "llm_saw": "My work address is PLACEHOLDER1rson@fakecorp.example.",
+   "changed": true
+  },
+  {
+   "cat": "email",
+   "status": 200,
+   "sent": "Forward to billing_team@demo-company.example.net.",
+   "llm_saw": "Forward to PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "phone",
+   "status": 200,
+   "sent": "Call me on 07700 900123 after 5pm.",
+   "llm_saw": "Call me on PLACEHOLDER2 after PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "phone",
+   "status": 200,
+   "sent": "My mobile is +44 7700 900456.",
+   "llm_saw": "My mobile is +44 7700 900456.",
+   "changed": false
+  },
+  {
+   "cat": "phone",
+   "status": 200,
+   "sent": "Text 07700900789 when it ships.",
+   "llm_saw": "Text PLACEHOLDER1 when it ships.",
+   "changed": true
+  },
+  {
+   "cat": "phone",
+   "status": 200,
+   "sent": "Reach the manager at +447700900321.",
+   "llm_saw": "Reach the manager at +PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "phone",
+   "status": 200,
+   "sent": "Phone number 07700 900 654, ask for Sam.",
+   "llm_saw": "Phone number PLACEHOLDER2, ask for PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "postcode",
+   "status": 200,
+   "sent": "I live at 10 Downing Lane, SW1A 2AA.",
+   "llm_saw": "I live at 10 Downing Lane, PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "postcode",
+   "status": 200,
+   "sent": "Deliver to flat 3, M1 1AE please.",
+   "llm_saw": "Deliver to flat 3, M1 1AE please.",
+   "changed": false
+  },
+  {
+   "cat": "postcode",
+   "status": 200,
+   "sent": "Our office postcode is EC1A 1BB.",
+   "llm_saw": "Our office postcode is EC1A 1BB.",
+   "changed": false
+  },
+  {
+   "cat": "postcode",
+   "status": 200,
+   "sent": "Send the form to B33 8TH.",
+   "llm_saw": "Send the form to B33 8TH.",
+   "changed": false
+  },
+  {
+   "cat": "postcode",
+   "status": 200,
+   "sent": "Postcode CR2 6XH, house number 42.",
+   "llm_saw": "Postcode CR2 6XH, house number 42.",
+   "changed": false
+  }
+ ],
+ "unstructured": [
+  {
+   "cat": "name",
+   "status": 200,
+   "sent": "Write a reference letter for Priya Raghunathan who worked here three years.",
+   "llm_saw": "Write a reference letter for PLACEHOLDER2 who worked here PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "name",
+   "status": 200,
+   "sent": "Summarise the complaint from Mr Oluwaseun Adebayo about his delayed parcel.",
+   "llm_saw": "Summarise the complaint from Mr PLACEHOLDER1 about his delayed parcel.",
+   "changed": true
+  },
+  {
+   "cat": "name",
+   "status": 200,
+   "sent": "Draft a reply to Margaret Thornbury about her pension query.",
+   "llm_saw": "Draft a reply to PLACEHOLDER1 about her pension query.",
+   "changed": true
+  },
+  {
+   "cat": "address",
+   "status": 200,
+   "sent": "She lives at 14 Acacia Avenue in Little Whinging, Surrey.",
+   "llm_saw": "She lives at 14 Acacia Avenue in PLACEHOLDER1, Surrey.",
+   "changed": true
+  },
+  {
+   "cat": "health",
+   "status": 200,
+   "sent": "The patient, Tom Baker, was diagnosed with type 2 diabetes last March.",
+   "llm_saw": "The patient, PLACEHOLDER2, was diagnosed with type 2 diabetes PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "dob",
+   "status": 200,
+   "sent": "Her date of birth is 3rd of April 1987 and she banks with Barclays.",
+   "llm_saw": "Her date of birth is 3rd of PLACEHOLDER2 and she banks with PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "obf_card",
+   "status": 200,
+   "sent": "card is four one one one, one one one one, one one one one, one one one one",
+   "llm_saw": "card is four one one one, one one one one, one one one one, one one one one",
+   "changed": false
+  },
+  {
+   "cat": "obf_email",
+   "status": 200,
+   "sent": "email jane dot doe at example dot com",
+   "llm_saw": "email PLACEHOLDER1 at example dot com",
+   "changed": true
+  },
+  {
+   "cat": "obf_phone",
+   "status": 200,
+   "sent": "call oh seven seven oh oh nine oh oh one two three",
+   "llm_saw": "call oh seven seven oh oh nine oh oh one two three",
+   "changed": false
+  },
+  {
+   "cat": "obf_ni",
+   "status": 200,
+   "sent": "NI is Q Q one two three four five six C",
+   "llm_saw": "NI is Q Q one two three four five six C",
+   "changed": false
+  },
+  {
+   "cat": "split_card",
+   "status": 200,
+   "sent": "first half 4111 1111, second half 1111 1111",
+   "llm_saw": "first half PLACEHOLDER2 1111, second half PLACEHOLDER1 1111",
+   "changed": true
+  },
+  {
+   "cat": "foreign",
+   "status": 200,
+   "sent": "Mi n\u00famero de tarjeta es cuatro uno uno uno y mi correo es juan arroba ejemplo punto es",
+   "llm_saw": "PLACEHOLDER2 y mi correo es juan arroba PLACEHOLDER1",
+   "changed": true
+  },
+  {
+   "cat": "bank",
+   "status": 200,
+   "sent": "Sort code 20-00-00 account 55779911 for the transfer.",
+   "llm_saw": "Sort code 20-00-00 account PLACEHOLDER1 for the transfer.",
+   "changed": true
+  },
+  {
+   "cat": "passport",
+   "status": 200,
+   "sent": "Passport number 925665416 issued in London.",
+   "llm_saw": "Passport number PLACEHOLDER2 issued in PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "ip",
+   "status": 200,
+   "sent": "The breach came from 203.0.113.42 at midnight.",
+   "llm_saw": "The breach came from PLACEHOLDER1.",
+   "changed": true
+  }
+ ],
+ "benign": [
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "What is the capital of France?",
+   "llm_saw": "What is the capital of PLACEHOLDER1?",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Summarise the plot of Hamlet in two lines.",
+   "llm_saw": "Summarise the plot of Hamlet in two lines.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Write a haiku about autumn.",
+   "llm_saw": "Write a haiku about autumn.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Explain how a REST API works.",
+   "llm_saw": "Explain how a REST PLACEHOLDER1 works.",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Give me three tips for better sleep.",
+   "llm_saw": "Give me three tips for better sleep.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Translate 'good morning' into German.",
+   "llm_saw": "Translate 'good PLACEHOLDER2' into PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "What year did the Berlin Wall fall?",
+   "llm_saw": "PLACEHOLDER1 did the Berlin Wall fall?",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "How many minutes are in 1440 seconds? ",
+   "llm_saw": "How many minutes are in PLACEHOLDER1? ",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Suggest a name for a bakery.",
+   "llm_saw": "Suggest a name for a bakery.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "List the planets in order from the sun.",
+   "llm_saw": "List the planets in order from the sun.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "What does HTTP 429 mean?",
+   "llm_saw": "What does HTTP 429 mean?",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Order 66 is a famous film line; explain it.",
+   "llm_saw": "Order 66 is a famous film line; explain it.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Room 101 appears in which novel?",
+   "llm_saw": "Room 101 appears in which novel?",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Our team has 12 people and 3 managers.",
+   "llm_saw": "Our team has 12 people and 3 managers.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "The meeting is at 10:30 on Tuesday.",
+   "llm_saw": "The meeting is at PLACEHOLDER2 on PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Version 3.16 of the gateway was released.",
+   "llm_saw": "Version 3.16 of the gateway was released.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Explain the difference between TCP and UDP.",
+   "llm_saw": "Explain the difference between TCP and PLACEHOLDER1.",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Recipe for a simple tomato soup please.",
+   "llm_saw": "Recipe for a simple tomato soup please.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "What is 2 to the power of 16?",
+   "llm_saw": "What is 2 to the power of 16?",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Describe the water cycle.",
+   "llm_saw": "Describe the water cycle.",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Write a SQL query that counts rows in a table.",
+   "llm_saw": "Write a PLACEHOLDER1 query that counts rows in a table.",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Who painted the Mona Lisa?",
+   "llm_saw": "Who painted PLACEHOLDER1?",
+   "changed": true
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "How do I reset my router?",
+   "llm_saw": "How do I reset my router?",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "What is a vector database?",
+   "llm_saw": "What is a vector database?",
+   "changed": false
+  },
+  {
+   "cat": "-",
+   "status": 200,
+   "sent": "Give an example of a regular expression for dates.",
+   "llm_saw": "Give an example of a regular expression for dates.",
+   "changed": false
+  }
+ ]
+}

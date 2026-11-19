@@ -6,7 +6,7 @@
 
 We have tested 8 of the 32 Konnect menu items hands-on, several only in part. Two more were only seen, and 22 haven't been touched. The depth is all in the AI Gateway plugins on the serverless gateway (eight `ai-*` plugins, auth, ACL, audit, failover), plus the Dev Portal and Konnect's MCP server. Those plugins don't have their own menu item. Metering & Billing, Catalog, Identity, the Observability dashboards and most of Access Management haven't been evaluated at all.
 
-Sources: this repo ([results.md](results.md), [validation-plan.md](validation-plan.md), [devportal-demo.md](devportal-demo.md)) and open PRs [#1](https://github.com/mondweep/kongai-evaluation/pull/1) (rUv stack), [#2](https://github.com/mondweep/kongai-evaluation/pull/2) (virtual models) and [#3](https://github.com/mondweep/kongai-evaluation/pull/3) (MCP management), plus a read-only API probe of the trial org ([results/coverage-api-probe.json](../results/coverage-api-probe.json), script [scripts/coverage/probe.py](../scripts/coverage/probe.py)). The menu list combines a menu from another Konnect org with the trial's own menu. Labels can differ between orgs.
+Sources: this repo ([results.md](results.md), [validation-plan.md](validation-plan.md), [devportal-demo.md](devportal-demo.md)) [ruv-stack-evaluation.md](ruv-stack-evaluation.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) and [mcp-management.md](mcp-management.md) (merged from PRs #1 to #3), plus a read-only API probe of the trial org ([results/coverage-api-probe.json](../results/coverage-api-probe.json), script [scripts/coverage/probe.py](../scripts/coverage/probe.py)). The menu list combines a menu from another Konnect org with the trial's own menu. Labels can differ between orgs.
 
 ## Coverage matrix
 
@@ -19,7 +19,7 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 | Catalog | Integrations | Not evaluated | 16 listed. Only the built-ins (gateway, API products, analytics, mesh) are on | |
 | Catalog | Scorecards | Not evaluated | 0 scorecards | |
 | Catalog | Resources | Seen | Gateway services appear here automatically | |
-| Dev Portal | Portals | Hands-on | Demo portal with a published API, pages, portal MCP server switched on. The portal MCP endpoint was never called (the cloud sandbox can't reach it) | [devportal-demo.md](devportal-demo.md) |
+| Dev Portal | Portals | Hands-on | Demo portal with a published API, pages and portal MCP server. The portal MCP endpoint was probed read-only from a local machine | [devportal-demo.md](devportal-demo.md), [ruv-stack-evaluation.md](ruv-stack-evaluation.md) section 5 |
 | Dev Portal | Application Auth | Partial | A key-auth strategy exists, but the API was published with no auth. App registration, DCR and OIDC weren't tried | [devportal-demo.md](devportal-demo.md) |
 | Metering & Billing | Metering | Not evaluated | API reachable on the trial, 0 meters. Related: Kong's per-request token and cost figures matched Gemini and the price formula (C4, C4b) | [results.md](results.md) |
 | Metering & Billing | Product Catalog | Not evaluated | 0 features, 0 plans | |
@@ -29,35 +29,35 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 | Observability | Summary | Not evaluated | | |
 | Observability | Dashboards | Not evaluated | 0 custom dashboards | |
 | Observability | Explorer | Not evaluated | | |
-| Observability | Logs | Hands-on | Used as evidence: no prompt text stored by default (D4), retention 30 days (A4), MCP calls logged per tool | [results.md](results.md), [PR #1](https://github.com/mondweep/kongai-evaluation/pull/1) |
+| Observability | Logs | Hands-on | Used as evidence: no prompt text stored by default (D4), retention 30 days (A4), MCP calls logged per tool | [results.md](results.md), [ruv-stack-evaluation.md](ruv-stack-evaluation.md) |
 | Observability | Reports | Not evaluated | | |
 | Observability | Requests | Hands-on | Each AI request logged with consumer, model, tokens, cost and latency (A2), queried through `/v2/api-requests` | [results.md](results.md) |
 | Observability | Debugger | Not evaluated | | |
 | Identity | Identity (Kong Identity) | Not evaluated | 0 auth servers | |
-| AI | Models | Hands-on, can't run | AI Model `my-model` created, but no proxy URL appeared because it needs a self-hosted data plane. The same idea works on serverless through AI Proxy Advanced `model_alias` | [PR #2](https://github.com/mondweep/kongai-evaluation/pull/2) |
-| AI | Providers | Hands-on, can't run | Created with the models above. Same limit | [PR #2](https://github.com/mondweep/kongai-evaluation/pull/2) |
-| AI | MCP Servers | Partial | The Konnect MCP Servers entity is untested. The gateway-side AI MCP Proxy plugin was tested: per-tool ACL gave 403, calls logged per tool, the handshake uses up rate-limit quota | [PR #1](https://github.com/mondweep/kongai-evaluation/pull/1) |
+| AI | Models | Hands-on, can't run | AI Model `my-model` created, but no proxy URL appeared because it needs a self-hosted data plane. The same idea works on serverless through AI Proxy Advanced `model_alias` | [virtual-model-evaluation.md](virtual-model-evaluation.md) |
+| AI | Providers | Hands-on, can't run | Created with the models above. Same limit | [virtual-model-evaluation.md](virtual-model-evaluation.md) |
+| AI | MCP Servers | Partial | The Konnect MCP Servers entity is untested. The gateway-side AI MCP Proxy plugin was tested: per-tool ACL gave 403, calls logged per tool, the handshake uses up rate-limit quota | [ruv-stack-evaluation.md](ruv-stack-evaluation.md) |
 | AI | Agents | Not evaluated | 0 agents | |
-| AI | Gateways | Partial | AI gateway created and then deleted, never got nodes. All hands-on tests ran on the serverless API gateway | [PR #2](https://github.com/mondweep/kongai-evaluation/pull/2) |
+| AI | Gateways | Partial | AI gateway created and then deleted, never got nodes. All hands-on tests ran on the serverless API gateway | [virtual-model-evaluation.md](virtual-model-evaluation.md) |
 | Access Management | Users | Seen | 1 user (owner) | |
 | Access Management | Agents | Not evaluated | | |
 | Access Management | Groups | Not evaluated | Only the default teams exist | |
 | Access Management | Identity Providers | Not evaluated | No SSO set up | |
 | Access Management | Token Vault | Not evaluated | Relevant: the provider key was readable in plain text in plugin config (S3c) | [results.md](results.md) |
 | Access Management | Virtual Keys | Not evaluated | | |
-| Cost Management | Cost Management | Not evaluated | Related: token and cost limits (C1 to C3) and per-model cost caps were tested at the gateway | [results.md](results.md), [PR #2](https://github.com/mondweep/kongai-evaluation/pull/2) |
+| Cost Management | Cost Management | Not evaluated | Related: token and cost limits (C1 to C3) and per-model cost caps were tested at the gateway | [results.md](results.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) |
 
 ### Tested but not a menu item
 
 | Capability | Status | Evidence | Link |
 | --- | --- | --- | --- |
-| AI Gateway plugins on serverless | Hands-on | ai-proxy, ai-proxy-advanced (failover, model alias), ai-prompt-guard, ai-semantic-prompt-guard, ai-semantic-cache, ai-rate-limiting-advanced, ai-mcp-proxy. ai-sanitizer can't run (needs a PII service) | [results.md](results.md) |
+| AI Gateway plugins on serverless | Hands-on | ai-proxy, ai-proxy-advanced (failover, model alias), ai-prompt-guard, ai-semantic-prompt-guard, ai-semantic-cache, ai-rate-limiting-advanced, ai-mcp-proxy. ai-sanitizer with the PII service run locally (D2: misses NI numbers and most postcodes, alters 9/25 benign prompts) | [results.md](results.md) |
 | Other `ai-*` plugins | Not evaluated | 23 are available. Not yet tried: prompt decorator, template and compressor, request and response transformers, RAG injector, AWS and Azure guardrails | |
 | Gateway auth, ACL, overhead | Hands-on | 401 and 403 correct, about 1 ms overhead, client key forwarded unless `hide_credentials` is on | [results.md](results.md) |
 | Admin audit log webhook | Hands-on | Signed events arrive in about 1 s, but they don't say what changed. A 401 produced no event. Events were dropped while the webhook was disabled | [results.md](results.md) |
-| System accounts | Hands-on | System account scoped to one control plane, which gave portals a 403 | [PR #3](https://github.com/mondweep/kongai-evaluation/pull/3) |
-| Konnect MCP server | Hands-on | Created a service, route and plugin from Claude Desktop. Use the EU endpoint, because the global one 403s | [PR #3](https://github.com/mondweep/kongai-evaluation/pull/3) |
-| Claude Code and rUv agents through Kong | Hands-on | Anthropic format, SSE and tool calls work. One model per route | [PR #1](https://github.com/mondweep/kongai-evaluation/pull/1) |
+| System accounts | Hands-on | System account scoped to one control plane, which gave portals a 403 | [mcp-management.md](mcp-management.md) |
+| Konnect MCP server | Hands-on | Created a service, route and plugin from Claude Desktop. Use the EU endpoint, because the global one 403s | [mcp-management.md](mcp-management.md) |
+| Claude Code and rUv agents through Kong | Hands-on | Anthropic format, SSE and tool calls work. One model per route | [ruv-stack-evaluation.md](ruv-stack-evaluation.md) |
 | Event Gateway, Mesh, Dedicated Cloud Gateways | Not evaluated | Event Gateway and Mesh are empty. The Dedicated Cloud Gateway API returns 404 on the trial | |
 
 ## What the trial and serverless gateway can't exercise
@@ -65,7 +65,7 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 These limits are confirmed by tests or API calls unless marked "docs" or "unverified".
 
 - **AI Models, Providers and AI Gateways (2.x):** you can create the config, but no proxy URL or nodes appear. A hybrid or self-managed data plane is needed (PR #2).
-- **AI Sanitizer:** needs a self-hosted PII service that serverless can't host. It fails closed by default, but with `stop_on_error: false` it passes PII through.
+- **AI Sanitizer:** needs a self-hosted PII service that serverless can't host. It was tested (D2) with the service run on a laptop behind a tunnel. Without it, it fails closed by default, but with `stop_on_error: false` it passes PII through.
 - **Dedicated Cloud Gateways:** the API returns 404 on this trial, so anything that needs one (private networking, region pinning) is out of reach.
 - **Rate limits:** the `local` policy counts per node, so the real limit is N times higher. AI limits are soft under concurrency. Serverless is capped at 100 RPS (docs).
 - **Data residency:** serverless says "same region not guaranteed" (docs), so A3 can't be shown on this tier.
@@ -88,7 +88,7 @@ The order follows the five risk claims and what a client is likely to ask about 
 | 7 | Remaining AI plugins | RAG injector, prompt decorator and template, AWS or Azure guardrails against the existing corpus (mock LLM, no real data) | Plugins on the existing `validation` routes, or a new tag | Half a day |
 | 8 | Catalog: Services, Scorecards, Integrations | Map the existing services into catalog services, add a scorecard, and connect GitHub (this repo). Low priority: it doesn't bear on the AI risk claims | Catalog services, a scorecard, a GitHub integration | 2 hours |
 
-Also still open from earlier work: AI Sanitizer redaction quality (needs the PII service hosted locally plus a tunnel) and the Dev Portal MCP probe (run locally).
+Done since the first draft: AI Sanitizer redaction quality (D2 in results.md) and a read-only Dev Portal MCP probe. Still open: portal MCP with developer login and writes.
 
 Out of reach on this trial: AI Gateway 2.x traffic and Dedicated Cloud Gateways. Both need a self-managed data plane or a paid tier.
 
@@ -116,7 +116,7 @@ Testing all 32 menu items plus the 23 `ai-*` plugins would take about 9 to 10 wo
 | --- | --- | --- |
 | 0 | Turn existing scripts into the harness, and write cards for everything already tested | 1 |
 | 1 | Trial-only gaps (plan items 1 to 8 above) | 5 |
-| 2 | Self-hosted data plane: AI Gateway 2.x, AI Sanitizer, re-run the key gateway tests on hybrid | 2 |
+| 2 | Self-hosted data plane: AI Gateway 2.x, re-run the key gateway tests on hybrid | 2 |
 | 3 | Paid-tier items, if Kong gives access | 1 |
 | 4 | Scorecard per feature and per risk claim, plus a client-ready summary | 1 |
 

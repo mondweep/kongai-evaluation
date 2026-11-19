@@ -16,7 +16,7 @@ Konnect trial, EU region. Every entity is tagged `devportal-demo` and named with
 
 - To publish with no auth strategy, send `auth_strategy_ids: null`. An empty list is rejected.
 - A key-auth application auth strategy exists in the org, but the demo API isn't linked to it. App registration, DCR and OIDC were not tested.
-- The portal MCP endpoint (`/api/v3/mcp` on the portal host) was never called, because the cloud sandbox can't reach `*.kongportals.com`. It has to be probed from a local machine.
+- The portal MCP endpoint (`/api/v3/mcp` on the portal host) can't be reached from the cloud sandbox. It was probed read-only from a local machine: see section 5 of [ruv-stack-evaluation.md](ruv-stack-evaluation.md).
 
 ## Cleanup
 

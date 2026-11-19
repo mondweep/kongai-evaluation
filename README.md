@@ -2,8 +2,11 @@
 
 Kong markets its AI Gateway (Konnect) as addressing five risks: data exposure, uncontrolled costs, compliance and audit, operational risk, and security. This repository holds a hands-on test of those claims. Marketing pages are treated as claims to test, not as evidence.
 
+- [docs/report.md](docs/report.md): **the report**: verdicts, key findings and recommended production settings
 - [docs/validation-plan.md](docs/validation-plan.md): the tests, with their pass/fail criteria
 - [docs/results.md](docs/results.md): results so far
+- [docs/ruv-stack-evaluation.md](docs/ruv-stack-evaluation.md): Kong in front of rUv's agent stack (ruflo, agentic-flow, Cognitum One), with hands-on results; probes in [ruv-stack/](ruv-stack/)
+- [docs/mcp-management.md](docs/mcp-management.md): managing Konnect conversationally through Kong's MCP server (demo and findings)
 - [docs/feature-coverage.md](docs/feature-coverage.md): which Konnect features have been evaluated, what the trial can't test, and the plan for the rest
 - [docs/devportal-demo.md](docs/devportal-demo.md): Dev Portal demo setup and findings
 - Living plan doc: https://claude.ai/artifact/FQJeKYkXHUhksYZXqTdK1s
@@ -30,7 +33,7 @@ Secrets never go in this repo. `KCONNECT_TOKEN` and `GEMINI_API_KEY` come from t
 
 ## Headline findings so far
 
-1. **AI Sanitizer can't run on serverless.** It needs a self-hosted PII service. It fails closed by default, but with `stop_on_error: false` it passes PII through silently.
+1. **AI Sanitizer needs a self-hosted PII service and is uneven.** Serverless can't host it (fails closed by default; with `stop_on_error: false` PII passes silently). With the service running, it fully removed PII from 14/25 structured and 7/15 unstructured prompts, missed every UK NI number, skipped system and assistant messages, and altered 9/25 harmless prompts ("capital of PLACEHOLDER1").
 2. **Prompt Guard is regex only.** It blocked 24/25 structured PII items and 14/15 direct injections, but 0/15 unstructured PII items and 0/15 paraphrased injections. System and assistant messages aren't checked by default.
 3. **Token and cost limits are soft.** Sequential overshoot is one request. A burst of 10 concurrent requests reached 3.9x the limit.
 4. **Failover doesn't work with the default settings** for LLM POSTs. You need `non_idempotent` plus the HTTP codes. DNS failures never fail over.
