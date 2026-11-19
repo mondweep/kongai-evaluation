@@ -35,7 +35,7 @@ All 23 `ai-*` plugins are listed for the serverless control plane and pass Konne
 
 | Test | Result |
 |---|---|
-| A1 Admin audit trail | **Not yet tested.** Konnect has no pull API or in-product viewer for audit logs. They are delivered only by webhook (CEF format) to a receiver such as a SIEM, which needs an endpoint. The webhook is currently unconfigured. |
+| A1 Admin audit trail (webhook to a Supabase function, `receiver/`) | Events arrive in about 1 s, in JSON, and each one carries a **signature** (`sig`) as tamper evidence. They include who (principal), when, source IP, user agent and outcome. **Gaps:** (1) creating and deleting a gateway consumer through the control-plane API produced **only 'PAT authentication succeeded' events**, with no record of *what* changed. (2) A request with an invalid token (401) produced **no event**. (3) After my receiver returned errors, Konnect marked the webhook **inactive and stopped sending**, with no automatic retry. Events during that roughly 10-minute outage were **never delivered**, until I re-enabled it by hand. |
 | A2 Per-request AI record | **Pass.** Every request is logged with consumer, route, model, provider, prompt tokens, completion tokens, cost and LLM latency. |
 | A3 Data residency | Not verifiable from outside. Kong's serverless docs say "deployment on the same region is not guaranteed". |
 | A4 Retention | The org's `retention_period_days` is 30. Individual request records carried an expiry about 14 days ahead. |
@@ -105,4 +105,4 @@ After the test, the Gemini key was removed from Konnect.
 
 ## Still to do
 
-A1 with a webhook receiver, and semantic plugins if a vector DB is approved.
+AI Sanitizer redaction quality (needs the PII service hosted somewhere Kong can reach).
