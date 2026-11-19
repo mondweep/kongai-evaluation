@@ -1,0 +1,33 @@
+{
+  "create_team": 201,
+  "assign_viewer": 201,
+  "create_sa": 201,
+  "add_sa_to_team": 201,
+  "ids": {
+    "team": "e8b67ff6-eaec-4e59-8027-652a299b49a0",
+    "system_account": "aff3652c-2201-4659-8f30-7adccf4e371a",
+    "token_id": "18981df6-832f-4f92-962b-939a219c9be7"
+  },
+  "in_team": {
+    "list_services": 200,
+    "create_service": 403,
+    "list_control_planes": 200,
+    "openmeter_meters": 403,
+    "list_teams": 200,
+    "control_planes_visible": [
+      "serverless-api-gateway-demo"
+    ]
+  },
+  "remove_from_team": 204,
+  "after_removal": {
+    "list_services": 403,
+    "create_service": 403,
+    "list_control_planes": 403,
+    "openmeter_meters": 403,
+    "list_teams": 200
+  },
+  "removal_effective_after_s": 25,
+  "delete_token": 204,
+  "after_token_delete": 403,
+  "token_after_delete_60s": 401
+}

@@ -1,0 +1,747 @@
+{
+  "before": {
+    "status": 200,
+    "body": {
+      "active_from": "2026-11-19T13:26:26.916847Z",
+      "billing_anchor": "2026-11-19T13:26:26.916847Z",
+      "billing_cadence": "P1M",
+      "cost_basis_mode": "dynamic",
+      "cost_basis_pins": [],
+      "created_at": "2026-11-19T13:26:26.922039Z",
+      "current_period": {
+        "from": "2026-11-19T13:26:26.916847Z",
+        "to": "2026-12-19T13:26:26.916847Z"
+      },
+      "customer_id": "01M7SZSBTZCGV77MABMK3JMCAN",
+      "id": "01M7SZSCVATHNR9N1ND5760PNB",
+      "invoice_currency": "USD",
+      "labels": {
+        "eval": "metering-eval"
+      },
+      "name": "ai_starter v1",
+      "phases": [
+        {
+          "active_from": "2026-11-19T13:26:26.916847Z",
+          "created_at": "2026-11-19T13:26:26.928716Z",
+          "id": "01M7SZSCVGYJQ9SSYM8T415JBE",
+          "items": [
+            {
+              "active_from": "2026-11-19T13:26:26.916847Z",
+              "id": "01M7SZSCWFP86CV3QHQHN1CNMS",
+              "rate_card": {
+                "billing_cadence": "P1M",
+                "currency": "USD",
+                "entitlement": {
+                  "is_soft_limit": false,
+                  "limit": 1000,
+                  "type": "metered",
+                  "usage_period": "P1M"
+                },
+                "feature": {
+                  "id": "01M7SZSAHVCRXA9ZMTMMQSME50"
+                },
+                "key": "ai_tokens",
+                "labels": {},
+                "name": "AI tokens",
+                "price": {
+                  "amount": "0.00001",
+                  "type": "unit"
+                }
+              }
+            }
+          ],
+          "key": "default",
+          "labels": {},
+          "name": "Default",
+          "updated_at": "2026-11-19T13:26:26.928717Z"
+        }
+      ],
+      "plan": {
+        "id": "01M7SZSB12V5PNZ38MW9ZYJDF2",
+        "key": "ai_starter",
+        "version": 1
+      },
+      "plan_id": "01M7SZSB12V5PNZ38MW9ZYJDF2",
+      "pro_rating_config": {
+        "enabled": true,
+        "mode": "prorate_prices"
+      },
+      "settlement_mode": "credit_then_invoice",
+      "status": "active",
+      "updated_at": "2026-11-19T13:26:26.92204Z"
+    }
+  },
+  "cancel": {
+    "status": 200,
+    "body": {
+      "active_from": "2026-11-19T13:26:26.916847Z",
+      "active_to": "2026-11-19T14:11:16.679909Z",
+      "billing_anchor": "2026-11-19T13:26:26.916847Z",
+      "billing_cadence": "P1M",
+      "cost_basis_mode": "dynamic",
+      "cost_basis_pins": [],
+      "created_at": "2026-11-19T13:26:26.922039Z",
+      "current_period": {
+        "from": "2026-11-19T13:26:26.916847Z",
+        "to": "2026-11-19T14:11:16.679909Z"
+      },
+      "customer_id": "01M7SZSBTZCGV77MABMK3JMCAN",
+      "id": "01M7SZSCVATHNR9N1ND5760PNB",
+      "invoice_currency": "USD",
+      "labels": {
+        "eval": "metering-eval"
+      },
+      "name": "ai_starter v1",
+      "phases": [
+        {
+          "active_from": "2026-11-19T13:26:26.916847Z",
+          "active_to": "2026-11-19T14:11:16.679909Z",
+          "created_at": "2026-11-19T13:26:26.928716Z",
+          "id": "01M7SZSCVGYJQ9SSYM8T415JBE",
+          "items": [
+            {
+              "active_from": "2026-11-19T13:26:26.916847Z",
+              "active_to": "2026-11-19T14:11:16.679909Z",
+              "id": "01M7T2BFM8RYFNW7GHCT0QVYAE",
+              "rate_card": {
+                "billing_cadence": "P1M",
+                "currency": "USD",
+                "entitlement": {
+                  "is_soft_limit": false,
+                  "limit": 1000,
+                  "type": "metered",
+                  "usage_period": "P1M"
+                },
+                "feature": {
+                  "id": "01M7SZSAHVCRXA9ZMTMMQSME50"
+                },
+                "key": "ai_tokens",
+                "labels": {},
+                "name": "AI tokens",
+                "price": {
+                  "amount": "0.00001",
+                  "type": "unit"
+                }
+              }
+            }
+          ],
+          "key": "default",
+          "labels": {},
+          "name": "Default",
+          "updated_at": "2026-11-19T13:26:26.928717Z"
+        }
+      ],
+      "plan": {
+        "id": "01M7SZSB12V5PNZ38MW9ZYJDF2",
+        "key": "ai_starter",
+        "version": 1
+      },
+      "plan_id": "01M7SZSB12V5PNZ38MW9ZYJDF2",
+      "pro_rating_config": {
+        "enabled": true,
+        "mode": "prorate_prices"
+      },
+      "settlement_mode": "credit_then_invoice",
+      "status": "inactive",
+      "updated_at": "2026-11-19T14:11:16.680592Z"
+    }
+  },
+  "invoices": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "collection_at": "2026-11-19T15:12:16Z",
+          "created_at": "2026-11-19T14:11:17.060981Z",
+          "currency": "USD",
+          "customer": {
+            "id": "01M7SZSBTZCGV77MABMK3JMCAN",
+            "key": "meter-alice",
+            "name": "meter-alice",
+            "usage_attribution": {
+              "subject_keys": [
+                "consumer:a7b8458c-2477-458c-8809-28c77010e1c8"
+              ]
+            }
+          },
+          "draft_until": "2026-11-19T15:12:16Z",
+          "due_at": "2026-12-19T15:12:16Z",
+          "id": "01M7T2BFY4K55AWY3BY7PNH8EA",
+          "labels": {},
+          "number": "DRAFT-METE-1",
+          "service_period": {
+            "from": "2026-11-19T13:26:26Z",
+            "to": "2026-11-19T14:11:16Z"
+          },
+          "status": "draft",
+          "status_details": {
+            "available_actions": {
+              "delete": {
+                "resulting_state": "deleted"
+              },
+              "snapshot_quantities": {
+                "resulting_state": "draft.waiting_auto_approval"
+              }
+            },
+            "extended_status": "draft.waiting_for_collection",
+            "failed": false,
+            "immutable": false
+          },
+          "supplier": {
+            "addresses": {
+              "billing_address": {
+                "country": "US"
+              }
+            },
+            "id": "",
+            "name": "OpenMeter"
+          },
+          "totals": {
+            "amount": "0.02",
+            "charges_total": "0",
+            "credits_total": "0",
+            "discounts_total": "0",
+            "taxes_exclusive_total": "0",
+            "taxes_inclusive_total": "0",
+            "taxes_total": "0",
+            "total": "0.02"
+          },
+          "type": "standard",
+          "updated_at": "2026-11-19T14:11:17.513993Z",
+          "workflow": {
+            "apps": {
+              "invoicing": {
+                "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+              },
+              "payment": {
+                "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+              },
+              "tax": {
+                "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+              }
+            },
+            "source_billing_profile": {
+              "id": "01M7SVZTDWXPNDJDHNRCMQ33ZR"
+            },
+            "workflow": {
+              "invoicing": {
+                "auto_advance": true,
+                "draft_period": "P0D",
+                "due_after": "P30D"
+              },
+              "payment": {
+                "collection_method": "charge_automatically"
+              }
+            }
+          }
+        }
+      ],
+      "meta": {
+        "page": {
+          "size": 20,
+          "number": 1,
+          "total": 1
+        }
+      }
+    }
+  },
+  "snapshot-quantities": {
+    "status": 200,
+    "body": {
+      "collection_at": "2026-11-19T15:12:16Z",
+      "created_at": "2026-11-19T14:11:17.060981Z",
+      "currency": "USD",
+      "customer": {
+        "id": "01M7SZSBTZCGV77MABMK3JMCAN",
+        "key": "meter-alice",
+        "name": "meter-alice",
+        "usage_attribution": {
+          "subject_keys": [
+            "consumer:a7b8458c-2477-458c-8809-28c77010e1c8"
+          ]
+        }
+      },
+      "draft_until": "2026-11-19T15:12:16Z",
+      "due_at": "2026-12-19T15:12:16Z",
+      "id": "01M7T2BFY4K55AWY3BY7PNH8EA",
+      "labels": {},
+      "lines": [
+        {
+          "charge": {
+            "id": "01M7SZSD28YGST5KTN143JAS4R"
+          },
+          "created_at": "2026-11-19T14:11:17.113816Z",
+          "detailed_lines": [
+            {
+              "category": "regular",
+              "created_at": "2026-11-19T14:11:17.235558Z",
+              "id": "01M7T2BG3KZJQAZH1G0EF4HAFV",
+              "name": "AI tokens: usage in period",
+              "quantity": "1864",
+              "service_period": {
+                "from": "2026-11-19T13:26:26Z",
+                "to": "2026-11-19T14:11:16Z"
+              },
+              "totals": {
+                "amount": "0.02",
+                "charges_total": "0",
+                "credits_total": "0",
+                "discounts_total": "0",
+                "taxes_exclusive_total": "0",
+                "taxes_inclusive_total": "0",
+                "taxes_total": "0",
+                "total": "0.02"
+              },
+              "unit_price": "0.00001",
+              "updated_at": "2026-11-19T14:11:17.235558Z"
+            }
+          ],
+          "id": "01M7SZSD3G3RVAQPJ5VRF0EYVA",
+          "labels": {},
+          "lifecycle_controller": "system",
+          "name": "AI tokens",
+          "rate_card": {
+            "feature_key": "ai_tokens",
+            "price": {
+              "amount": "0.00001",
+              "type": "unit"
+            },
+            "tax_config": {
+              "code": {
+                "id": "01M7SVZTE5YJ2YVXNA26Z35QDY"
+              }
+            }
+          },
+          "service_period": {
+            "from": "2026-11-19T13:26:26Z",
+            "to": "2026-11-19T14:11:16Z"
+          },
+          "subscription": {
+            "id": "01M7SZSCVATHNR9N1ND5760PNB",
+            "phase": {
+              "id": "01M7SZSCVGYJQ9SSYM8T415JBE",
+              "item": {
+                "id": "01M7T2BFM8RYFNW7GHCT0QVYAE"
+              }
+            }
+          },
+          "totals": {
+            "amount": "0.02",
+            "charges_total": "0",
+            "credits_total": "0",
+            "discounts_total": "0",
+            "taxes_exclusive_total": "0",
+            "taxes_inclusive_total": "0",
+            "taxes_total": "0",
+            "total": "0.02"
+          },
+          "type": "standard_line",
+          "updated_at": "2026-11-19T14:11:44.084273Z"
+        }
+      ],
+      "number": "DRAFT-METE-1",
+      "quantity_snapshotted_at": "2026-11-19T14:11:44.070499Z",
+      "service_period": {
+        "from": "2026-11-19T13:26:26Z",
+        "to": "2026-11-19T14:11:16Z"
+      },
+      "status": "draft",
+      "status_details": {
+        "available_actions": {
+          "advance": {
+            "resulting_state": "draft.waiting_auto_approval"
+          },
+          "delete": {
+            "resulting_state": "deleted"
+          }
+        },
+        "extended_status": "draft.collecting",
+        "failed": false,
+        "immutable": false
+      },
+      "supplier": {
+        "addresses": {
+          "billing_address": {
+            "country": "US"
+          }
+        },
+        "id": "",
+        "name": "OpenMeter"
+      },
+      "totals": {
+        "amount": "0.02",
+        "charges_total": "0",
+        "credits_total": "0",
+        "discounts_total": "0",
+        "taxes_exclusive_total": "0",
+        "taxes_inclusive_total": "0",
+        "taxes_total": "0",
+        "total": "0.02"
+      },
+      "type": "standard",
+      "updated_at": "2026-11-19T14:11:44.075346Z",
+      "workflow": {
+        "apps": {
+          "invoicing": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          },
+          "payment": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          },
+          "tax": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          }
+        },
+        "source_billing_profile": {
+          "id": "01M7SVZTDWXPNDJDHNRCMQ33ZR"
+        },
+        "workflow": {
+          "invoicing": {
+            "auto_advance": true,
+            "draft_period": "P0D",
+            "due_after": "P30D"
+          },
+          "payment": {
+            "collection_method": "charge_automatically"
+          }
+        }
+      }
+    }
+  },
+  "advance": {
+    "status": 400,
+    "body": {
+      "type": "about:blank",
+      "title": "Bad Request",
+      "status": 400,
+      "detail": "cannot advance invoice in status [draft.waiting_auto_approval]: invoice cannot advance",
+      "instance": "urn:request:4f7fb8a3-0030-9d74-bca9-01e00dd7ed07",
+      "extensions": {
+        "code": "invoice_cannot_advance",
+        "message": "invoice cannot advance",
+        "severity": "critical"
+      }
+    }
+  },
+  "approve": {
+    "status": 200,
+    "body": {
+      "collection_at": "2026-11-19T15:12:16Z",
+      "created_at": "2026-11-19T14:11:17.060981Z",
+      "currency": "USD",
+      "customer": {
+        "id": "01M7SZSBTZCGV77MABMK3JMCAN",
+        "key": "meter-alice",
+        "name": "meter-alice",
+        "usage_attribution": {
+          "subject_keys": [
+            "consumer:a7b8458c-2477-458c-8809-28c77010e1c8"
+          ]
+        }
+      },
+      "draft_until": "2026-11-19T15:12:16Z",
+      "due_at": "2026-12-19T15:12:16Z",
+      "id": "01M7T2BFY4K55AWY3BY7PNH8EA",
+      "labels": {},
+      "lines": [
+        {
+          "charge": {
+            "id": "01M7SZSD28YGST5KTN143JAS4R"
+          },
+          "created_at": "2026-11-19T14:11:17.113816Z",
+          "detailed_lines": [
+            {
+              "category": "regular",
+              "created_at": "2026-11-19T14:11:17.235558Z",
+              "id": "01M7T2BG3KZJQAZH1G0EF4HAFV",
+              "name": "AI tokens: usage in period",
+              "quantity": "1864",
+              "service_period": {
+                "from": "2026-11-19T13:26:26Z",
+                "to": "2026-11-19T14:11:16Z"
+              },
+              "totals": {
+                "amount": "0.02",
+                "charges_total": "0",
+                "credits_total": "0",
+                "discounts_total": "0",
+                "taxes_exclusive_total": "0",
+                "taxes_inclusive_total": "0",
+                "taxes_total": "0",
+                "total": "0.02"
+              },
+              "unit_price": "0.00001",
+              "updated_at": "2026-11-19T14:11:17.235558Z"
+            }
+          ],
+          "id": "01M7SZSD3G3RVAQPJ5VRF0EYVA",
+          "labels": {},
+          "lifecycle_controller": "system",
+          "name": "AI tokens",
+          "rate_card": {
+            "feature_key": "ai_tokens",
+            "price": {
+              "amount": "0.00001",
+              "type": "unit"
+            },
+            "tax_config": {
+              "code": {
+                "id": "01M7SVZTE5YJ2YVXNA26Z35QDY"
+              }
+            }
+          },
+          "service_period": {
+            "from": "2026-11-19T13:26:26Z",
+            "to": "2026-11-19T14:11:16Z"
+          },
+          "subscription": {
+            "id": "01M7SZSCVATHNR9N1ND5760PNB",
+            "phase": {
+              "id": "01M7SZSCVGYJQ9SSYM8T415JBE",
+              "item": {
+                "id": "01M7T2BFM8RYFNW7GHCT0QVYAE"
+              }
+            }
+          },
+          "totals": {
+            "amount": "0.02",
+            "charges_total": "0",
+            "credits_total": "0",
+            "discounts_total": "0",
+            "taxes_exclusive_total": "0",
+            "taxes_inclusive_total": "0",
+            "taxes_total": "0",
+            "total": "0.02"
+          },
+          "type": "standard_line",
+          "updated_at": "2026-11-19T14:11:44.084273Z"
+        }
+      ],
+      "number": "DRAFT-METE-1",
+      "quantity_snapshotted_at": "2026-11-19T14:11:44.070499Z",
+      "service_period": {
+        "from": "2026-11-19T13:26:26Z",
+        "to": "2026-11-19T14:11:16Z"
+      },
+      "status": "draft",
+      "status_details": {
+        "available_actions": {
+          "advance": {
+            "resulting_state": "payment_processing.pending"
+          },
+          "delete": {
+            "resulting_state": "deleted"
+          }
+        },
+        "extended_status": "draft.ready_to_issue",
+        "failed": false,
+        "immutable": false
+      },
+      "supplier": {
+        "addresses": {
+          "billing_address": {
+            "country": "US"
+          }
+        },
+        "id": "",
+        "name": "OpenMeter"
+      },
+      "totals": {
+        "amount": "0.02",
+        "charges_total": "0",
+        "credits_total": "0",
+        "discounts_total": "0",
+        "taxes_exclusive_total": "0",
+        "taxes_inclusive_total": "0",
+        "taxes_total": "0",
+        "total": "0.02"
+      },
+      "type": "standard",
+      "updated_at": "2026-11-19T14:11:54.977199Z",
+      "workflow": {
+        "apps": {
+          "invoicing": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          },
+          "payment": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          },
+          "tax": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          }
+        },
+        "source_billing_profile": {
+          "id": "01M7SVZTDWXPNDJDHNRCMQ33ZR"
+        },
+        "workflow": {
+          "invoicing": {
+            "auto_advance": true,
+            "draft_period": "P0D",
+            "due_after": "P30D"
+          },
+          "payment": {
+            "collection_method": "charge_automatically"
+          }
+        }
+      }
+    }
+  },
+  "final": {
+    "status": 200,
+    "body": {
+      "collection_at": "2026-11-19T15:12:16Z",
+      "created_at": "2026-11-19T14:11:17.060981Z",
+      "currency": "USD",
+      "customer": {
+        "id": "01M7SZSBTZCGV77MABMK3JMCAN",
+        "key": "meter-alice",
+        "name": "meter-alice",
+        "usage_attribution": {
+          "subject_keys": [
+            "consumer:a7b8458c-2477-458c-8809-28c77010e1c8"
+          ]
+        }
+      },
+      "draft_until": "2026-11-19T15:12:16Z",
+      "due_at": "2026-12-19T15:12:16Z",
+      "id": "01M7T2BFY4K55AWY3BY7PNH8EA",
+      "issued_at": "2026-11-19T14:11:55.074072Z",
+      "labels": {},
+      "lines": [
+        {
+          "charge": {
+            "id": "01M7SZSD28YGST5KTN143JAS4R"
+          },
+          "created_at": "2026-11-19T14:11:17.113816Z",
+          "detailed_lines": [
+            {
+              "category": "regular",
+              "created_at": "2026-11-19T14:11:17.235558Z",
+              "id": "01M7T2BG3KZJQAZH1G0EF4HAFV",
+              "name": "AI tokens: usage in period",
+              "quantity": "1864",
+              "service_period": {
+                "from": "2026-11-19T13:26:26Z",
+                "to": "2026-11-19T14:11:16Z"
+              },
+              "totals": {
+                "amount": "0.02",
+                "charges_total": "0",
+                "credits_total": "0",
+                "discounts_total": "0",
+                "taxes_exclusive_total": "0",
+                "taxes_inclusive_total": "0",
+                "taxes_total": "0",
+                "total": "0.02"
+              },
+              "unit_price": "0.00001",
+              "updated_at": "2026-11-19T14:11:17.235558Z"
+            }
+          ],
+          "id": "01M7SZSD3G3RVAQPJ5VRF0EYVA",
+          "labels": {},
+          "lifecycle_controller": "system",
+          "name": "AI tokens",
+          "rate_card": {
+            "feature_key": "ai_tokens",
+            "price": {
+              "amount": "0.00001",
+              "type": "unit"
+            },
+            "tax_config": {
+              "code": {
+                "id": "01M7SVZTE5YJ2YVXNA26Z35QDY"
+              }
+            }
+          },
+          "service_period": {
+            "from": "2026-11-19T13:26:26Z",
+            "to": "2026-11-19T14:11:16Z"
+          },
+          "subscription": {
+            "id": "01M7SZSCVATHNR9N1ND5760PNB",
+            "phase": {
+              "id": "01M7SZSCVGYJQ9SSYM8T415JBE",
+              "item": {
+                "id": "01M7T2BFM8RYFNW7GHCT0QVYAE"
+              }
+            }
+          },
+          "totals": {
+            "amount": "0.02",
+            "charges_total": "0",
+            "credits_total": "0",
+            "discounts_total": "0",
+            "taxes_exclusive_total": "0",
+            "taxes_inclusive_total": "0",
+            "taxes_total": "0",
+            "total": "0.02"
+          },
+          "type": "standard_line",
+          "updated_at": "2026-11-19T14:11:44.084273Z"
+        }
+      ],
+      "number": "OM-SANDBOX-METE-1",
+      "quantity_snapshotted_at": "2026-11-19T14:11:44.070499Z",
+      "sent_to_customer_at": "2026-11-19T14:11:55.080616Z",
+      "service_period": {
+        "from": "2026-11-19T13:26:26Z",
+        "to": "2026-11-19T14:11:16Z"
+      },
+      "status": "paid",
+      "status_details": {
+        "available_actions": {},
+        "extended_status": "paid",
+        "failed": false,
+        "immutable": true
+      },
+      "supplier": {
+        "addresses": {
+          "billing_address": {
+            "country": "US"
+          }
+        },
+        "id": "",
+        "name": "OpenMeter"
+      },
+      "totals": {
+        "amount": "0.02",
+        "charges_total": "0",
+        "credits_total": "0",
+        "discounts_total": "0",
+        "taxes_exclusive_total": "0",
+        "taxes_inclusive_total": "0",
+        "taxes_total": "0",
+        "total": "0.02"
+      },
+      "type": "standard",
+      "updated_at": "2026-11-19T14:11:55.335824Z",
+      "workflow": {
+        "apps": {
+          "invoicing": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          },
+          "payment": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          },
+          "tax": {
+            "id": "01M7SVZTDE11YWBQGRTHDR6FMT"
+          }
+        },
+        "source_billing_profile": {
+          "id": "01M7SVZTDWXPNDJDHNRCMQ33ZR"
+        },
+        "workflow": {
+          "invoicing": {
+            "auto_advance": true,
+            "draft_period": "P0D",
+            "due_after": "P30D"
+          },
+          "payment": {
+            "collection_method": "charge_automatically"
+          }
+        }
+      }
+    }
+  }
+}

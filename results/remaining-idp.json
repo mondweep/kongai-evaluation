@@ -1,0 +1,24 @@
+{
+  "org_auth_settings": {
+    "basic_auth_enabled": true,
+    "idp_mapping_enabled": false,
+    "konnect_mapping_enabled": true,
+    "oidc_auth_enabled": false,
+    "saml_auth_enabled": false
+  },
+  "org_idps": [],
+  "eval_portal_auth_settings": {
+    "basic_auth_enabled": true,
+    "oidc_auth_enabled": false,
+    "saml_auth_enabled": false,
+    "konnect_mapping_enabled": true,
+    "oidc_team_mapping_enabled": false,
+    "idp_mapping_enabled": false,
+    "oidc_config": null
+  },
+  "kong_identity_authorization_code_client": {
+    "status": 400,
+    "detail": "grant_types: authorization code grant type is not allowed"
+  },
+  "conclusion": "Kong Identity issues machine (client-credentials) tokens only, so it cannot be the OIDC IdP for human SSO on the org or a portal. SSO needs an external IdP (Okta, Entra ID, Google, Auth0). Org settings read only, nothing changed."
+}

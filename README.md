@@ -15,6 +15,7 @@ Documents:
 - [docs/metallm-findings.md](docs/metallm-findings.md): Cognitum MetaLLM tier test, and Kong in front of MetaLLM
 - [docs/metering-evaluation.md](docs/metering-evaluation.md): Metering & Billing test (token meters, entitlements, enforcement, sandbox billing)
 - [docs/gaps-evaluation.md](docs/gaps-evaluation.md): closing the remaining gaps (Token Vault and virtual keys, agent identity, MCP catalog, observability, application auth, other AI plugins, Service Catalog)
+- [docs/remaining-evaluation.md](docs/remaining-evaluation.md): the last menu items (Cost Management and Analytics, Billing, Metering Settings, Groups, Identity Providers, Observability Summary and Reports)
 - Living plan doc: https://claude.ai/artifact/FQJeKYkXHUhksYZXqTdK1s
 
 ## What we evaluated
@@ -24,13 +25,14 @@ Everything ran on 19 Nov 2026 on a Konnect trial (EU region) with one serverless
 | Evaluation | Question | Answer in one line |
 |---|---|---|
 | [Five AI risk claims](docs/report.md) | Does Kong's AI Gateway address data exposure, cost, compliance, operational risk and security? | The controls are real, but most only work once configured carefully, and several fail open or leak with their defaults |
-| [Feature coverage](docs/feature-coverage.md) | How much of Konnect have we tested? | 22 of 32 menu items hands-on (5 in part). Six untouched, and several need a hybrid data plane |
+| [Feature coverage](docs/feature-coverage.md) | How much of Konnect have we tested? | 28 of 32 menu items hands-on (5 in part). The rest need the owner, the UI or a hybrid data plane |
 | [Kong with rUv's agent stack](docs/ruv-stack-evaluation.md) | Does Kong compete with or complement ruflo, agentic-flow and Cognitum One? | It complements them: rUv's stack is the agent harness, Kong is the enforcement point outside it, as long as it is the agents' only route out |
 | [Virtual models](docs/virtual-model-evaluation.md) and [MetaLLM](docs/metallm-findings.md) | How do Kong's "virtual models" compare with Cognitum's MetaLLM router? | Kong lets you choose the models and rules. MetaLLM picks for you, but leaked the vendor model and billed failed calls. Kong in front of MetaLLM works unchanged |
 | [Managing Konnect through MCP](docs/mcp-management.md) | Can an agent run Konnect in plain English, safely? | Yes, with a scoped system account and the regional endpoint. The audit log doesn't record what the agent changed |
 | [Dev Portal](docs/devportal-demo.md) | Can we publish APIs and expose them to agents? | Yes. The portal's MCP server is a read-only catalogue for agents, not a proxy |
 | [Metering & Billing](docs/metering-evaluation.md) | Can usage be metered and billed per customer? | Metering is exact, but a plan's hard limit isn't enforced on serverless (it needs Redis) |
 | [Remaining gaps](docs/gaps-evaluation.md) | Token Vault, agent identity, MCP catalog, observability, app auth, other AI plugins, Service Catalog | Mostly works. Revocation takes about 5 minutes, the MCP tool ACL can be bypassed, and broken guardrails fail open |
+| [Remaining menu items](docs/remaining-evaluation.md) | Cost budgets and analytics, billing, metering settings, teams and roles, SSO, observability summary and reports | Budgets are advisory only, a real invoice was issued, roles scope correctly, and Kong Identity can't be an SSO provider |
 
 ### Five AI risk claims
 
@@ -64,11 +66,10 @@ Everything ran on 19 Nov 2026 on a Konnect trial (EU region) with one serverless
 
 | Status | Konnect menu items |
 |---|---|
-| Hands-on | Portals, Logs, Requests, Metering, Product Catalog, Dashboards, Explorer, Debugger, Kong Identity, MCP Servers, Agents (AI and Access Management), Virtual Keys, Catalog Services, Resources, plus AI Models and Providers (built, but they can't run on serverless) |
-| Partial | Application Auth, Billing, Scorecards, Token Vault, AI Gateways |
-| Seen only | Catalog Integrations, Users, Cost Management |
-| Can't run on the trial | MCP Registries (no API) |
-| Not evaluated | Cost Analytics, Metering Settings, Observability Summary and Reports, Groups, Identity Providers |
+| Hands-on | Portals, Logs, Requests, Metering, Product Catalog, Billing, Cost Analytics, Metering Settings, Cost Management, Dashboards, Explorer, Debugger, Kong Identity, MCP Servers, Agents (AI and Access Management), Virtual Keys, Groups, Catalog Services, Resources, Scorecards, plus AI Models and Providers (built, but they can't run on serverless) |
+| Partial | Application Auth, Token Vault, AI Gateways, Observability Summary, Identity Providers |
+| Seen only | Catalog Integrations, Users |
+| Can't run on the trial | MCP Registries (no API), Observability Reports (UI only) |
 
 ## How we did it
 
@@ -127,6 +128,7 @@ Everything ran on 19 Nov 2026 on a Konnect trial (EU region) with one serverless
 | `scripts/coverage/probe.py` | Read-only API probe of which Konnect features exist on the trial |
 | `scripts/metering/` | Metering & Billing: meters, plan, entitlements, traffic, enforcement, request-log comparison |
 | `scripts/gaps/` | Gaps 2 to 8: vault and virtual keys, Kong Identity, MCP catalog and gateway MCP, dashboards and Debugger, application auth, other AI plugins, Service Catalog |
+| `scripts/remaining/` | The last menu items: cost budgets and queries, metering settings, forcing and issuing an invoice, teams and roles, identity providers, scorecard re-check |
 | `ruv-stack/` | Kong in front of rUv's agent stack (see its README) |
 | `mock/mock-llm.lua` | The echo mock LLM |
 
@@ -152,7 +154,7 @@ Secrets never go in this repo. `KCONNECT_TOKEN` and `GEMINI_API_KEY` come from t
 
 ### Wider feature coverage
 
-22 of the 32 Konnect menu items have now been tested hands-on. See [docs/feature-coverage.md](docs/feature-coverage.md).
+28 of the 32 Konnect menu items have now been tested hands-on. See [docs/feature-coverage.md](docs/feature-coverage.md).
 
 12. **Metering is exact, but a plan's "hard limit" isn't enforced on serverless.** Token totals matched the request log exactly. Blocking needs the `entitlement-enforcement` plugin with Redis, and without Redis it lets everyone through or blocks everyone. Rejected requests are metered by default ([metering-evaluation.md](docs/metering-evaluation.md)).
 13. **Revocation takes minutes.** A revoked virtual key or deactivated agent kept working for 288 s, and a deleted Kong Identity client for 232 s ([gaps-evaluation.md](docs/gaps-evaluation.md)).
@@ -161,6 +163,10 @@ Secrets never go in this repo. `KCONNECT_TOKEN` and `GEMINI_API_KEY` come from t
 16. **Guardrails can fail open silently.** A custom-guardrail expression that errors doesn't block, even with `stop_on_error: true`. Lakera with `stop_on_error: false` passes everything when its service fails.
 17. **Virtual models work on serverless through `model_alias`,** but fallback fails with the default `failover_criteria`, and an unknown model gives a 500 ([virtual-model-evaluation.md](docs/virtual-model-evaluation.md)).
 18. **Observability is strong but split.** Dashboards have a REST API. Explorer and the Debugger can be scripted only through Konnect's MCP server.
+19. **Cost budgets only report on this org.** `posture: enforce` is rejected, and the gateway kept serving after a budget was exceeded. Cost events have no consumer on serverless ([remaining-evaluation.md](docs/remaining-evaluation.md)).
+20. **Billing works end to end in the Sandbox.** Cancelling a subscription produced a draft invoice, which was approved and paid ($0.02). Billing cycles can't be shorter than a week.
+21. **Team roles scope correctly and take effect fast.** A Viewer role allowed reads and blocked writes, and removal took full effect in about 25 s. Kong Identity can't be an SSO provider for people, so SSO needs an external IdP.
+22. **Scorecards miss route-level auth.** The "has an authentication plugin" check only counts plugins on the service, so routes protected by `key-auth` still score as unauthenticated.
 
 ## Cleanup
 
@@ -171,4 +177,5 @@ Nothing below has been deleted yet. Ask the owner first.
 - **MCP management demo:** entities tagged `mcp-demo`, and the system account `mcp-demo-agent`.
 - **Metering:** entities tagged `metering-eval`, the Metering objects labelled `eval=metering-eval` (cancel the subscription first) and the system account `metering-eval-ingest`.
 - **Gaps 2 to 8:** entities tagged `vault-eval`, `agent-id-eval`, `mcpreg-eval`, `appauth-eval` and `aiplug-eval`, plus the Konnect-level objects listed in [docs/gaps-evaluation.md](docs/gaps-evaluation.md#cleanup) (vault, directory, auth server, catalog MCP, dashboard, the `appauth-eval-portal`, catalog services and the scorecard).
+- **Remaining menu items:** the advisory budget labelled `eval=remaining-eval`, team `remaining-eval-team` and system account `remaining-eval-sa` ([docs/remaining-evaluation.md](docs/remaining-evaluation.md#cleanup)).
 - The `ruv-eval` and `virtual-model-demo` entities were already deleted.

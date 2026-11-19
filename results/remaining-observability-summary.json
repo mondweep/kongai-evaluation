@@ -1,0 +1,4 @@
+{"note": "Observability Summary and Reports have no public REST or Konnect MCP tool. Summary-equivalent figures via Konnect MCP query_analytics, last 24h, grouped by status class.",
+ "query": {"metrics": ["request_count", "response_latency_p95"], "dimensions": ["status_code_grouped"], "time_range": "24h"},
+ "result": [{"status": "2XX", "requests": 2128, "p95_ms": 764}, {"status": "4XX", "requests": 258, "p95_ms": 733}, {"status": "5XX", "requests": 140, "p95_ms": 1748}],
+ "window": {"start": "2026-11-18T14:10:00Z", "end": "2026-11-19T14:15:00Z"}}

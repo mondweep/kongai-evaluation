@@ -1,0 +1,405 @@
+{
+  "scorecard": {
+    "score": {
+      "value": "33%",
+      "raw_value": 33.333
+    },
+    "updated_at": "2026-11-19T14:11:09.381Z"
+  },
+  "criteria": [
+    {
+      "name": "Error rate under 5% (30d)",
+      "evaluation": {
+        "passing_services_count": 0
+      }
+    },
+    {
+      "name": "p95 latency under 1500 ms (30d)",
+      "evaluation": {
+        "passing_services_count": 2
+      }
+    },
+    {
+      "name": "Has a Authentication plugin",
+      "evaluation": {
+        "passing_services_count": 0
+      }
+    }
+  ],
+  "services": {
+    "data": [
+      {
+        "id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+        "name": "catalog-eval-ai-chat",
+        "description": "Eval catalog entry for gateway service aiplug-eval",
+        "display_name": "AI chat (eval)",
+        "labels": {
+          "eval": "catalog-eval"
+        },
+        "custom_fields": {
+          "owner": null,
+          "cost_center": null,
+          "slack_channel": null,
+          "jira_project": null,
+          "product_manager": null,
+          "git_repo": null,
+          "dashboard": null
+        },
+        "created_at": "2026-11-19T13:53:59.260Z",
+        "updated_at": "2026-11-19T13:53:59.260Z",
+        "score": {
+          "value": "33%",
+          "raw_value": 33.333
+        }
+      },
+      {
+        "id": "1e4f1019-a572-4f7d-93a7-236105456a72",
+        "name": "catalog-eval-orders-mcp",
+        "description": "Eval catalog entry for gateway service mcpreg-eval-orders",
+        "display_name": "Orders MCP (eval)",
+        "labels": {
+          "eval": "catalog-eval"
+        },
+        "custom_fields": {
+          "owner": null,
+          "cost_center": null,
+          "slack_channel": null,
+          "jira_project": null,
+          "product_manager": null,
+          "git_repo": null,
+          "dashboard": null
+        },
+        "created_at": "2026-11-19T13:54:01.242Z",
+        "updated_at": "2026-11-19T13:54:01.242Z",
+        "score": {
+          "value": "33%",
+          "raw_value": 33.333
+        }
+      }
+    ],
+    "meta": {
+      "page": {
+        "total": 2,
+        "size": 100,
+        "number": 1
+      }
+    }
+  },
+  "per_criterion_services": {
+    "Error rate under 5% (30d)": {
+      "data": [
+        {
+          "id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+          "name": "catalog-eval-ai-chat",
+          "description": "Eval catalog entry for gateway service aiplug-eval",
+          "display_name": "AI chat (eval)",
+          "labels": {
+            "eval": "catalog-eval"
+          },
+          "custom_fields": {
+            "owner": null,
+            "cost_center": null,
+            "slack_channel": null,
+            "jira_project": null,
+            "product_manager": null,
+            "git_repo": null,
+            "dashboard": null
+          },
+          "created_at": "2026-11-19T13:53:59.260Z",
+          "updated_at": "2026-11-19T13:53:59.260Z",
+          "evaluation": {
+            "is_passing": false,
+            "evaluation_context": {
+              "raw_value": {
+                "map": {
+                  "O1mc0nx6wS7jbzF1": {
+                    "details": {
+                      "raw_value": 0.47,
+                      "display_text": "47%"
+                    },
+                    "relation": {
+                      "id": "O1mc0nx6wS7jbzF1",
+                      "name": "aiplug-eval"
+                    },
+                    "is_passing": false
+                  }
+                },
+                "instance": "criteria_result_relation_map",
+                "relation": "resource"
+              },
+              "display_text": "0 out of 1 gateway services passing error rate check"
+            },
+            "evaluation_error": null,
+            "successfully_evaluated_at": "2026-11-19T13:59:16.876Z",
+            "attempted_at": "2026-11-19T13:59:16.875Z",
+            "created_at": "2026-11-19T13:59:16.875Z"
+          }
+        },
+        {
+          "id": "1e4f1019-a572-4f7d-93a7-236105456a72",
+          "name": "catalog-eval-orders-mcp",
+          "description": "Eval catalog entry for gateway service mcpreg-eval-orders",
+          "display_name": "Orders MCP (eval)",
+          "labels": {
+            "eval": "catalog-eval"
+          },
+          "custom_fields": {
+            "owner": null,
+            "cost_center": null,
+            "slack_channel": null,
+            "jira_project": null,
+            "product_manager": null,
+            "git_repo": null,
+            "dashboard": null
+          },
+          "created_at": "2026-11-19T13:54:01.242Z",
+          "updated_at": "2026-11-19T13:54:01.242Z",
+          "evaluation": {
+            "is_passing": false,
+            "evaluation_context": {
+              "raw_value": {
+                "map": {
+                  "4YVO7t_bKGBaoEps": {
+                    "details": {
+                      "raw_value": 0.28,
+                      "display_text": "28%"
+                    },
+                    "relation": {
+                      "id": "4YVO7t_bKGBaoEps",
+                      "name": "mcpreg-eval-orders"
+                    },
+                    "is_passing": false
+                  }
+                },
+                "instance": "criteria_result_relation_map",
+                "relation": "resource"
+              },
+              "display_text": "0 out of 1 gateway services passing error rate check"
+            },
+            "evaluation_error": null,
+            "successfully_evaluated_at": "2026-11-19T14:00:16.658Z",
+            "attempted_at": "2026-11-19T14:00:16.657Z",
+            "created_at": "2026-11-19T14:00:16.657Z"
+          }
+        }
+      ],
+      "meta": {
+        "page": {
+          "total": 2,
+          "size": 100,
+          "number": 1
+        }
+      }
+    },
+    "p95 latency under 1500 ms (30d)": {
+      "data": [
+        {
+          "id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+          "name": "catalog-eval-ai-chat",
+          "description": "Eval catalog entry for gateway service aiplug-eval",
+          "display_name": "AI chat (eval)",
+          "labels": {
+            "eval": "catalog-eval"
+          },
+          "custom_fields": {
+            "owner": null,
+            "cost_center": null,
+            "slack_channel": null,
+            "jira_project": null,
+            "product_manager": null,
+            "git_repo": null,
+            "dashboard": null
+          },
+          "created_at": "2026-11-19T13:53:59.260Z",
+          "updated_at": "2026-11-19T13:53:59.260Z",
+          "evaluation": {
+            "is_passing": true,
+            "evaluation_context": {
+              "raw_value": {
+                "map": {
+                  "O1mc0nx6wS7jbzF1": {
+                    "details": {
+                      "raw_value": 1203,
+                      "display_text": "1203ms"
+                    },
+                    "relation": {
+                      "id": "O1mc0nx6wS7jbzF1",
+                      "name": "aiplug-eval"
+                    },
+                    "is_passing": true
+                  }
+                },
+                "instance": "criteria_result_relation_map",
+                "relation": "resource"
+              },
+              "display_text": "1 out of 1 gateway services passing latency check"
+            },
+            "evaluation_error": null,
+            "successfully_evaluated_at": "2026-11-19T13:59:16.652Z",
+            "attempted_at": "2026-11-19T13:59:16.650Z",
+            "created_at": "2026-11-19T13:59:16.650Z"
+          }
+        },
+        {
+          "id": "1e4f1019-a572-4f7d-93a7-236105456a72",
+          "name": "catalog-eval-orders-mcp",
+          "description": "Eval catalog entry for gateway service mcpreg-eval-orders",
+          "display_name": "Orders MCP (eval)",
+          "labels": {
+            "eval": "catalog-eval"
+          },
+          "custom_fields": {
+            "owner": null,
+            "cost_center": null,
+            "slack_channel": null,
+            "jira_project": null,
+            "product_manager": null,
+            "git_repo": null,
+            "dashboard": null
+          },
+          "created_at": "2026-11-19T13:54:01.242Z",
+          "updated_at": "2026-11-19T13:54:01.242Z",
+          "evaluation": {
+            "is_passing": true,
+            "evaluation_context": {
+              "raw_value": {
+                "map": {
+                  "4YVO7t_bKGBaoEps": {
+                    "details": {
+                      "raw_value": 350,
+                      "display_text": "350ms"
+                    },
+                    "relation": {
+                      "id": "4YVO7t_bKGBaoEps",
+                      "name": "mcpreg-eval-orders"
+                    },
+                    "is_passing": true
+                  }
+                },
+                "instance": "criteria_result_relation_map",
+                "relation": "resource"
+              },
+              "display_text": "1 out of 1 gateway services passing latency check"
+            },
+            "evaluation_error": null,
+            "successfully_evaluated_at": "2026-11-19T14:00:17.007Z",
+            "attempted_at": "2026-11-19T14:00:17.007Z",
+            "created_at": "2026-11-19T14:00:17.007Z"
+          }
+        }
+      ],
+      "meta": {
+        "page": {
+          "total": 2,
+          "size": 100,
+          "number": 1
+        }
+      }
+    },
+    "Has a Authentication plugin": {
+      "data": [
+        {
+          "id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+          "name": "catalog-eval-ai-chat",
+          "description": "Eval catalog entry for gateway service aiplug-eval",
+          "display_name": "AI chat (eval)",
+          "labels": {
+            "eval": "catalog-eval"
+          },
+          "custom_fields": {
+            "owner": null,
+            "cost_center": null,
+            "slack_channel": null,
+            "jira_project": null,
+            "product_manager": null,
+            "git_repo": null,
+            "dashboard": null
+          },
+          "created_at": "2026-11-19T13:53:59.260Z",
+          "updated_at": "2026-11-19T13:53:59.260Z",
+          "evaluation": {
+            "is_passing": false,
+            "evaluation_context": {
+              "raw_value": {
+                "map": {
+                  "O1mc0nx6wS7jbzF1": {
+                    "details": {
+                      "raw_value": 0,
+                      "display_text": "0 plugins installed"
+                    },
+                    "relation": {
+                      "id": "O1mc0nx6wS7jbzF1",
+                      "name": "aiplug-eval"
+                    },
+                    "is_passing": false
+                  }
+                },
+                "instance": "criteria_result_relation_map",
+                "relation": "resource"
+              },
+              "display_text": "0 out of 1 gateway services passing plugin check"
+            },
+            "evaluation_error": null,
+            "successfully_evaluated_at": "2026-11-19T13:59:17.009Z",
+            "attempted_at": "2026-11-19T13:59:17.009Z",
+            "created_at": "2026-11-19T13:59:17.009Z"
+          }
+        },
+        {
+          "id": "1e4f1019-a572-4f7d-93a7-236105456a72",
+          "name": "catalog-eval-orders-mcp",
+          "description": "Eval catalog entry for gateway service mcpreg-eval-orders",
+          "display_name": "Orders MCP (eval)",
+          "labels": {
+            "eval": "catalog-eval"
+          },
+          "custom_fields": {
+            "owner": null,
+            "cost_center": null,
+            "slack_channel": null,
+            "jira_project": null,
+            "product_manager": null,
+            "git_repo": null,
+            "dashboard": null
+          },
+          "created_at": "2026-11-19T13:54:01.242Z",
+          "updated_at": "2026-11-19T13:54:01.242Z",
+          "evaluation": {
+            "is_passing": false,
+            "evaluation_context": {
+              "raw_value": {
+                "map": {
+                  "4YVO7t_bKGBaoEps": {
+                    "details": {
+                      "raw_value": 0,
+                      "display_text": "0 plugins installed"
+                    },
+                    "relation": {
+                      "id": "4YVO7t_bKGBaoEps",
+                      "name": "mcpreg-eval-orders"
+                    },
+                    "is_passing": false
+                  }
+                },
+                "instance": "criteria_result_relation_map",
+                "relation": "resource"
+              },
+              "display_text": "0 out of 1 gateway services passing plugin check"
+            },
+            "evaluation_error": null,
+            "successfully_evaluated_at": "2026-11-19T14:00:18.846Z",
+            "attempted_at": "2026-11-19T14:00:18.845Z",
+            "created_at": "2026-11-19T14:00:18.845Z"
+          }
+        }
+      ],
+      "meta": {
+        "page": {
+          "total": 2,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  }
+}
