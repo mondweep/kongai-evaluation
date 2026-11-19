@@ -1,6 +1,8 @@
-# Kong AI Gateway: evaluation of the five AI risk claims
+# Kong Konnect and AI Gateway: hands-on evaluation
 
-Kong markets its AI Gateway (Konnect) as addressing five risks: data exposure, uncontrolled costs, compliance and audit, operational risk, and security. This repository holds a hands-on test of those claims. Marketing pages are treated as claims to test, not as evidence.
+Kong markets its AI Gateway (Konnect) as addressing five risks: data exposure, uncontrolled costs, compliance and audit, operational risk, and security. This repository holds a hands-on test of those claims, plus a wider evaluation: how much of Konnect works on a trial, how Kong fits with rUv's agent stack, and how Kong's virtual models compare with Cognitum's MetaLLM. Marketing pages are treated as claims to test, not as evidence. The summary is under [What we evaluated](#what-we-evaluated).
+
+Documents:
 
 - [docs/report.md](docs/report.md): **the report**: verdicts, key findings and recommended production settings
 - [docs/validation-plan.md](docs/validation-plan.md): the tests, with their pass/fail criteria
@@ -14,6 +16,59 @@ Kong markets its AI Gateway (Konnect) as addressing five risks: data exposure, u
 - [docs/metering-evaluation.md](docs/metering-evaluation.md): Metering & Billing test (token meters, entitlements, enforcement, sandbox billing)
 - [docs/gaps-evaluation.md](docs/gaps-evaluation.md): closing the remaining gaps (Token Vault and virtual keys, agent identity, MCP catalog, observability, application auth, other AI plugins, Service Catalog)
 - Living plan doc: https://claude.ai/artifact/FQJeKYkXHUhksYZXqTdK1s
+
+## What we evaluated
+
+Everything ran on 19 Nov 2026 on a Konnect trial (EU region) with one serverless gateway (Kong 3.16), using synthetic data. Each row links to the full write-up.
+
+| Evaluation | Question | Answer in one line |
+|---|---|---|
+| [Five AI risk claims](docs/report.md) | Does Kong's AI Gateway address data exposure, cost, compliance, operational risk and security? | The controls are real, but most only work once configured carefully, and several fail open or leak with their defaults |
+| [Feature coverage](docs/feature-coverage.md) | How much of Konnect have we tested? | 22 of 32 menu items hands-on (5 in part). Six untouched, and several need a hybrid data plane |
+| [Kong with rUv's agent stack](docs/ruv-stack-evaluation.md) | Does Kong compete with or complement ruflo, agentic-flow and Cognitum One? | It complements them: rUv's stack is the agent harness, Kong is the enforcement point outside it, as long as it is the agents' only route out |
+| [Virtual models](docs/virtual-model-evaluation.md) and [MetaLLM](docs/metallm-findings.md) | How do Kong's "virtual models" compare with Cognitum's MetaLLM router? | Kong lets you choose the models and rules. MetaLLM picks for you, but leaked the vendor model and billed failed calls. Kong in front of MetaLLM works unchanged |
+| [Managing Konnect through MCP](docs/mcp-management.md) | Can an agent run Konnect in plain English, safely? | Yes, with a scoped system account and the regional endpoint. The audit log doesn't record what the agent changed |
+| [Dev Portal](docs/devportal-demo.md) | Can we publish APIs and expose them to agents? | Yes. The portal's MCP server is a read-only catalogue for agents, not a proxy |
+| [Metering & Billing](docs/metering-evaluation.md) | Can usage be metered and billed per customer? | Metering is exact, but a plan's hard limit isn't enforced on serverless (it needs Redis) |
+| [Remaining gaps](docs/gaps-evaluation.md) | Token Vault, agent identity, MCP catalog, observability, app auth, other AI plugins, Service Catalog | Mostly works. Revocation takes about 5 minutes, the MCP tool ACL can be bypassed, and broken guardrails fail open |
+
+### Five AI risk claims
+
+| Risk | Verdict |
+|---|---|
+| Data exposure | **Partly demonstrated.** PII filters miss UK identifiers, reworded data and non-user messages. The client's key is forwarded to the provider by default |
+| Uncontrolled costs | **Demonstrated, with a caveat.** Token and cost accounting is exact. Limits are soft: a concurrent burst reached 3.9x the limit |
+| Compliance and audit | **Partly demonstrated.** Good per-request AI log with no prompts stored. The admin audit trail is signed but incomplete, and it lost events |
+| Operational risk | **Demonstrated, not with the defaults.** Failover needs non-default settings and never happens on DNS failures. Overhead is about 1 ms |
+| Security | **Partly demonstrated.** Auth and ACLs are solid. Regex injection filters are easy to bypass, and the semantic guard needs the right threshold |
+
+### Kong with rUv's agent stack
+
+- **Different layers:** ruflo, agentic-flow and ruOS choose agents and models and police themselves from inside the agent. Kong enforces keys, budgets, audit and access outside the agent, where the agent can't switch it off. Cognitum One sells no gateway.
+- **Guards together beat either alone:** on the same corpus, Kong's prompt guard caught 14 of 15 direct injections and AIDefence 11, together 15. On reworded attacks Kong caught 0 of 15 and AIDefence 5. Kong caught 24 of 25 structured PII items, AIDefence 9.
+- **agentic-flow and Claude Code work through Kong:** this held for the Anthropic and OpenAI formats, tool calls and streaming. Each agent has its own Kong key and never holds the provider key.
+- **But one Kong route serves one model,** so agentic-flow's own model router conflicts with Kong's model pinning. One of them must own model choice.
+- **Kong as a governed MCP server:** per-tool ACLs work, but the MCP handshake uses up rate-limit quota.
+
+### Virtual models and MetaLLM
+
+- **Kong:** one alias, such as `my-model`, maps to several real models through AI Proxy Advanced, and this works on serverless. Switching backends and per-model cost caps work. Fallback fails with the default settings, and an unknown model returns 500. The newer AI Model entity needs a self-hosted data plane.
+- **MetaLLM (12 live calls, $0.023):** it routes requests to fixed tiers.
+  - It leaked the vendor model ID (`z-ai/glm-5.3-flash`), although its spec says it doesn't.
+  - Failed calls were billed: 72% of the spend.
+  - The cache crossed tiers.
+  - The test key never left the low tier.
+- **Together:** Kong in front of MetaLLM needed no code changes, and Kong's cost estimate matched Cognitum's receipts exactly. Kong still passes the vendor ID through to the client.
+
+### Feature coverage
+
+| Status | Konnect menu items |
+|---|---|
+| Hands-on | Portals, Logs, Requests, Metering, Product Catalog, Dashboards, Explorer, Debugger, Kong Identity, MCP Servers, Agents (AI and Access Management), Virtual Keys, Catalog Services, Resources, plus AI Models and Providers (built, but they can't run on serverless) |
+| Partial | Application Auth, Billing, Scorecards, Token Vault, AI Gateways |
+| Seen only | Catalog Integrations, Users, Cost Management |
+| Can't run on the trial | MCP Registries (no API) |
+| Not evaluated | Cost Analytics, Metering Settings, Observability Summary and Reports, Groups, Identity Providers |
 
 ## Setup
 
