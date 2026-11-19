@@ -1,0 +1,83 @@
+[
+  {
+    "event": {
+      "data": {
+        "client_ip": "<redacted>",
+        "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554",
+        "request_host": "6efbd575d6.eu.serverless.gateways.konggateway.com",
+        "request_method": "POST",
+        "request_size_bytes": 262,
+        "request_uri": "/meter-ai/chat",
+        "request_user_agent": "<redacted>",
+        "response_http_status": 403,
+        "response_size_bytes": 349,
+        "route_id": "691f56f3-1f4b-4364-8f0b-7bfab5ba7112",
+        "route_name": "meter-ai-chat",
+        "service_id": "18738c00-0c3d-4d0c-b7ba-57145f5072f4",
+        "service_name": "meter-ai",
+        "service_port": 443,
+        "service_protocol": "https",
+        "subject_type": "consumer_id",
+        "upstream_status": ""
+      },
+      "datacontenttype": "application/json",
+      "id": "2093d67dd4bd807d8b25b168b59c6e04",
+      "source": "kong-gateway",
+      "specversion": "1.0",
+      "subject": "consumer:a7b8458c-2477-458c-8809-28c77010e1c8",
+      "time": "2026-11-19T13:31:03Z",
+      "type": "kong.api_request"
+    },
+    "validation_errors_at_ingest": null
+  },
+  {
+    "event": {
+      "data": {
+        "ai_plugin_id": "5e4c745f-bfad-4291-93a2-95ed1b076907",
+        "api_request_id": "2093d67dd4bd807d8b25b168b59c6e04",
+        "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554",
+        "http_status": 403,
+        "model": "UNSPECIFIED",
+        "provider": "UNSPECIFIED",
+        "route_id": "691f56f3-1f4b-4364-8f0b-7bfab5ba7112",
+        "service_id": "18738c00-0c3d-4d0c-b7ba-57145f5072f4",
+        "subject_type": "consumer_id",
+        "tokens": 0,
+        "type": "request"
+      },
+      "datacontenttype": "application/json",
+      "id": "2093d67dd4bd807d8b25b168b59c6e04-request",
+      "source": "kong-ai-gateway",
+      "specversion": "1.0",
+      "subject": "consumer:a7b8458c-2477-458c-8809-28c77010e1c8",
+      "time": "2026-11-19T13:31:03Z",
+      "type": "kong.llm_request"
+    },
+    "validation_errors_at_ingest": null
+  },
+  {
+    "event": {
+      "data": {
+        "ai_plugin_id": "5e4c745f-bfad-4291-93a2-95ed1b076907",
+        "api_request_id": "b44c9c341fa7ce7ad96d890841ff7e63",
+        "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554",
+        "http_status": 403,
+        "model": "UNSPECIFIED",
+        "provider": "UNSPECIFIED",
+        "route_id": "691f56f3-1f4b-4364-8f0b-7bfab5ba7112",
+        "service_id": "18738c00-0c3d-4d0c-b7ba-57145f5072f4",
+        "subject_type": "consumer_id",
+        "tokens": 0,
+        "type": "response"
+      },
+      "datacontenttype": "application/json",
+      "id": "b44c9c341fa7ce7ad96d890841ff7e63-response",
+      "source": "kong-ai-gateway",
+      "specversion": "1.0",
+      "subject": "consumer:cdbbe92f-5735-44b6-addb-ad35d59d685c",
+      "time": "2026-11-19T13:31:03Z",
+      "type": "kong.llm_request"
+    },
+    "validation_errors_at_ingest": null
+  }
+]

@@ -4,7 +4,7 @@
 
 ## Summary
 
-We have tested 8 of the 32 Konnect menu items hands-on, several only in part. Two more were only seen, and 22 haven't been touched. The depth is all in the AI Gateway plugins on the serverless gateway (eight `ai-*` plugins, auth, ACL, audit, failover), plus the Dev Portal and Konnect's MCP server. Those plugins don't have their own menu item. Metering & Billing, Catalog, Identity, the Observability dashboards and most of Access Management haven't been evaluated at all.
+We have tested 11 of the 32 Konnect menu items hands-on, several only in part. Three more were only seen, and 18 haven't been touched. (Updated after the Metering & Billing test; it started at 8 hands-on.) The depth is all in the AI Gateway plugins on the serverless gateway (eight `ai-*` plugins, auth, ACL, audit, failover), plus the Dev Portal and Konnect's MCP server. Those plugins don't have their own menu item. Catalog, Identity, the Observability dashboards and most of Access Management haven't been evaluated at all.
 
 Sources: this repo ([results.md](results.md), [validation-plan.md](validation-plan.md), [devportal-demo.md](devportal-demo.md)) [ruv-stack-evaluation.md](ruv-stack-evaluation.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) and [mcp-management.md](mcp-management.md) (merged from PRs #1 to #3), plus a read-only API probe of the trial org ([results/coverage-api-probe.json](../results/coverage-api-probe.json), script [scripts/coverage/probe.py](../scripts/coverage/probe.py)). The menu list combines a menu from another Konnect org with the trial's own menu. Labels can differ between orgs.
 
@@ -21,9 +21,9 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 | Catalog | Resources | Seen | Gateway services appear here automatically | |
 | Dev Portal | Portals | Hands-on | Demo portal with a published API, pages and portal MCP server. The portal MCP endpoint was probed read-only from a local machine | [devportal-demo.md](devportal-demo.md), [ruv-stack-evaluation.md](ruv-stack-evaluation.md) section 5 |
 | Dev Portal | Application Auth | Partial | A key-auth strategy exists, but the API was published with no auth. App registration, DCR and OIDC weren't tried | [devportal-demo.md](devportal-demo.md) |
-| Metering & Billing | Metering | Not evaluated | API reachable on the trial, 0 meters. Related: Kong's per-request token and cost figures matched Gemini and the price formula (C4, C4b) | [results.md](results.md) |
-| Metering & Billing | Product Catalog | Not evaluated | 0 features, 0 plans | |
-| Metering & Billing | Billing | Not evaluated | 0 customers. One payment app record exists | |
+| Metering & Billing | Metering | Hands-on | `metering-and-billing` plugin feeds token and request events. Totals matched the request log exactly. Ignores `subject.field`, bills rejected requests by default | [metering-evaluation.md](metering-evaluation.md) |
+| Metering & Billing | Product Catalog | Hands-on | Feature, plan with unit price and a 1,000-token metered entitlement. Over-limit flagged in seconds, but the gateway still served the customer | [metering-evaluation.md](metering-evaluation.md) |
+| Metering & Billing | Billing | Partial | Built-in Sandbox app means no Stripe is needed. A usage charge was created, but the first invoice only comes at period end, so none was produced | [metering-evaluation.md](metering-evaluation.md) |
 | Metering & Billing | Cost Analytics | Not evaluated | | |
 | Metering & Billing | Settings | Not evaluated | | |
 | Observability | Summary | Not evaluated | | |
@@ -45,7 +45,7 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 | Access Management | Identity Providers | Not evaluated | No SSO set up | |
 | Access Management | Token Vault | Not evaluated | Relevant: the provider key was readable in plain text in plugin config (S3c) | [results.md](results.md) |
 | Access Management | Virtual Keys | Not evaluated | | |
-| Cost Management | Cost Management | Not evaluated | Related: token and cost limits (C1 to C3) and per-model cost caps were tested at the gateway | [results.md](results.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) |
+| Cost Management | Cost Management | Seen | Gateway AI calls appear as `ai.usage.v1` events with no plugin. Budgets not tested. Related: token and cost limits (C1 to C3) and per-model cost caps were tested at the gateway | [results.md](results.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) |
 
 ### Tested but not a menu item
 
@@ -69,7 +69,8 @@ These limits are confirmed by tests or API calls unless marked "docs" or "unveri
 - **Dedicated Cloud Gateways:** the API returns 404 on this trial, so anything that needs one (private networking, region pinning) is out of reach.
 - **Rate limits:** the `local` policy counts per node, so the real limit is N times higher. AI limits are soft under concurrency. Serverless is capped at 100 RPS (docs).
 - **Data residency:** serverless says "same region not guaranteed" (docs), so A3 can't be shown on this tier.
-- **Billing:** a real billing run needs a Stripe (or similar) account linked. Metering, plans and entitlements can be tried without one (unverified).
+- **Billing:** no Stripe needed, because a built-in Sandbox app handles payment, tax and invoicing. The first invoice only comes at the end of the billing period.
+- **Entitlement enforcement:** the `entitlement-enforcement` plugin needs Redis, which serverless doesn't have. Without it the plugin lets everyone through, or blocks everyone, depending on `fail_policy`.
 - **Debugger, Identity, Token Vault, Virtual Keys, MCP Registries:** it's unverified whether these work on a trial or with serverless. MCP Registries had no API endpoint on this org.
 - **From the cloud sandbox:** `*.kongportals.com` and `*.mcp.konghq.com` are blocked, so portal-MCP and Konnect-MCP probes have to run on a local machine.
 
@@ -79,7 +80,7 @@ The order follows the five risk claims and what a client is likely to ask about 
 
 | # | Gap | What we'd test | Creates in Konnect | Effort |
 | --- | --- | --- | --- | --- |
-| 1 | Metering & Billing, Cost Analytics, Cost Management | A meter on AI tokens per consumer, fed from existing gateway traffic. A product plan with an entitlement (e.g. 10k tokens a month). Check whether usage matches Kong's request logs and whether an over-entitlement consumer is blocked or only flagged | Meter, feature, plan, customer (tag `metering-eval`) | Half a day |
+| 1 (done, see [metering-evaluation.md](metering-evaluation.md)) | Metering & Billing, Cost Analytics, Cost Management | A meter on AI tokens per consumer, fed from existing gateway traffic. A product plan with an entitlement (e.g. 10k tokens a month). Check whether usage matches Kong's request logs and whether an over-entitlement consumer is blocked or only flagged | Meter, feature, plan, customer (tag `metering-eval`) | Half a day |
 | 2 | Token Vault and Virtual Keys | Move the provider key out of plain-text plugin config (fixes finding S3c). Check whether virtual keys give per-team budgets without a Kong consumer per agent | Vault entry, virtual keys (dummy provider key or mock) | 2 to 3 hours |
 | 3 | AI Agents, Access Management Agents, Identity | Register an agent identity and issue it OAuth client credentials from a Kong Identity auth server. Check whether the gateway can enforce per-agent limits from that token | Auth server, client, agent (tag `agent-id-eval`) | Half a day |
 | 4 | Konnect MCP Servers and MCP Registries | Register the AI MCP Proxy server as a Konnect MCP Server and list it in a registry. Check what a client sees and whether the ACL carries over | MCP server entity, registry if the trial allows it | 2 to 3 hours |
@@ -94,7 +95,7 @@ Out of reach on this trial: AI Gateway 2.x traffic and Dedicated Cloud Gateways.
 
 ## What testing every feature systematically involves
 
-Testing all 32 menu items plus the 23 `ai-*` plugins would take about 9 to 10 working sessions. It also needs three things the account owner has to provide: a self-hosted data plane (Docker on a local machine), a Stripe test-mode account, and approval for Konnect writes. Without the data plane and Stripe, about a quarter of the list stays untestable.
+Testing all 32 menu items plus the 23 `ai-*` plugins would take about 9 to 10 working sessions. It also needs two things the account owner has to provide: a self-hosted data plane with Redis (Docker on a local machine), and approval for Konnect writes. Without the data plane, about a quarter of the list stays untestable.
 
 **1. One test card per feature.** Each card says: the claim (from Kong's docs or marketing), the setup, the test cases, pass criteria, the evidence level reached (claimed, documented, demonstrated, attested) and a cleanup tag. Test cases always cover the happy path, the defaults, a negative case and a misuse case. Defaults matter because most of our findings so far were unsafe defaults: failover, semantic guard threshold, cache scope and credential forwarding.
 
@@ -106,7 +107,8 @@ Testing all 32 menu items plus the 23 `ai-*` plugins would take about 9 to 10 wo
 | --- | --- | --- |
 | Trial org + serverless gateway | Catalog, Dev Portal, Metering, Observability, Identity, Access Management, most AI plugins | In place |
 | Self-hosted data plane joined to Konnect (Docker, local) | AI Gateway 2.x Models and Providers traffic, AI Sanitizer with its PII service, `redis` rate-limit policy, vault backends, Debugger on a hybrid node | About 1 hour to set up |
-| Stripe test mode | Billing and invoices from metered usage | Needs a free Stripe account |
+| Sandbox billing app (built in) or Stripe test mode | Billing and invoices from metered usage | Sandbox works today |
+| Redis reachable from the gateway | `entitlement-enforcement`, `redis` rate-limit policies | Needs a hybrid data plane or a hosted Redis |
 | Paid tier or a Kong-provided sandbox | Dedicated Cloud Gateways, region pinning (data residency), possibly SSO and MCP Registries | Needs Kong |
 | Local machine for network | Portal MCP and Konnect MCP probes (blocked in the cloud sandbox) | Works today |
 
