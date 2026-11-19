@@ -64,10 +64,20 @@ AIDefence caught leetspeak, base64, Spanish and hidden-in-a-document attacks tha
 - **Claude Code's own format straight into Kong, no agentic-flow:** an `ai-proxy` route with `llm_format: anthropic` accepted Anthropic Messages requests with the agent's key in `x-api-key` (what `ANTHROPIC_API_KEY` sends), swapped in the provider key, passed system prompt and tool definitions through unchanged, and passed streaming (SSE) through. So ruflo inside Claude Code can point `ANTHROPIC_BASE_URL` at Kong directly. Caveats: a Bearer token (`ANTHROPIC_AUTH_TOKEN` style) got 401 with `key_names: [x-api-key]`, so add `authorization` too; and Kong again refused any model other than the configured one, which matters because Claude Code also calls a small fast model. Tested against a mock Anthropic upstream; a full Claude Code session couldn't be run from the cloud sandbox because its Claude Code is managed by the host and ignored the test key.
 - **Rate limit on MCP tools:** with 5 requests/minute per consumer, an agent's MCP connection handshake used up 3 of them, so only 2 tool calls got through before 429. The other agent was unaffected. Budget for the handshake (and pings) when setting MCP limits.
 
+### 5. Dev Portal MCP server (Wipro Demo Portal, read-only probes)
+
+Probed `https://c07265dd25b4.eu.kongportals.com/api/v3/mcp` with the MCP SDK client (`ruv-stack/portal-tools.mjs`, `portal-call.mjs`). Nothing was written.
+
+- **It's a "code mode" server.** It exposes 3 meta-tools rather than ~22 tools: `search` (find tools), `get_schema` (their parameters) and `execute` (run a Python block that chains `await call_tool(...)` calls on Kong's side). Server reports itself as `portal-mcp` 3.4.2. An agent needs to be comfortable writing small Python snippets; Claude and ruflo agents are, simpler agents may not be.
+- **Anonymous read works on a public portal.** With no login, an agent could list the published API (Demo HTTPBin API), its spec versions, the portal pages, and run full-text search across operations and docs (it found `POST /anything`, "Echo a JSON body").
+- **Developer-only and app tools refuse.** `list_applications`, `list_application_auth_strategies`, `get_api_actions` and `portal_list_mcp_registries` returned 404 without a signed-in developer.
+- **Write tools are hidden, not just blocked.** With "MCP server write operations" off, `create_application` and `delete_application` don't exist (`get_schema` says "Tools not found"), so an agent can't even try them.
+- **What it is not:** it doesn't proxy calls to the APIs and issues no API keys. It's a governed catalogue. For rUv's agents it's the discovery step; the calls themselves would then go through a Kong route (or AI MCP Proxy) with the agent's own consumer key.
+
 ### Not tested
 
-- **Dev Portal MCP server** (`https://c07265dd25b4.eu.kongportals.com/api/v3/mcp`): the portal host is blocked by the cloud sandbox's network policy.
-- A live Claude Code + ruflo session against Kong (run it on a laptop: `ANTHROPIC_BASE_URL=<gateway>/<route> ANTHROPIC_API_KEY=<kong consumer key> claude`).
+- A live Claude Code + ruflo session against Kong (run it on a laptop: `ANTHROPIC_BASE_URL=<gateway>/<route> ANTHROPIC_API_KEY=<kong consumer key> claude`, and `claude mcp add --transport http portal https://<portal>/api/v3/mcp`).
+- Portal MCP with developer login (OAuth) and write operations on, since the demo portal is public with writes off.
 - agentic-flow's own agents with a remote MCP server (its loader only starts stdio servers, so it needs a bridge).
 
 ## What this changes

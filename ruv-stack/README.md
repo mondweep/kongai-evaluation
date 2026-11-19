@@ -15,4 +15,5 @@ Setup: `KCONNECT_TOKEN` set, `npm install --ignore-scripts` in this folder, and 
 | MCP by hand | `bash mcp.sh <key> tools/list '{}'` | Raw JSON-RPC over streamable HTTP |
 | Round 2 entities | `python3 cleanup.py && python3 setup_round2.py` | Anthropic-native route and a rate-limited MCP route |
 | MCP rate limit | `node mcp-rl.mjs` | Handshake counts against the limit |
+| Dev Portal MCP (read-only) | `NODE_USE_ENV_PROXY=1 node portal-tools.mjs`; `node portal-call.mjs '["search",{"query":"api"}]'` | Tool surface and anonymous access |
 | Clean up | `python3 cleanup.py` | Deletes everything tagged `ruv-eval` |
