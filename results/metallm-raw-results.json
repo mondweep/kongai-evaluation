@@ -1,0 +1,728 @@
+[
+ {
+  "n": 1,
+  "requested": "cognitum-low",
+  "kind": "easy",
+  "status": 200,
+  "latency_ms": 1889,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "c7f7d289-5500-497a-b057-dac726311c55",
+   "x-cognitum-request-id": "c7f7d289-5500-497a-b057-dac726311c55",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"319-MhI1kIiNqFeauUebtuFGSAf3GC8\"",
+   "x-cognitum-cap-degraded": "false",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "explicit:low",
+   "x-cloud-trace-context": "d53c01ffeda68f3362da673832c1168e;o=1",
+   "date": "Thu, 19 Nov 2026 11:58:38 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "793",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "id": "chatcmpl-c7f7d289-5500-497a-b057-dac726311c55",
+   "object": "chat.completion",
+   "created": 1795089517,
+   "model": "cognitum-low",
+   "choices": [
+    {
+     "index": 0,
+     "message": {
+      "role": "assistant",
+      "content": "hello"
+     },
+     "finish_reason": "stop"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 19,
+    "completion_tokens": 20,
+    "total_tokens": 39,
+    "reasoning_tokens": 20,
+    "completion_tokens_details": {
+     "reasoning_tokens": 20
+    },
+    "cost": 0.0001146
+   },
+   "x_cognitum": {
+    "request_id": "c7f7d289-5500-497a-b057-dac726311c55",
+    "resolved_tier": "low",
+    "resolved_model": "z-ai/glm-5.3-flash",
+    "escalated": false,
+    "cap_degraded": false,
+    "routing_reason": "explicit:low",
+    "price_usd": 0.0001146,
+    "cache": "miss",
+    "safety": {
+     "scanned": true,
+     "mode": "warn",
+     "action": "pass",
+     "scope": [
+      "input"
+     ],
+     "counts": {
+      "injection": 0,
+      "pii": 0,
+      "secret": 0
+     },
+     "by_severity": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+     },
+     "findings": []
+    }
+   }
+  }
+ },
+ {
+  "n": 2,
+  "requested": "cognitum-low",
+  "kind": "hard",
+  "status": 422,
+  "latency_ms": 4383,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "f01079d8-8c56-44d8-8acc-052670957dce",
+   "x-cognitum-request-id": "f01079d8-8c56-44d8-8acc-052670957dce",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"13b-FLqQMTF3U8JhVT/OHd4cjCjXvN8\"",
+   "x-cognitum-cap-degraded": "false",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "explicit:low",
+   "x-cloud-trace-context": "3ed78b8acf5d4f34d9fc9bd2e78fb49b",
+   "date": "Thu, 19 Nov 2026 11:58:43 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "315",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "error": "The model consumed all 400 output tokens on internal reasoning before producing any text. Retry with a larger max_tokens.",
+   "code": "output_budget_exhausted_by_reasoning",
+   "requestId": "f01079d8-8c56-44d8-8acc-052670957dce",
+   "finish_reason": "length",
+   "requested_max_tokens": 400,
+   "retry_with": {
+    "max_tokens": 1600
+   }
+  }
+ },
+ {
+  "n": 3,
+  "requested": "cognitum-mid",
+  "kind": "medium",
+  "status": 200,
+  "latency_ms": 2841,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "ab51246a-18d1-4828-ba3a-ad9924363d21",
+   "x-cognitum-request-id": "ab51246a-18d1-4828-ba3a-ad9924363d21",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"4ae-gWNJFVFQANTxZYYc5ZF55t3y1Ds\"",
+   "x-cognitum-cap-degraded": "true",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "explicit:mid; sponsored_grant_cap(mid->low)",
+   "x-cloud-trace-context": "517aeecabbe7ab8280d3e0305f01cb06",
+   "date": "Thu, 19 Nov 2026 11:58:47 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "1198",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "id": "chatcmpl-ab51246a-18d1-4828-ba3a-ad9924363d21",
+   "object": "chat.completion",
+   "created": 1795089527,
+   "model": "cognitum-mid",
+   "choices": [
+    {
+     "index": 0,
+     "message": {
+      "role": "assistant",
+      "content": "API gateways centralise rate limiting at a single entry point, allowing you to enforce consistent traffic policies across all backend services without implementing the logic separately in each one. By throttling requests before they reach upstream services, they protect against abuse and overload while ensuring fair resource allocation among clients."
+     },
+     "finish_reason": "stop"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 28,
+    "completion_tokens": 339,
+    "total_tokens": 367,
+    "reasoning_tokens": 281,
+    "completion_tokens_details": {
+     "reasoning_tokens": 281
+    },
+    "cost": 0.0015308000000000001
+   },
+   "x_cognitum": {
+    "request_id": "ab51246a-18d1-4828-ba3a-ad9924363d21",
+    "resolved_tier": "low",
+    "resolved_model": "z-ai/glm-5.3-flash",
+    "escalated": false,
+    "cap_degraded": true,
+    "routing_reason": "explicit:mid; sponsored_grant_cap(mid->low)",
+    "price_usd": 0.0015308000000000001,
+    "cache": "miss",
+    "safety": {
+     "scanned": true,
+     "mode": "warn",
+     "action": "pass",
+     "scope": [
+      "input"
+     ],
+     "counts": {
+      "injection": 0,
+      "pii": 0,
+      "secret": 0
+     },
+     "by_severity": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+     },
+     "findings": []
+    }
+   }
+  }
+ },
+ {
+  "n": 4,
+  "requested": "cognitum-mid",
+  "kind": "hard",
+  "status": 422,
+  "latency_ms": 5002,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "cb2a576e-5d54-4ec4-bb9d-eeb24bac61f2",
+   "x-cognitum-request-id": "cb2a576e-5d54-4ec4-bb9d-eeb24bac61f2",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"13b-OQ6dyANiLz8qVA22oMnHRsaEptw\"",
+   "x-cognitum-cap-degraded": "true",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "explicit:mid; sponsored_grant_cap(mid->low)",
+   "x-cloud-trace-context": "5a0e79cf7a55335c5c5e5ae204726c8a;o=1",
+   "date": "Thu, 19 Nov 2026 11:58:53 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "315",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "error": "The model consumed all 400 output tokens on internal reasoning before producing any text. Retry with a larger max_tokens.",
+   "code": "output_budget_exhausted_by_reasoning",
+   "requestId": "cb2a576e-5d54-4ec4-bb9d-eeb24bac61f2",
+   "finish_reason": "length",
+   "requested_max_tokens": 400,
+   "retry_with": {
+    "max_tokens": 1600
+   }
+  }
+ },
+ {
+  "n": 5,
+  "requested": "cognitum-high",
+  "kind": "easy",
+  "status": 200,
+  "latency_ms": 600,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "8270f05b-1e7f-406e-832a-eb4da71928de",
+   "x-cognitum-request-id": "8270f05b-1e7f-406e-832a-eb4da71928de",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"308-kwk9g9oj6SXUl+zTpcl+Qd063uQ\"",
+   "x-cognitum-cap-degraded": "true",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "explicit:low",
+   "x-cloud-trace-context": "14bb0ec7937294e36395fbdabda15bd1",
+   "date": "Thu, 19 Nov 2026 11:58:54 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "776",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "id": "chatcmpl-8270f05b-1e7f-406e-832a-eb4da71928de",
+   "object": "chat.completion",
+   "created": 1795089534,
+   "model": "cognitum-high",
+   "choices": [
+    {
+     "index": 0,
+     "message": {
+      "role": "assistant",
+      "content": "hello"
+     },
+     "finish_reason": "stop"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 19,
+    "completion_tokens": 20,
+    "total_tokens": 39,
+    "reasoning_tokens": 20,
+    "completion_tokens_details": {
+     "reasoning_tokens": 20
+    },
+    "cost": 0
+   },
+   "x_cognitum": {
+    "request_id": "8270f05b-1e7f-406e-832a-eb4da71928de",
+    "resolved_tier": "low",
+    "resolved_model": "z-ai/glm-5.3-flash",
+    "escalated": false,
+    "cap_degraded": true,
+    "routing_reason": "explicit:low",
+    "price_usd": 0,
+    "cache": "hit",
+    "safety": {
+     "scanned": true,
+     "mode": "warn",
+     "action": "pass",
+     "scope": [
+      "input"
+     ],
+     "counts": {
+      "injection": 0,
+      "pii": 0,
+      "secret": 0
+     },
+     "by_severity": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+     },
+     "findings": []
+    }
+   }
+  }
+ },
+ {
+  "n": 6,
+  "requested": "cognitum-high",
+  "kind": "hard",
+  "status": 422,
+  "latency_ms": 4243,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "cd220d61-b943-4f56-9e75-28927f1bf335",
+   "x-cognitum-request-id": "cd220d61-b943-4f56-9e75-28927f1bf335",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"13b-fANbTrhONaOM//+/fzqAED6gkSY\"",
+   "x-cognitum-cap-degraded": "true",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "explicit:high; sponsored_grant_cap(high->low)",
+   "x-cloud-trace-context": "cf8c1820f07d7b744d2dbbacf8fa01e0",
+   "date": "Thu, 19 Nov 2026 11:59:00 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "315",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "error": "The model consumed all 400 output tokens on internal reasoning before producing any text. Retry with a larger max_tokens.",
+   "code": "output_budget_exhausted_by_reasoning",
+   "requestId": "cd220d61-b943-4f56-9e75-28927f1bf335",
+   "finish_reason": "length",
+   "requested_max_tokens": 400,
+   "retry_with": {
+    "max_tokens": 1600
+   }
+  }
+ },
+ {
+  "n": 7,
+  "requested": "cognitum-auto",
+  "kind": "easy",
+  "status": 200,
+  "latency_ms": 995,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "14c54afc-b423-4c2b-9b0b-e090fbcdb1e7",
+   "x-cognitum-request-id": "14c54afc-b423-4c2b-9b0b-e090fbcdb1e7",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"350-yhcE3ISn8klXQ/MJc44h9YOAZAQ\"",
+   "x-cognitum-cap-degraded": "false",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "difficulty=low (score=0: everyday); reasoning_minimized(everyday_low)",
+   "x-cloud-trace-context": "b8be6c546cb94ea9102144192c9ecffb;o=1",
+   "date": "Thu, 19 Nov 2026 11:59:02 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "848",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "id": "chatcmpl-14c54afc-b423-4c2b-9b0b-e090fbcdb1e7",
+   "object": "chat.completion",
+   "created": 1795089541,
+   "model": "cognitum-auto",
+   "choices": [
+    {
+     "index": 0,
+     "message": {
+      "role": "assistant",
+      "content": "hello"
+     },
+     "finish_reason": "stop"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 19,
+    "completion_tokens": 3,
+    "total_tokens": 22,
+    "reasoning_tokens": 0,
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "cost": 3.98e-05
+   },
+   "x_cognitum": {
+    "request_id": "14c54afc-b423-4c2b-9b0b-e090fbcdb1e7",
+    "resolved_tier": "low",
+    "resolved_model": "z-ai/glm-5.3-flash",
+    "escalated": false,
+    "cap_degraded": false,
+    "routing_reason": "difficulty=low (score=0: everyday); reasoning_minimized(everyday_low)",
+    "price_usd": 3.98e-05,
+    "cache": "miss",
+    "safety": {
+     "scanned": true,
+     "mode": "warn",
+     "action": "pass",
+     "scope": [
+      "input"
+     ],
+     "counts": {
+      "injection": 0,
+      "pii": 0,
+      "secret": 0
+     },
+     "by_severity": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+     },
+     "findings": []
+    }
+   }
+  }
+ },
+ {
+  "n": 8,
+  "requested": "cognitum-auto",
+  "kind": "medium",
+  "status": 200,
+  "latency_ms": 1821,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "f39385a1-bce9-4f2f-809f-9f3b949787db",
+   "x-cognitum-request-id": "f39385a1-bce9-4f2f-809f-9f3b949787db",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"4d5-HCz2Xmi54Tm2bNbf8vJ3q588eXg\"",
+   "x-cognitum-cap-degraded": "false",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "difficulty=low (score=0: everyday); reasoning_minimized(everyday_low)",
+   "x-cloud-trace-context": "7c8b69d1f1e4bb9f672482b915c885fc",
+   "date": "Thu, 19 Nov 2026 11:59:04 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "1237",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "id": "chatcmpl-f39385a1-bce9-4f2f-809f-9f3b949787db",
+   "object": "chat.completion",
+   "created": 1795089544,
+   "model": "cognitum-auto",
+   "choices": [
+    {
+     "index": 0,
+     "message": {
+      "role": "assistant",
+      "content": "API gateways provide a centralized, consistent enforcement point for rate limiting, so policies can be applied uniformly across all backend services without each service implementing its own throttling logic. They also protect systems from abuse and overload before traffic reaches the services, preserving backend resources and preventing any single client from degrading overall performance."
+     },
+     "finish_reason": "stop"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 28,
+    "completion_tokens": 64,
+    "total_tokens": 92,
+    "reasoning_tokens": 0,
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "cost": 0.0003208
+   },
+   "x_cognitum": {
+    "request_id": "f39385a1-bce9-4f2f-809f-9f3b949787db",
+    "resolved_tier": "low",
+    "resolved_model": "z-ai/glm-5.3-flash",
+    "escalated": false,
+    "cap_degraded": false,
+    "routing_reason": "difficulty=low (score=0: everyday); reasoning_minimized(everyday_low)",
+    "price_usd": 0.0003208,
+    "cache": "miss",
+    "safety": {
+     "scanned": true,
+     "mode": "warn",
+     "action": "pass",
+     "scope": [
+      "input"
+     ],
+     "counts": {
+      "injection": 0,
+      "pii": 0,
+      "secret": 0
+     },
+     "by_severity": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+     },
+     "findings": []
+    }
+   }
+  }
+ },
+ {
+  "n": 9,
+  "requested": "cognitum-auto",
+  "kind": "code",
+  "status": 422,
+  "latency_ms": 3667,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "5f5120ff-69a6-4bf9-bc5b-b2a8454c2b20",
+   "x-cognitum-request-id": "5f5120ff-69a6-4bf9-bc5b-b2a8454c2b20",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"13b-hwPv5aivyJ3+CczVrrmIamgX370\"",
+   "x-cognitum-cap-degraded": "true",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "difficulty=mid (score=2: code/diff); sponsored_grant_cap(mid->low)",
+   "x-cloud-trace-context": "5832272b51e5e7d6a2e71f18e78bc410",
+   "date": "Thu, 19 Nov 2026 11:59:09 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "315",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "error": "The model consumed all 400 output tokens on internal reasoning before producing any text. Retry with a larger max_tokens.",
+   "code": "output_budget_exhausted_by_reasoning",
+   "requestId": "5f5120ff-69a6-4bf9-bc5b-b2a8454c2b20",
+   "finish_reason": "length",
+   "requested_max_tokens": 400,
+   "retry_with": {
+    "max_tokens": 1600
+   }
+  }
+ },
+ {
+  "n": 10,
+  "requested": "cognitum-auto",
+  "kind": "hard",
+  "status": 422,
+  "latency_ms": 3050,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "9c3de026-0d5b-46ac-98c3-bed6511a779c",
+   "x-cognitum-request-id": "9c3de026-0d5b-46ac-98c3-bed6511a779c",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"13b-1/nxIMmcV+CSL6UTmbhV+goTleA\"",
+   "x-cognitum-cap-degraded": "true",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "400",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "difficulty=mid (score=3: code/diff,reasoning_markers); sponsored_grant_cap(mid->low)",
+   "x-cloud-trace-context": "45b4eb9667582e9c4181d14feb002132",
+   "date": "Thu, 19 Nov 2026 11:59:13 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "315",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "error": "The model consumed all 400 output tokens on internal reasoning before producing any text. Retry with a larger max_tokens.",
+   "code": "output_budget_exhausted_by_reasoning",
+   "requestId": "9c3de026-0d5b-46ac-98c3-bed6511a779c",
+   "finish_reason": "length",
+   "requested_max_tokens": 400,
+   "retry_with": {
+    "max_tokens": 1600
+   }
+  }
+ },
+ {
+  "n": 1,
+  "requested": "cognitum-auto",
+  "kind": "code",
+  "status": 200,
+  "latency_ms": 7438,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "86eb961d-5b14-47a1-9b79-fa12ac220183",
+   "x-cognitum-request-id": "86eb961d-5b14-47a1-9b79-fa12ac220183",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"71c-Q7a94lnq4pitFhca59lJNhcSx1s\"",
+   "x-cognitum-cap-degraded": "true",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "1600",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "difficulty=mid (score=2: code/diff,moderate_max_tokens); sponsored_grant_cap(mid->low)",
+   "x-cloud-trace-context": "672ce0530230f053d76b0038fd2089bc;o=1",
+   "date": "Thu, 19 Nov 2026 11:59:36 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "1820",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "id": "chatcmpl-86eb961d-5b14-47a1-9b79-fa12ac220183",
+   "object": "chat.completion",
+   "created": 1795089576,
+   "model": "cognitum-auto",
+   "choices": [
+    {
+     "index": 0,
+     "message": {
+      "role": "assistant",
+      "content": "```python\ndef is_palindrome(s):\n    \"\"\"Return True if s is a palindrome, ignoring case and spaces.\"\"\"\n    cleaned = s.replace(\" \", \"\").lower()\n    return cleaned == cleaned[::-1]\n```\n\n**How it works:**\n- `s.replace(\" \", \"\")` removes all spaces.\n- `.lower()` makes the comparison case-insensitive.\n- `cleaned[::-1]` reverses the string, and the comparison checks if it matches the original.\n\n**Example usage:**\n\n```python\nprint(is_palindrome(\"Racecar\"))                 # True\nprint(is_palindrome(\"Never odd or even\"))       # True\nprint(is_palindrome(\"hello\"))                   # False\nprint(is_palindrome(\"A man a plan a canal Panama\"))  # True\n```\n\nIf you also want to ignore punctuation (e.g., \"A man, a plan, a canal: Panama!\"), filter with `isalnum` instead:\n\n```python\ndef is_palindrome(s):\n    cleaned = \"\".join(ch.lower() for ch in s if ch.isalnum())\n    return cleaned == cleaned[::-1]\n```"
+     },
+     "finish_reason": "stop"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 31,
+    "completion_tokens": 1002,
+    "total_tokens": 1033,
+    "reasoning_tokens": 773,
+    "completion_tokens_details": {
+     "reasoning_tokens": 773
+    },
+    "cost": 0.0044522
+   },
+   "x_cognitum": {
+    "request_id": "86eb961d-5b14-47a1-9b79-fa12ac220183",
+    "resolved_tier": "low",
+    "resolved_model": "z-ai/glm-5.3-flash",
+    "escalated": false,
+    "cap_degraded": true,
+    "routing_reason": "difficulty=mid (score=2: code/diff,moderate_max_tokens); sponsored_grant_cap(mid->low)",
+    "price_usd": 0.0044522,
+    "cache": "miss",
+    "safety": {
+     "scanned": true,
+     "mode": "warn",
+     "action": "pass",
+     "scope": [
+      "input"
+     ],
+     "counts": {
+      "injection": 0,
+      "pii": 0,
+      "secret": 0
+     },
+     "by_severity": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+     },
+     "findings": []
+    }
+   }
+  }
+ },
+ {
+  "n": 2,
+  "requested": "cognitum-auto",
+  "kind": "hard",
+  "status": 422,
+  "latency_ms": 9258,
+  "headers": {
+   "x-content-type-options": "nosniff",
+   "x-cognitum-revision": "apigateway-00423-hox",
+   "x-request-id": "33397ca8-c6a1-42bd-913e-ec7a4a1e2c89",
+   "x-cognitum-request-id": "33397ca8-c6a1-42bd-913e-ec7a4a1e2c89",
+   "content-type": "application/json; charset=utf-8",
+   "etag": "W/\"13d-z6dqbcqu6l8gU/XDFKEsKUQfE+U\"",
+   "x-cognitum-cap-degraded": "true",
+   "x-cognitum-escalated": "false",
+   "x-cognitum-output-bound": "1600",
+   "x-cognitum-resolved-model": "z-ai/glm-5.3-flash",
+   "x-cognitum-resolved-tier": "low",
+   "x-cognitum-routing-reason": "difficulty=mid (score=3: code/diff,reasoning_markers,moderate_max_tokens); sponsored_grant_cap(mid->low)",
+   "x-cloud-trace-context": "c385793268ad2d376cf58e3a1dfa9512",
+   "date": "Thu, 19 Nov 2026 11:59:46 GMT",
+   "server": "Google Frontend",
+   "Content-Length": "317",
+   "via": "1.1 google",
+   "Alt-Svc": "h3=\":443\"; ma=2592000",
+   "Connection": "close"
+  },
+  "resp": {
+   "error": "The model consumed all 1600 output tokens on internal reasoning before producing any text. Retry with a larger max_tokens.",
+   "code": "output_budget_exhausted_by_reasoning",
+   "requestId": "33397ca8-c6a1-42bd-913e-ec7a4a1e2c89",
+   "finish_reason": "length",
+   "requested_max_tokens": 1600,
+   "retry_with": {
+    "max_tokens": 6400
+   }
+  }
+ }
+]

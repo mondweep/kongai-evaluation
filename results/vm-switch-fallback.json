@@ -1,0 +1,128 @@
+{
+ "switch_to_mock": [
+  {
+   "status": 200,
+   "ms": 675,
+   "resp_model": "mock-b",
+   "x_kong_llm_model": "openai/mock-b",
+   "upstream": "mock-b",
+   "text": "RECEIVED:{\"messages\":[{\"content\":\"Reply "
+  },
+  {
+   "status": 200,
+   "ms": 644,
+   "resp_model": "mock-b",
+   "x_kong_llm_model": "openai/mock-b",
+   "upstream": "mock-b",
+   "text": "RECEIVED:{\"messages\":[{\"content\":\"Reply "
+  },
+  {
+   "status": 200,
+   "ms": 424,
+   "resp_model": "mock-b",
+   "x_kong_llm_model": "openai/mock-b",
+   "upstream": "mock-b",
+   "text": "RECEIVED:{\"messages\":[{\"content\":\"Reply "
+  }
+ ],
+ "fallback_default": [
+  {
+   "status": 500,
+   "ms": 634,
+   "resp_model": null,
+   "x_kong_llm_model": null,
+   "upstream": null,
+   "text": "{\"error\":{\"message\":\"mock upstream failure\"}}"
+  },
+  {
+   "status": 500,
+   "ms": 399,
+   "resp_model": null,
+   "x_kong_llm_model": null,
+   "upstream": null,
+   "text": "{\"error\":{\"message\":\"mock upstream failure\"}}"
+  },
+  {
+   "status": 500,
+   "ms": 377,
+   "resp_model": null,
+   "x_kong_llm_model": null,
+   "upstream": null,
+   "text": "{\"error\":{\"message\":\"mock upstream failure\"}}"
+  },
+  {
+   "status": 500,
+   "ms": 372,
+   "resp_model": null,
+   "x_kong_llm_model": null,
+   "upstream": null,
+   "text": "{\"error\":{\"message\":\"mock upstream failure\"}}"
+  },
+  {
+   "status": 500,
+   "ms": 372,
+   "resp_model": null,
+   "x_kong_llm_model": null,
+   "upstream": null,
+   "text": "{\"error\":{\"message\":\"mock upstream failure\"}}"
+  },
+  {
+   "status": 500,
+   "ms": 371,
+   "resp_model": null,
+   "x_kong_llm_model": null,
+   "upstream": null,
+   "text": "{\"error\":{\"message\":\"mock upstream failure\"}}"
+  }
+ ],
+ "fallback_explicit": [
+  {
+   "status": 200,
+   "ms": 1556,
+   "resp_model": "gemini-2.5-flash",
+   "x_kong_llm_model": "gemini/gemini-2.5-flash",
+   "upstream": null,
+   "text": "pong"
+  },
+  {
+   "status": 200,
+   "ms": 880,
+   "resp_model": "gemini-2.5-flash",
+   "x_kong_llm_model": "gemini/gemini-2.5-flash",
+   "upstream": null,
+   "text": "pong"
+  },
+  {
+   "status": 200,
+   "ms": 880,
+   "resp_model": "gemini-2.5-flash",
+   "x_kong_llm_model": "gemini/gemini-2.5-flash",
+   "upstream": null,
+   "text": "pong"
+  },
+  {
+   "status": 200,
+   "ms": 884,
+   "resp_model": "gemini-2.5-flash",
+   "x_kong_llm_model": "gemini/gemini-2.5-flash",
+   "upstream": null,
+   "text": "pong"
+  },
+  {
+   "status": 503,
+   "ms": 1362,
+   "resp_model": null,
+   "x_kong_llm_model": null,
+   "upstream": null,
+   "text": "{   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",     \"status\": \"UNAVAILABLE\"   } } "
+  },
+  {
+   "status": 200,
+   "ms": 1366,
+   "resp_model": "gemini-2.5-flash",
+   "x_kong_llm_model": "gemini/gemini-2.5-flash",
+   "upstream": null,
+   "text": "pong"
+  }
+ ]
+}

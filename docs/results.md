@@ -92,6 +92,10 @@ All 23 `ai-*` plugins are listed for the serverless control plane and pass Konne
 
 **Verdict:** the cache does cut cost, but with the default (route-wide) scope it **leaks answers between users**. A loose threshold also returns wrong answers. It's only safe for public, non-personal prompts, or with the cache partitioned per consumer.
 
+## 6. Virtual models (one model name, several providers)
+
+See `docs/virtual-model-evaluation.md`. Headlines: two AI Proxy Advanced targets can share one `model_alias`; default failover served 0/6 requests when the primary failed (explicit criteria: 5/6); a per-model cost cap routes traffic to the next target instead of rejecting it; unknown model names return HTTP 500; the Konnect "Models" (AI Gateway 2.x) entities can be created on the trial but get no proxy URL without a self-hosted data plane.
+
 ## Real model (Gemini 2.5 Flash, free tier, via Kong)
 
 | Test | Result |

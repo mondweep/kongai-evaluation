@@ -1,0 +1,82 @@
+[
+ [
+  0,
+  200,
+  "openai/pricey-a",
+  {
+   "X-AI-RateLimit-Remaining-300-policy-2": "0.99993",
+   "X-AI-RateLimit-Remaining-300-policy-1": "0.00493"
+  },
+  ""
+ ],
+ [
+  1,
+  200,
+  "openai/pricey-a",
+  {
+   "X-AI-RateLimit-Remaining-300-policy-2": "0.99911",
+   "X-AI-RateLimit-Remaining-300-policy-1": "0.00411"
+  },
+  ""
+ ],
+ [
+  2,
+  200,
+  "openai/pricey-a",
+  {
+   "X-AI-RateLimit-Remaining-300-policy-2": "0.99829",
+   "X-AI-RateLimit-Remaining-300-policy-1": "0.00329"
+  },
+  ""
+ ],
+ [
+  3,
+  200,
+  "openai/pricey-a",
+  {
+   "X-AI-RateLimit-Remaining-300-policy-2": "0.99747",
+   "X-AI-RateLimit-Remaining-300-policy-1": "0.00247"
+  },
+  ""
+ ],
+ [
+  4,
+  200,
+  "openai/pricey-a",
+  {
+   "X-AI-RateLimit-Remaining-300-policy-2": "0.99665",
+   "X-AI-RateLimit-Remaining-300-policy-1": "0.00165"
+  },
+  ""
+ ],
+ [
+  5,
+  200,
+  "openai/pricey-a",
+  {
+   "X-AI-RateLimit-Remaining-300-policy-2": "0.99583",
+   "X-AI-RateLimit-Remaining-300-policy-1": "0.00083"
+  },
+  ""
+ ],
+ [
+  6,
+  200,
+  "openai/pricey-a",
+  {
+   "X-AI-RateLimit-Remaining-300-policy-2": "0.99501",
+   "X-AI-RateLimit-Remaining-300-policy-1": "1e-05"
+  },
+  ""
+ ],
+ [
+  7,
+  200,
+  "openai/cheap-b",
+  {
+   "X-AI-RateLimit-Remaining-300-policy-2": "0.99419",
+   "X-AI-RateLimit-Remaining-300-policy-1": "0"
+  },
+  ""
+ ]
+]
