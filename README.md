@@ -70,6 +70,40 @@ Everything ran on 19 Nov 2026 on a Konnect trial (EU region) with one serverless
 | Can't run on the trial | MCP Registries (no API) |
 | Not evaluated | Cost Analytics, Metering Settings, Observability Summary and Reports, Groups, Identity Providers |
 
+## How we did it
+
+1. **Plan first, with pass/fail bars.** Each of Kong's claims became a test with a written pass/fail bar before anything ran ([docs/validation-plan.md](docs/validation-plan.md)). Later rounds followed the same pattern. First a coverage matrix of the Konnect menu, then a prioritised plan for the gaps ([docs/feature-coverage.md](docs/feature-coverage.md)), then one write-up per area.
+2. **Grade the evidence.** Every result is graded:
+   - **claimed:** marketing or a README says so
+   - **documented:** vendor docs explain how it works
+   - **demonstrated:** our test passed
+   - **attested:** an independent party vouches for it
+   
+   For third-party code we also used **read in code** (we inspected the published package). Nothing here is attested.
+3. **Use a mock LLM so most tests cost nothing.** An echo mock runs on the gateway itself ([mock/mock-llm.lua](mock/mock-llm.lua)). It returns exactly what reached the "model", so leaks and transformations are visible. Real-model calls went to a free-tier Gemini key, with synthetic data only, and only where a real provider mattered (token accuracy, embeddings, LLM-backed plugins).
+4. **Synthetic data only.** The PII, injection and benign corpora are generated ([scripts/corpus.py](scripts/corpus.py)). No real personal or customer data was used.
+5. **Tag everything we create.** Each evaluation used its own tag or label, such as `validation`, `devportal-demo`, `mcp-demo`, `ruv-eval`, `virtual-model-demo`, `metering-eval` or `*-eval` for the gaps. Cleanup is then one delete per tag, and one thread can't break another's setup.
+6. **Ask before changing anything.** Nothing was created or changed in Konnect, Supabase or anywhere else without the owner's OK. Read-only probes ran freely. Where Konnect access was given to an agent, it used a system account scoped to one control plane, not the owner's token.
+7. **Keep secrets out.** Tokens and keys live in environment variables or git-ignored files (`keys.json`, `secrets*.json`, `*.pem`). Keys echoed back in results were redacted before commit. Provider keys stored in Konnect for a test were removed afterwards.
+8. **Record everything.** Scripts are in `scripts/` and `ruv-stack/`, raw outputs in `results/`, and one doc per evaluation in `docs/`. Each round was merged through its own pull request.
+
+## External platforms used
+
+| Platform | What we used it for | Notes |
+|---|---|---|
+| **Kong Konnect** (trial, EU) | The system under test: a serverless gateway (Kong 3.16), Dev Portal, Metering & Billing, Kong Identity, Service Catalog, Observability, and the built-in Sandbox billing app | Admin API through a personal token for setup. Two scoped system accounts: one for the MCP demo, one ingest-only for metering |
+| **Kong Konnect MCP server** (`eu.mcp.konghq.com`) | Managing Konnect from Claude Desktop in plain English. Also the only scripted route to Explorer queries and Debugger sessions | Connected through the `mcp-remote` bridge with the scoped system-account token. The global endpoint 403s for an EU org |
+| **Supabase** (existing project, schema `kongai`) | pgvector store for the semantic prompt guard and the semantic cache. An edge function (`kongai-audit-receiver`) that received Konnect's audit-log webhooks | Low-privilege `kongai_user` role. No new project was created |
+| **Google Gemini** (free tier) | Real-model checks: token and cost accuracy, embeddings for the semantic plugins, the LLM behind the request and response transformers and the LLM judge | Dummy data only, because free-tier prompts may be used by Google |
+| **Laptop** (macOS, Docker via Colima, cloudflared) | Ran Kong's PII service (`kong/ai-pii-service`) for the AI Sanitizer test, reached by the cloud gateway through a Cloudflare quick tunnel. Ran Claude Desktop for the Konnect MCP demo | The serverless gateway can't host the PII service. The tunnel and container were stopped after the test |
+| **Vercel** | Planned as a host for the mock LLM or PII service | Not used: the connector was read-only, and the mock ran on the gateway instead |
+| **Cognitum One / MetaLLM** (`api.cognitum.one`) | The MetaLLM tier test (12 calls, $0.023), and Kong in front of MetaLLM | The owner's API key, on a sponsored grant. The temporary Kong route and stored key were deleted the same day |
+| **npm registry** | Installing and reading rUv's packages (ruflo, agentic-flow, AIDefence) | Installed with `--ignore-scripts` |
+| **httpbin.org** | A neutral echo upstream for non-LLM routes (portal API, MCP tools, application auth, guardrail call-outs) | |
+| **Lakera Guard API** | Fail-mode test of `ai-lakera-guard` | Called with a deliberately invalid key, so no Lakera account was used |
+| **GitHub** (`mondweep/kongai-evaluation`) | This repository: docs, scripts, results and the pull requests for each round | |
+| **Claude** (Claude Code cloud sessions, Claude Desktop, Claude Docs) | Ran the tests and wrote them up. Living plan and research docs are Claude Docs (links in each write-up) | |
+
 ## Setup
 
 - Konnect trial, EU region, one **serverless** gateway (Kong 3.16 Enterprise).
