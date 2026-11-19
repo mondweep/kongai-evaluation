@@ -66,7 +66,31 @@ All 23 `ai-*` plugins are listed for the serverless control plane and pass Konne
 | S3b What reaches the LLM provider | **By default the client's gateway API key is forwarded to the LLM provider**, along with the client IP (`x-real-ip`, `x-forwarded-for`), consumer username and every custom client header. Setting `hide_credentials: true` on key-auth stops the key. The IP headers still go. |
 | S3c Provider key storage | The Gemini key sits in plain text in the plugin config, readable through the Konnect API by any admin. Production should use a vault reference. |
 
-AI Semantic Prompt Guard, Semantic Response Guard and Semantic Cache all need Redis or pgvector plus an embeddings model. Serverless can't provide these, so they aren't tested yet.
+### S4b AI Semantic Prompt Guard (pgvector on Supabase, Gemini `gemini-embedding-001` embeddings)
+
+| Configuration | Direct attacks | Paraphrased attacks | False positives |
+|---|---|---|---|
+| `search.threshold` 0.5, 0.2 or 0.8 (the setting the docs point to) | **0/15** | **0/15** | 0/25 |
+| `vectordb.threshold` = 0.4 (cosine distance) | **15/15** | **15/15** | **0/25** |
+| `vectordb.threshold` = 0.3 | 3/15 (some 500s from the database pool) | 10/15 | 0/25 |
+
+- **The guard fails open with a plausible-looking config.** The SQL Kong runs is `embedding <=> $1 < $2`. Database logs showed `$2 = NULL` whenever only `search.threshold` was set. `vectordb.threshold` defaults to null, and in that state the guard silently blocks nothing, even the exact text of a deny prompt.
+- **Config changes don't always take effect.** After a failed database connection, the plugin kept its broken instance until it was deleted and recreated. Updating it in place wasn't enough.
+- When the vector DB is unreachable, it **fails closed** (HTTP 500).
+- Caveat: the attack and benign corpora were written for this test (55 prompts), so treat 30/30 as indicative.
+
+### C5 AI Semantic Cache (same stack)
+
+| Test | Result |
+|---|---|
+| Exact repeat (threshold 0.1) | Cache hit, and no upstream call |
+| Paraphrase ("Which city is the capital of France?") | Cache hit |
+| Different question (Germany), threshold 0.1 | Miss (correct) |
+| Same Germany question, threshold 0.2 | **Hit: the cached answer about France came back** |
+| **Cross-consumer:** consumer A asks about account 55779911, then consumer B asks the same question | **Hit: B receives A's cached answer** |
+| Consumer B asks about a *different* account (12345678) | **Hit: B receives A's answer about 55779911** |
+
+**Verdict:** the cache does cut cost, but with the default (route-wide) scope it **leaks answers between users**. A loose threshold also returns wrong answers. It's only safe for public, non-personal prompts, or with the cache partitioned per consumer.
 
 ## Real model (Gemini 2.5 Flash, free tier, via Kong)
 
