@@ -10,6 +10,7 @@ Kong markets its AI Gateway (Konnect) as addressing five risks: data exposure, u
 - [docs/feature-coverage.md](docs/feature-coverage.md): which Konnect features have been evaluated, what the trial can't test, and the plan for the rest
 - [docs/devportal-demo.md](docs/devportal-demo.md): Dev Portal demo setup and findings
 - [docs/metering-evaluation.md](docs/metering-evaluation.md): Metering & Billing test (token meters, entitlements, enforcement, sandbox billing)
+- [docs/gaps-evaluation.md](docs/gaps-evaluation.md): closing the remaining gaps (Token Vault and virtual keys, agent identity, MCP catalog, observability, application auth, other AI plugins, Service Catalog)
 - Living plan doc: https://claude.ai/artifact/FQJeKYkXHUhksYZXqTdK1s
 
 ## Setup

@@ -1,0 +1,82 @@
+{
+  "providers_before": [
+    200,
+    {
+      "data": [],
+      "meta": {
+        "page": {
+          "next": null,
+          "previous": null,
+          "size": 20
+        }
+      }
+    }
+  ],
+  "add_key": [
+    201,
+    {
+      "id": "01a1f408-bcfd-71b1-9ea1-2631daf686b5"
+    }
+  ],
+  "provider": [
+    201,
+    {
+      "authorization_endpoint_effective": null,
+      "bearer_methods_supported": [
+        "header"
+      ],
+      "client_id": null,
+      "created_at": "2026-11-19T13:39:27.99695Z",
+      "credential_type": "shared",
+      "dcr_enabled": false,
+      "directory_id": "01a1f407-9c63-751f-8ce1-c2a6bba164af",
+      "enabled": true,
+      "id": "01a1f408-9e63-7db3-995c-dbce4a2048de",
+      "name": "mock-llm-key",
+      "pkce_enabled": false,
+      "refresh_buffer_seconds": 0,
+      "registration_endpoint_effective": null,
+      "scopes": [],
+      "template_name": "static_secret",
+      "token_endpoint_effective": null,
+      "updated_at": "2026-11-19T13:39:27.99695Z"
+    }
+  ],
+  "credential": [
+    201,
+    {
+      "created_at": "2026-11-19T13:39:36.199437Z",
+      "credential_type": "shared",
+      "id": "01a1f408-be8a-73d1-b13d-e676cfc331be",
+      "priority": null,
+      "selector": null,
+      "status": "active",
+      "updated_at": "2026-11-19T13:39:36.199437Z"
+    }
+  ],
+  "credential_list": [
+    200,
+    {
+      "data": [
+        {
+          "created_at": "2026-11-19T13:39:36.199437Z",
+          "credential_type": "shared",
+          "id": "01a1f408-be8a-73d1-b13d-e676cfc331be",
+          "priority": null,
+          "selector": null,
+          "status": "active",
+          "updated_at": "2026-11-19T13:39:36.199437Z"
+        }
+      ],
+      "meta": {
+        "page": {
+          "next": null,
+          "previous": null,
+          "size": 20
+        }
+      }
+    }
+  ],
+  "secret_visible_on_read": false,
+  "second_credential_status": 409
+}

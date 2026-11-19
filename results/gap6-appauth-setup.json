@@ -1,0 +1,242 @@
+{
+  "service": {
+    "status": 201,
+    "body": {
+      "connect_timeout": 60000,
+      "created_at": 1795096188,
+      "enabled": true,
+      "host": "httpbin.org",
+      "id": "0dbd9176-ab40-4031-8b32-ce97462f06ff",
+      "name": "appauth-eval-httpbin",
+      "path": "/anything",
+      "port": 443,
+      "protocol": "https",
+      "read_timeout": 60000,
+      "retries": 5,
+      "tags": [
+        "appauth-eval"
+      ],
+      "updated_at": 1795096188,
+      "write_timeout": 60000
+    }
+  },
+  "route": {
+    "status": 201,
+    "body": {
+      "created_at": 1795096189,
+      "https_redirect_status_code": 426,
+      "id": "d92ef170-72ab-4078-acd8-32657c07b724",
+      "name": "appauth-eval",
+      "path_handling": "v0",
+      "paths": [
+        "/appauth-eval"
+      ],
+      "preserve_host": false,
+      "protocols": [
+        "http",
+        "https"
+      ],
+      "regex_priority": 0,
+      "request_buffering": true,
+      "response_buffering": true,
+      "service": {
+        "id": "0dbd9176-ab40-4031-8b32-ce97462f06ff"
+      },
+      "strip_path": true,
+      "tags": [
+        "appauth-eval"
+      ],
+      "updated_at": 1795096189
+    }
+  },
+  "strategy": {
+    "status": 201,
+    "body": {
+      "id": "51723af9-e623-4339-a3b2-c54f97296ae8",
+      "name": "appauth-eval-key",
+      "display_name": "AppAuth eval key",
+      "configs": {
+        "key-auth": {
+          "key_names": [
+            "apikey"
+          ]
+        }
+      },
+      "dcr_provider": null,
+      "labels": {
+        "eval": "appauth-eval"
+      },
+      "strategy_type": "key_auth",
+      "supports_multiple_credentials": true,
+      "active": false,
+      "updated_at": "2026-11-19T13:49:50.026Z",
+      "created_at": "2026-11-19T13:49:50.026Z",
+      "principals": {
+        "enabled": false
+      }
+    }
+  },
+  "api": {
+    "status": 201,
+    "body": {
+      "id": "e26d0735-e0b3-46da-8bc0-ccacddfab81f",
+      "name": "AppAuth Eval API",
+      "version": "v1",
+      "description": "Eval API for application auth",
+      "labels": {
+        "eval": "appauth-eval"
+      },
+      "created_at": "2026-11-19T13:49:50.832Z",
+      "updated_at": "2026-11-19T13:49:50.832Z",
+      "slug": "app-auth-eval-api-v1",
+      "api_spec_ids": [],
+      "implementation_mode": null,
+      "current_version_summary": null,
+      "portals": [],
+      "attributes": {},
+      "images": null
+    }
+  },
+  "implementation": {
+    "status": 201,
+    "body": {
+      "id": "f83b0600-3ccf-4d9a-a611-1ce58bed4b92",
+      "created_at": "2026-11-19T13:49:51.609Z",
+      "updated_at": "2026-11-19T13:49:51.609Z",
+      "service": {
+        "id": "0dbd9176-ab40-4031-8b32-ce97462f06ff",
+        "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554"
+      }
+    }
+  },
+  "publication": {
+    "status": 200,
+    "body": {
+      "visibility": "public",
+      "auto_approve_registrations": false,
+      "created_at": "2026-11-19T13:49:52.134Z",
+      "updated_at": "2026-11-19T13:49:52.134Z",
+      "form_id": null,
+      "environment": {
+        "id": "56539774-cebe-4056-8fde-533cb4d8a0cf",
+        "name": "default"
+      },
+      "auth_strategy_ids": [
+        "51723af9-e623-4339-a3b2-c54f97296ae8"
+      ],
+      "warnings": [],
+      "spec_renderer": null
+    }
+  },
+  "developer": {
+    "status": 201,
+    "body": {
+      "id": "de3f819e-1ee7-4e79-9c40-6d15d5a55ba1",
+      "email": "appauth-eval-dev@example.com",
+      "full_name": "AppAuth Eval Dev",
+      "status": "approved",
+      "created_at": "2026-11-19T13:49:52.000Z",
+      "updated_at": "2026-11-19T13:49:52.000Z"
+    }
+  },
+  "application": {
+    "status": 201,
+    "body": {
+      "id": "e131321f-48ab-4e8a-9da8-51d786e1e088",
+      "name": "appauth-eval-app",
+      "description": null,
+      "labels": {},
+      "portal": {
+        "id": "a36164b2-f7e2-4e94-a310-7397a35427a7"
+      },
+      "auth_strategy": {
+        "credential_type": "key_auth",
+        "id": "51723af9-e623-4339-a3b2-c54f97296ae8",
+        "name": "appauth-eval-key",
+        "key_names": [
+          "apikey"
+        ]
+      },
+      "registration_count": 0,
+      "created_at": "2026-11-19T13:49:53.115Z",
+      "updated_at": "2026-11-19T13:49:53.115Z",
+      "owner": {
+        "type": "developer",
+        "id": "de3f819e-1ee7-4e79-9c40-6d15d5a55ba1"
+      }
+    }
+  },
+  "registration": {
+    "status": 201,
+    "body": {
+      "api": {
+        "id": "e26d0735-e0b3-46da-8bc0-ccacddfab81f",
+        "name": "AppAuth Eval API",
+        "version": "v1",
+        "entity_type": "api"
+      },
+      "application": {
+        "id": "e131321f-48ab-4e8a-9da8-51d786e1e088",
+        "name": "appauth-eval-app"
+      },
+      "id": "c10c96ee-36f4-4d38-a1b1-ffbbfb8e76dc",
+      "created_at": "2026-11-19T13:49:53.570Z",
+      "updated_at": "2026-11-19T13:49:53.570Z",
+      "status": "approved",
+      "additional_data": null
+    }
+  },
+  "credentials": {
+    "status": 200,
+    "body": {
+      "data": [],
+      "meta": {
+        "page": {
+          "total": 0,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "service_plugins": [
+    {
+      "name": "konnect-application-auth",
+      "id": "6481c601-add6-46c9-9ba4-4056628093bb",
+      "config": {
+        "auth_type": "v2-strategies",
+        "key_names": [
+          "apikey"
+        ],
+        "scope": "e26d0735-e0b3-46da-8bc0-ccacddfab81f",
+        "v2_strategies": {
+          "key_auth": [
+            {
+              "config": {
+                "key_names": [
+                  "apikey"
+                ]
+              },
+              "principals": {
+                "enabled": false
+              },
+              "strategy_id": "51723af9-e623-4339-a3b2-c54f97296ae8"
+            }
+          ],
+          "openid_connect": []
+        }
+      }
+    }
+  ],
+  "enforcement": {
+    "no_key": 401,
+    "wrong_key": 401
+  },
+  "credential_issue": {
+    "admin_v3_post_credentials": 405,
+    "admin_v2": 404,
+    "note": "Konnect admin API can create the developer, app and approved registration, but not a credential. Keys are minted only by the developer on the portal (/api/v3 on the portal host), which the cloud sandbox cannot reach (connection refused)."
+  },
+  "gateway_plugin": "Publishing with an auth strategy auto-added konnect-application-auth (auth_type v2-strategies, scope = API id) to the implementing service.",
+  "note_labels": "Application labels were accepted on create but returned empty."
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "case": "agent-a key",
+    "status": 200,
+    "canary_seen_by_upstream": true,
+    "body_excerpt": "{\"created\":1795095556,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":41,\"prompt_tokens\":21},\"choices\":[{\"finish_reason\":\"stop\",\"message\":{\"content\":\"RECEIVED:{\\\"model\\\": \\\"gpt-4o-mini\\\", \\\"messages\\\": [{\\\"role\\\": \\\"user\\\", \\\"content\\\": \\\"hello vault\\\"}]} HEA"
+  },
+  {
+    "case": "agent-b key",
+    "status": 200,
+    "canary_seen_by_upstream": true,
+    "body_excerpt": "{\"created\":1795095557,\"model\":\"mock\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":20,\"total_tokens\":41,\"prompt_tokens\":21},\"choices\":[{\"finish_reason\":\"stop\",\"message\":{\"content\":\"RECEIVED:{\\\"model\\\": \\\"gpt-4o-mini\\\", \\\"messages\\\": [{\\\"role\\\": \\\"user\\\", \\\"content\\\": \\\"hello vault\\\"}]} HEA"
+  },
+  {
+    "case": "wrong key",
+    "status": 401,
+    "body": "{\n  \"message\":\"Unauthorized\",\n  \"request_id\":\"46aad9242710740d17195c5d7c5a7830\"\n}"
+  },
+  {
+    "case": "no key",
+    "status": 401,
+    "body": "{\n  \"message\":\"No API key found in request\",\n  \"request_id\":\"ad8b053dd3776821d29ded3907c5176a\"\n}"
+  }
+]

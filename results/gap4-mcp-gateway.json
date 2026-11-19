@@ -1,0 +1,266 @@
+{
+  "mcp-reader initialize": [
+    200,
+    {
+      "result": {
+        "serverInfo": {
+          "version": "3.16.0.2",
+          "name": "Kong"
+        },
+        "instructions": "This is a MCP Server which exposes API to MCP clients.",
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "tools": {
+            "listChanged": false
+          }
+        }
+      },
+      "id": 1,
+      "jsonrpc": "2.0"
+    }
+  ],
+  "mcp-reader tools/list": [
+    200,
+    {
+      "result": {
+        "tools": [
+          {
+            "description": "Fetch an order by id",
+            "name": "get_order",
+            "id": "8a41738d-d5aa-4b9a-a56e-b422e8e8df64:1",
+            "annotations": {
+              "readOnlyHint": true
+            },
+            "inputSchema": {
+              "required": [
+                "path_id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "path_id": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ]
+      },
+      "jsonrpc": "2.0",
+      "id": 2
+    }
+  ],
+  "mcp-reader get_order": [
+    200,
+    {
+      "result": {
+        "content": [
+          {
+            "text": "{\n  \"args\": {},\n  \"headers\": {\n    \"Apikey\": \"<redacted>\",\n    \"Host\": \"httpbin.org\",\n    \"User-Agent\": \"Kong/3.16.0.2 MCP server\",\n    \"X-Consumer-Id\": \"0350ddac-ee41-4004-8ba3-c1ffc3a47d4e\",\n    \"X-Consumer-Username\": \"mcp-reader\",\n    \"X-Credential-Identifier\": \"3bdbe6aa-11b5-4662-8c4a-81ec0f1d5347\",\n    \"X-Forwarded-Host\": \"httpbin.org\",\n    \"X-Forwarded-Path\": \"/mcpreg-eval/api/anything/orders/A-1\",\n    \"X-Forwarded-Prefix\": \"/mcpreg-eval/api\",\n    \"X-Kong-Request-Id\": \"6bba612ae00adc191fe7dd69f79efc55\"\n  },\n  \"method\": \"GET\",\n  \"origin\": \"unix:,3.67.114.117\",\n  \"url\": \"https://httpbin.org/anything/orders/A-1\",\n  \"data\": \"\",\n  \"files\": {},\n  \"form\": {},\n  \"json\": null\n}\n",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      },
+      "id": 3,
+      "jsonrpc": "2.0"
+    }
+  ],
+  "mcp-reader cancel_order": [
+    403,
+    "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+  ],
+  "mcp-admin initialize": [
+    200,
+    {
+      "result": {
+        "serverInfo": {
+          "version": "3.16.0.2",
+          "name": "Kong"
+        },
+        "instructions": "This is a MCP Server which exposes API to MCP clients.",
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "tools": {
+            "listChanged": false
+          }
+        }
+      },
+      "id": 1,
+      "jsonrpc": "2.0"
+    }
+  ],
+  "mcp-admin tools/list": [
+    200,
+    {
+      "result": {
+        "tools": [
+          {
+            "description": "Cancel an order",
+            "inputSchema": {
+              "required": [
+                "path_id"
+              ],
+              "properties": {
+                "path_id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object"
+            },
+            "name": "cancel_order",
+            "annotations": {
+              "destructiveHint": true
+            },
+            "id": "8a41738d-d5aa-4b9a-a56e-b422e8e8df64:2"
+          },
+          {
+            "description": "Fetch an order by id",
+            "name": "get_order",
+            "inputSchema": {
+              "required": [
+                "path_id"
+              ],
+              "properties": {
+                "path_id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object"
+            },
+            "annotations": {
+              "readOnlyHint": true
+            },
+            "id": "8a41738d-d5aa-4b9a-a56e-b422e8e8df64:1"
+          }
+        ]
+      },
+      "id": 2,
+      "jsonrpc": "2.0"
+    }
+  ],
+  "mcp-admin get_order": [
+    200,
+    {
+      "result": {
+        "content": [
+          {
+            "text": "{\n  \"args\": {},\n  \"headers\": {\n    \"Apikey\": \"<redacted>\",\n    \"Host\": \"httpbin.org\",\n    \"User-Agent\": \"Kong/3.16.0.2 MCP server\",\n    \"X-Consumer-Id\": \"33d78788-3ecd-4acf-b47c-6736ea6cac61\",\n    \"X-Consumer-Username\": \"mcp-admin\",\n    \"X-Credential-Identifier\": \"84b316b6-21a8-40fc-a226-8f8a7847d998\",\n    \"X-Forwarded-Host\": \"httpbin.org\",\n    \"X-Forwarded-Path\": \"/mcpreg-eval/api/anything/orders/A-1\",\n    \"X-Forwarded-Prefix\": \"/mcpreg-eval/api\",\n    \"X-Kong-Request-Id\": \"5e16e44bf7c78604d171c86e0fc2a548\"\n  },\n  \"method\": \"GET\",\n  \"origin\": \"unix:,3.67.114.117\",\n  \"url\": \"https://httpbin.org/anything/orders/A-1\",\n  \"data\": \"\",\n  \"files\": {},\n  \"form\": {},\n  \"json\": null\n}\n",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      },
+      "id": 3,
+      "jsonrpc": "2.0"
+    }
+  ],
+  "mcp-admin cancel_order": [
+    200,
+    {
+      "result": {
+        "content": [
+          {
+            "text": "{\n  \"args\": {},\n  \"headers\": {\n    \"Apikey\": \"<redacted>\",\n    \"Content-Length\": \"0\",\n    \"Host\": \"httpbin.org\",\n    \"User-Agent\": \"Kong/3.16.0.2 MCP server\",\n    \"X-Consumer-Id\": \"33d78788-3ecd-4acf-b47c-6736ea6cac61\",\n    \"X-Consumer-Username\": \"mcp-admin\",\n    \"X-Credential-Identifier\": \"84b316b6-21a8-40fc-a226-8f8a7847d998\",\n    \"X-Forwarded-Host\": \"httpbin.org\",\n    \"X-Forwarded-Path\": \"/mcpreg-eval/api/anything/orders/A-1/cancel\",\n    \"X-Forwarded-Prefix\": \"/mcpreg-eval/api\",\n    \"X-Kong-Request-Id\": \"6b17db14a1e8b901748b843fd6d13c3f\"\n  },\n  \"method\": \"POST\",\n  \"origin\": \"unix:,3.67.114.117\",\n  \"url\": \"https://httpbin.org/anything/orders/A-1/cancel\",\n  \"data\": \"\",\n  \"files\": {},\n  \"form\": {},\n  \"json\": null\n}\n",
+            "type": "text"
+          }
+        ],
+        "isError": false
+      },
+      "id": 4,
+      "jsonrpc": "2.0"
+    }
+  ],
+  "no key tools/list": [
+    401,
+    {
+      "message": "No API key found in request",
+      "request_id": "82f3951b94726229cd7039156efa3137"
+    }
+  ],
+  "impl_link": [
+    404,
+    {
+      "type": "ai_gateway_mcp_server_not_found",
+      "status": 404,
+      "title": "Not Found",
+      "instance": "kong:trace:17343406563247336171",
+      "detail": "AI Gateway MCP server (ID: 8a41738d-d5aa-4b9a-a56e-b422e8e8df64) not found in gateway (ID: 968bf452-4a30-4573-a9e1-41d3c7de5554)"
+    }
+  ],
+  "impls_after": [
+    200,
+    {
+      "data": [],
+      "meta": {
+        "page": {
+          "total": 0,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  ],
+  "direct_rest_bypass_no_key": 200,
+  "note": "conversion-listener re-enters Kong on the tool path; the REST route had no auth, so the per-tool ACL can be bypassed by calling REST directly. Client apikey forwarded upstream (hide_credentials false).",
+  "hardened": {
+    "direct_no_key": 401,
+    "direct_reader_key": 200
+  },
+  "after_hardening": {
+    "mcp-reader get_order": [
+      200,
+      {
+        "result": {
+          "content": [
+            {
+              "text": "{\n  \"args\": {},\n  \"headers\": {\n    \"Apikey\": \"<redacted>\",\n    \"Host\": \"httpbin.org\",\n    \"User-Agent\": \"Kong/3.16.0.2 MCP server\",\n    \"X-Consumer-Id\": \"0350ddac-ee41-4004-8ba3-c1ffc3a47d4e\",\n    \"X-Consumer-Username\": \"mcp-reader\",\n    \"X-Credential-Identifier\": \"3bdbe6aa-11b5-4662-8c4a-81ec0f1d5347\",\n    \"X-Forwarded-Host\": \"httpbin.org\",\n    \"X-Forwarded-Path\": \"/mcpreg-eval/api/anything/orders/A-1\",\n    \"X-Forwarded-Prefix\": \"/mcpreg-eval/api\",\n    \"X-Kong-Request-Id\": \"a16c2d7aff42476bfdc1277ff247bc5e\"\n  },\n  \"method\": \"GET\",\n  \"origin\": \"unix:,3.67.114.117\",\n  \"url\": \"https://httpbin.org/anything/orders/A-1\",\n  \"data\": \"\",\n  \"files\": {},\n  \"form\": {},\n  \"json\": null\n}\n",
+              "type": "text"
+            }
+          ],
+          "isError": false
+        },
+        "id": 3,
+        "jsonrpc": "2.0"
+      }
+    ],
+    "mcp-reader cancel_order": [
+      403,
+      "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n"
+    ],
+    "mcp-admin get_order": [
+      200,
+      {
+        "result": {
+          "content": [
+            {
+              "text": "{\n  \"args\": {},\n  \"headers\": {\n    \"Apikey\": \"<redacted>\",\n    \"Host\": \"httpbin.org\",\n    \"User-Agent\": \"Kong/3.16.0.2 MCP server\",\n    \"X-Consumer-Id\": \"33d78788-3ecd-4acf-b47c-6736ea6cac61\",\n    \"X-Consumer-Username\": \"mcp-admin\",\n    \"X-Credential-Identifier\": \"84b316b6-21a8-40fc-a226-8f8a7847d998\",\n    \"X-Forwarded-Host\": \"httpbin.org\",\n    \"X-Forwarded-Path\": \"/mcpreg-eval/api/anything/orders/A-1\",\n    \"X-Forwarded-Prefix\": \"/mcpreg-eval/api\",\n    \"X-Kong-Request-Id\": \"00835c4d485c340d2ee4b370f26b524f\"\n  },\n  \"method\": \"GET\",\n  \"origin\": \"unix:,3.67.114.117\",\n  \"url\": \"https://httpbin.org/anything/orders/A-1\",\n  \"data\": \"\",\n  \"files\": {},\n  \"form\": {},\n  \"json\": null\n}\n",
+              "type": "text"
+            }
+          ],
+          "isError": false
+        },
+        "id": 3,
+        "jsonrpc": "2.0"
+      }
+    ],
+    "mcp-admin cancel_order": [
+      200,
+      {
+        "result": {
+          "content": [
+            {
+              "text": "{\n  \"args\": {},\n  \"headers\": {\n    \"Apikey\": \"<redacted>\",\n    \"Content-Length\": \"0\",\n    \"Host\": \"httpbin.org\",\n    \"User-Agent\": \"Kong/3.16.0.2 MCP server\",\n    \"X-Consumer-Id\": \"33d78788-3ecd-4acf-b47c-6736ea6cac61\",\n    \"X-Consumer-Username\": \"mcp-admin\",\n    \"X-Credential-Identifier\": \"84b316b6-21a8-40fc-a226-8f8a7847d998\",\n    \"X-Forwarded-Host\": \"httpbin.org\",\n    \"X-Forwarded-Path\": \"/mcpreg-eval/api/anything/orders/A-1/cancel\",\n    \"X-Forwarded-Prefix\": \"/mcpreg-eval/api\",\n    \"X-Kong-Request-Id\": \"d44cc552813e313c51e32f2c76b9f24c\"\n  },\n  \"method\": \"POST\",\n  \"origin\": \"unix:,3.67.114.117\",\n  \"url\": \"https://httpbin.org/anything/orders/A-1/cancel\",\n  \"data\": \"\",\n  \"files\": {},\n  \"form\": {},\n  \"json\": null\n}\n",
+              "type": "text"
+            }
+          ],
+          "isError": false
+        },
+        "id": 4,
+        "jsonrpc": "2.0"
+      }
+    ]
+  }
+}

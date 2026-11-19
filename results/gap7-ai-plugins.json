@@ -1,0 +1,248 @@
+{
+  "decorator": {
+    "status": 200,
+    "ms": 663,
+    "body": {
+      "created": 1795096311,
+      "model": "mock",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 20,
+        "total_tokens": 70,
+        "prompt_tokens": 50
+      },
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "content": "RECEIVED:{\"messages\":[{\"content\":\"EVAL-SYSTEM: answer in one line.\",\"role\":\"system\"},{\"content\":\"hello\",\"role\":\"user\"},{\"content\":\"EVAL-SUFFIX: cite no personal data.\",\"role\":\"user\"}],\"model\":\"gpt-4o-mini\"} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=c86cf46809e1670d00f9a77782cb7428;authorization=Bearer dummy-not-a-real-key;content-length=197;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.19;x-forwarded-prefix=/aiplug/decorator;x-forwarded-port=443;x-forwarded-path=/aiplug/decorator;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.19;",
+            "role": "assistant"
+          },
+          "index": 0
+        }
+      ],
+      "id": "chatcmpl-mock"
+    }
+  },
+  "template_ok": {
+    "status": 200,
+    "ms": 387,
+    "body": {
+      "created": 1795096312,
+      "model": "mock",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 20,
+        "total_tokens": 45,
+        "prompt_tokens": 25
+      },
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "content": "RECEIVED:{\"messages\":[{\"content\":\"Write a greeting for Ada in French\",\"role\":\"user\"}],\"model\":\"gpt-4o-mini\"} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=3e85754fc9d5a73f954b5e3a6873fc69;authorization=Bearer dummy-not-a-real-key;content-length=99;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.224;x-forwarded-prefix=/aiplug/template;x-forwarded-port=443;x-forwarded-path=/aiplug/template;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.224;",
+            "role": "assistant"
+          },
+          "index": 0
+        }
+      ],
+      "id": "chatcmpl-mock"
+    }
+  },
+  "template_untemplated": {
+    "status": 400,
+    "ms": 369,
+    "body": {
+      "error": {
+        "message": "this LLM route only supports templated requests"
+      }
+    }
+  },
+  "template_missing_prop": {
+    "status": 400,
+    "ms": 399,
+    "body": {
+      "error": {
+        "message": "missing template parameters: [lang]"
+      }
+    }
+  },
+  "reqxform": {
+    "status": 200,
+    "ms": 1462,
+    "body": {
+      "args": {},
+      "headers": {
+        "Accept-Encoding": "identity",
+        "Content-Length": "53",
+        "Content-Type": "application/json",
+        "Host": "httpbin.org",
+        "User-Agent": "Python-urllib/3.13",
+        "X-Forwarded-Host": "6efbd575d6.eu.serverless.gateways.konggateway.com",
+        "X-Forwarded-Path": "/aiplug/reqxform",
+        "X-Forwarded-Prefix": "/aiplug/reqxform",
+        "X-Kong-Request-Id": "dc6dd273b8f9680a301fad1b1cfbe476"
+      },
+      "method": "POST",
+      "origin": "160.79.106.141,3.67.114.117",
+      "url": "https://httpbin.org/anything",
+      "data": "{\"order\": \"A-1\", \"city\": \"REDACTED\", \"note\": \"dummy\"}",
+      "files": {},
+      "form": {},
+      "json": {
+        "city": "REDACTED",
+        "note": "dummy",
+        "order": "A-1"
+      }
+    }
+  },
+  "respxform": {
+    "status": 400,
+    "ms": 858,
+    "body": {
+      "error": {
+        "message": "failed to introspect request with AI service: status code 429"
+      }
+    }
+  },
+  "judge": {
+    "status": 200,
+    "ms": 1263,
+    "body": {
+      "created": 1795096315,
+      "model": "mock",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 20,
+        "total_tokens": 41,
+        "prompt_tokens": 21
+      },
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "content": "RECEIVED:{\"model\": \"gpt-4o-mini\", \"messages\": [{\"role\": \"user\", \"content\": \"What is 2+2?\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=f1f00866e5365c2997a7b06f17d7ab45;authorization=Bearer dummy-not-a-real-key;content-length=83;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.21;x-forwarded-prefix=/aiplug/judge;x-forwarded-port=443;x-forwarded-path=/aiplug/judge;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.21;",
+            "role": "assistant"
+          },
+          "index": 0
+        }
+      ],
+      "id": "chatcmpl-mock"
+    }
+  },
+  "custom_clean": {
+    "status": 200,
+    "ms": 656,
+    "body": {
+      "created": 1795096317,
+      "model": "mock",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 20,
+        "total_tokens": 41,
+        "prompt_tokens": 21
+      },
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"a harmless question\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=4997a1434a5e00026d7c7d045f193b5b;authorization=Bearer dummy-not-a-real-key;content-length=84;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.21;x-forwarded-prefix=/aiplug/custom;x-forwarded-port=443;x-forwarded-path=/aiplug/custom;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.21;",
+            "role": "assistant"
+          },
+          "index": 0
+        }
+      ],
+      "id": "chatcmpl-mock"
+    }
+  },
+  "custom_block": {
+    "status": 200,
+    "ms": 493,
+    "body": {
+      "created": 1795096317,
+      "model": "mock",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 20,
+        "total_tokens": 45,
+        "prompt_tokens": 25
+      },
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"this contains forbidden-word here\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=5b0e5653b3eff34ab16e974805045e3b;authorization=Bearer dummy-not-a-real-key;content-length=98;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.132;x-forwarded-prefix=/aiplug/custom;x-forwarded-port=443;x-forwarded-path=/aiplug/custom;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.132;",
+            "role": "assistant"
+          },
+          "index": 0
+        }
+      ],
+      "id": "chatcmpl-mock"
+    }
+  },
+  "lakera_closed": {
+    "status": 500,
+    "ms": 511,
+    "body": {
+      "error": {
+        "message": "failed to sanitize request: Bad Lakera response status: 401, response: {\"error\":\"ErrInvalidToken\",\"message\":\"invalid authentication token\",\"details\":\"\",\"request_id\":\"01a1f414-1049-7eb6-8e00-11f0cbc8a948\"}\n"
+      }
+    }
+  },
+  "lakera_open": {
+    "status": 200,
+    "ms": 454,
+    "body": {
+      "created": 1795096318,
+      "model": "mock",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 20,
+        "total_tokens": 38,
+        "prompt_tokens": 18
+      },
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"hello\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=772606294bdc6f1eb17ed25968170f0f;authorization=Bearer dummy-not-a-real-key;content-length=70;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.128;x-forwarded-prefix=/aiplug/lakera-open;x-forwarded-port=443;x-forwarded-path=/aiplug/lakera-open;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.128;",
+            "role": "assistant"
+          },
+          "index": 0
+        }
+      ],
+      "id": "chatcmpl-mock"
+    }
+  },
+  "respxform_retry": {
+    "status": 400,
+    "body": "{\"error\":{\"message\":\"failed to introspect request with AI service: status code 429\"}}"
+  },
+  "custom_after_fix": {
+    "block_expr": "$(resp.json.input:find('forbidden', 1, true) ~= nil)",
+    "forbidden": 400,
+    "clean": 200,
+    "first_expr_used_string_find_and_silently_did_not_block": true
+  },
+  "respxform_retry2": {
+    "status": 200,
+    "body": {
+      "summary": "POST request to https://httpbin.org/anything."
+    }
+  },
+  "judge_request_log_ai": [
+    [
+      {
+        "requestModel": "gpt-4o-mini",
+        "pluginName": "proxy",
+        "pluginId": "5241f656-b393-4034-9714-ed24ad97ab44",
+        "responseModel": "mock",
+        "promptTokens": 21,
+        "totalTokens": 41,
+        "llmLatency": 901,
+        "providerName": "openai",
+        "completionTokens": 20
+      }
+    ]
+  ]
+}

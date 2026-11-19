@@ -1,0 +1,68 @@
+[
+  {
+    "case": "alpha #0",
+    "status": 200,
+    "upstream_saw": [
+      "x-agent-sub=p4ecl0eccf6d9snc",
+      "x-consumer-username=agent-alpha"
+    ],
+    "remaining": {
+      "X-AI-RateLimit-Limit-minute-openai": "200",
+      "X-AI-RateLimit-Remaining-minute-openai": "51"
+    }
+  },
+  {
+    "case": "alpha #1",
+    "status": 200,
+    "upstream_saw": [
+      "x-agent-sub=p4ecl0eccf6d9snc",
+      "x-consumer-username=agent-alpha"
+    ],
+    "remaining": {
+      "X-AI-RateLimit-Limit-minute-openai": "200",
+      "X-AI-RateLimit-Remaining-minute-openai": "9"
+    }
+  },
+  {
+    "case": "alpha #2",
+    "status": 429,
+    "body": "{\"message\":\"AI token rate limit exceeded for provider(s): openai\"}"
+  },
+  {
+    "case": "alpha #3",
+    "status": 429,
+    "body": "{\"message\":\"AI token rate limit exceeded for provider(s): openai\"}"
+  },
+  {
+    "case": "alpha #4",
+    "status": 429,
+    "body": "{\"message\":\"AI token rate limit exceeded for provider(s): openai\"}"
+  },
+  {
+    "case": "alpha #5",
+    "status": 429,
+    "body": "{\"message\":\"AI token rate limit exceeded for provider(s): openai\"}"
+  },
+  {
+    "case": "beta #0",
+    "status": 200,
+    "upstream_saw": [
+      "x-agent-sub=95e7zsxlcumlobht",
+      "x-consumer-username=agent-beta"
+    ],
+    "remaining": {
+      "X-AI-RateLimit-Remaining-minute-openai": "172",
+      "X-AI-RateLimit-Limit-minute-openai": "200"
+    }
+  },
+  {
+    "case": "beta wrong secret",
+    "status": 401,
+    "body": "{\"message\":\"Unauthorized\"}"
+  },
+  {
+    "case": "no credentials",
+    "status": 401,
+    "body": "{\"message\":\"Unauthorized\"}"
+  }
+]

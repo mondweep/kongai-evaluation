@@ -1,0 +1,249 @@
+{
+  "create": {
+    "status": 201,
+    "body": {
+      "id": "086a2ebf-e0f6-458f-99e7-504261315736",
+      "name": "mcpreg-eval-orders",
+      "display_name": "Orders MCP (eval)",
+      "description": "Catalog entry for the eval orders MCP server",
+      "labels": {
+        "eval": "mcpreg-eval"
+      },
+      "managed_by": {},
+      "created_at": "2026-11-19T13:43:44.382Z",
+      "updated_at": "2026-11-19T13:43:44.382Z"
+    }
+  },
+  "version": {
+    "status": 201,
+    "body": {
+      "id": "e9afedeb-ce97-42c0-b82b-3e0526937db9",
+      "version": "1.0.0",
+      "tools": [
+        {
+          "name": "get_order",
+          "description": "Fetch an order by id",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "annotations": {
+            "read_only_hint": true
+          }
+        },
+        {
+          "name": "cancel_order",
+          "description": "Cancel an order",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "annotations": {
+            "destructive_hint": true
+          }
+        }
+      ],
+      "resources": [],
+      "prompts": [],
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mcpreg-eval/mcp"
+        }
+      ],
+      "packages": [],
+      "created_at": "2026-11-19T13:44:16.194Z",
+      "updated_at": "2026-11-19T13:44:16.194Z"
+    }
+  },
+  "second_version": {
+    "status": 409,
+    "body": {
+      "type": "mcp_version_conflict",
+      "status": 409,
+      "title": "Conflict",
+      "instance": "kong:trace:6961904458255660926",
+      "detail": "MCP version (alias: latest) for MCP (ID: 086a2ebf-e0f6-458f-99e7-504261315736) already exists"
+    }
+  },
+  "impl_empty": {
+    "status": 400,
+    "body": {
+      "status": 400,
+      "title": "Invalid Request",
+      "instance": "kong:trace:16740223897324610646",
+      "detail": "Invalid Parameters",
+      "invalid_parameters": [
+        {
+          "field": "type",
+          "rule": "unknown_property",
+          "source": "body",
+          "reason": "property type should not exist"
+        },
+        {
+          "field": "implementation",
+          "rule": "is_object",
+          "source": "body",
+          "reason": "implementation must be an object"
+        }
+      ]
+    }
+  },
+  "get": {
+    "status": 200,
+    "body": {
+      "id": "086a2ebf-e0f6-458f-99e7-504261315736",
+      "name": "mcpreg-eval-orders",
+      "display_name": "Orders MCP (eval)",
+      "description": "Catalog entry for the eval orders MCP server",
+      "labels": {
+        "eval": "mcpreg-eval"
+      },
+      "managed_by": {},
+      "created_at": "2026-11-19T13:43:44.382Z",
+      "updated_at": "2026-11-19T13:43:44.382Z"
+    }
+  },
+  "versions": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "id": "e9afedeb-ce97-42c0-b82b-3e0526937db9",
+          "version": "1.0.0",
+          "tools": [
+            {
+              "name": "get_order",
+              "annotations": {
+                "read_only_hint": true
+              },
+              "description": "Fetch an order by id",
+              "input_schema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            {
+              "name": "cancel_order",
+              "annotations": {
+                "destructive_hint": true
+              },
+              "description": "Cancel an order",
+              "input_schema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "resources": [],
+          "prompts": [],
+          "remotes": [
+            {
+              "url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mcpreg-eval/mcp",
+              "type": "streamable-http"
+            }
+          ],
+          "packages": [],
+          "created_at": "2026-11-19T13:44:16.194Z",
+          "updated_at": "2026-11-19T13:44:16.194Z"
+        }
+      ],
+      "meta": {
+        "page": {
+          "total": 1,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "impls": {
+    "status": 200,
+    "body": {
+      "data": [],
+      "meta": {
+        "page": {
+          "total": 0,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "list": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "id": "086a2ebf-e0f6-458f-99e7-504261315736",
+          "name": "mcpreg-eval-orders",
+          "display_name": "Orders MCP (eval)",
+          "description": "Catalog entry for the eval orders MCP server",
+          "labels": {
+            "eval": "mcpreg-eval"
+          },
+          "managed_by": {},
+          "created_at": "2026-11-19T13:43:44.382Z",
+          "updated_at": "2026-11-19T13:43:44.382Z"
+        }
+      ],
+      "meta": {
+        "page": {
+          "total": 1,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "probe eu/v1/mcp-registries": 404,
+  "probe gl/v1/mcp-registries": 404,
+  "probe eu/v1/registries": 404,
+  "probe gl/v1/registries": 404,
+  "probe eu/v1/mcp-registry": 404,
+  "probe gl/v1/mcp-registry": 404,
+  "probe eu/v2/mcp-registries": 404,
+  "probe gl/v2/mcp-registries": 404,
+  "probe eu/v1/ai-gateways": 200,
+  "probe gl/v1/ai-gateways": 200,
+  "probe eu/v1/ai-mcp-servers": 404,
+  "probe gl/v1/ai-mcp-servers": 404,
+  "impl_fake_server": {
+    "status": 404,
+    "body": {
+      "type": "ai_gateway_mcp_server_not_found",
+      "status": 404,
+      "title": "Not Found",
+      "instance": "kong:trace:945036498762226939",
+      "detail": "AI Gateway MCP server (ID: ece04f64-66a0-4210-aeb3-17545571d85b) not found in gateway (ID: 968bf452-4a30-4573-a9e1-41d3c7de5554)"
+    }
+  }
+}

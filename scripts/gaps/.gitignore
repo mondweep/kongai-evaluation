@@ -1,0 +1,4 @@
+secrets*.json
+*.pem
+*.log
+__pycache__/
