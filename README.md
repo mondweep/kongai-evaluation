@@ -2,6 +2,7 @@
 
 Kong markets its AI Gateway (Konnect) as addressing five risks: data exposure, uncontrolled costs, compliance and audit, operational risk, and security. This repository holds a hands-on test of those claims. Marketing pages are treated as claims to test, not as evidence.
 
+- [docs/report.md](docs/report.md): **the report**: verdicts, key findings and recommended production settings
 - [docs/validation-plan.md](docs/validation-plan.md): the tests, with their pass/fail criteria
 - [docs/results.md](docs/results.md): results so far
 - [docs/ruv-stack-evaluation.md](docs/ruv-stack-evaluation.md): Kong in front of rUv's agent stack (ruflo, agentic-flow, Cognitum One), with hands-on results; probes in [ruv-stack/](ruv-stack/)
