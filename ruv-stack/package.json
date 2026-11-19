@@ -1,0 +1,10 @@
+{
+  "name": "ruv-stack-probes",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@claude-flow/aidefence": "3.2.2",
+    "aidefence": "3.2.1",
+    "agentic-flow": "3.5.5"
+  }
+}
