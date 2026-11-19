@@ -1,0 +1,212 @@
+{
+  "probed_at": "2026-11-19T13:09:22Z",
+  "results": [
+    {
+      "area": "Catalog",
+      "feature": "Services",
+      "endpoint": "https://eu.api.konghq.com/v1/catalog-services",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Catalog",
+      "feature": "Scorecards",
+      "endpoint": "https://eu.api.konghq.com/v1/scorecards",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Catalog",
+      "feature": "Integrations",
+      "endpoint": "https://eu.api.konghq.com/v1/integrations",
+      "status": 200,
+      "count": 16
+    },
+    {
+      "area": "Catalog",
+      "feature": "Resources",
+      "endpoint": "https://eu.api.konghq.com/v1/resources",
+      "status": 200,
+      "count": 5
+    },
+    {
+      "area": "Catalog",
+      "feature": "MCP Registries",
+      "endpoint": "https://eu.api.konghq.com/v1/mcp-registries",
+      "status": 404
+    },
+    {
+      "area": "Dev Portal",
+      "feature": "Portals",
+      "endpoint": "https://eu.api.konghq.com/v3/portals",
+      "status": 200,
+      "count": 1
+    },
+    {
+      "area": "Dev Portal",
+      "feature": "Application Auth",
+      "endpoint": "https://eu.api.konghq.com/v2/application-auth-strategies",
+      "status": 200,
+      "count": 1
+    },
+    {
+      "area": "Dev Portal",
+      "feature": "DCR providers",
+      "endpoint": "https://eu.api.konghq.com/v2/dcr-providers",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "APIs",
+      "feature": "APIs",
+      "endpoint": "https://eu.api.konghq.com/v3/apis",
+      "status": 200,
+      "count": 1
+    },
+    {
+      "area": "Metering & Billing",
+      "feature": "Meters",
+      "endpoint": "https://eu.api.konghq.com/v3/openmeter/meters",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Metering & Billing",
+      "feature": "Features",
+      "endpoint": "https://eu.api.konghq.com/v3/openmeter/features",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Metering & Billing",
+      "feature": "Plans",
+      "endpoint": "https://eu.api.konghq.com/v3/openmeter/plans",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Metering & Billing",
+      "feature": "Customers",
+      "endpoint": "https://eu.api.konghq.com/v3/openmeter/customers",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Metering & Billing",
+      "feature": "Entitlements",
+      "endpoint": "https://eu.api.konghq.com/v3/openmeter/entitlements",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Metering & Billing",
+      "feature": "Apps",
+      "endpoint": "https://eu.api.konghq.com/v3/openmeter/apps",
+      "status": 200,
+      "count": 1
+    },
+    {
+      "area": "Observability",
+      "feature": "Dashboards",
+      "endpoint": "https://eu.api.konghq.com/v2/dashboards",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Identity",
+      "feature": "Auth servers",
+      "endpoint": "https://eu.api.konghq.com/v1/auth-servers",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "AI",
+      "feature": "AI Gateways",
+      "endpoint": "https://eu.api.konghq.com/v1/ai-gateways",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "AI",
+      "feature": "AI Models",
+      "endpoint": "https://eu.api.konghq.com/v1/ai-models",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "AI",
+      "feature": "MCP Servers",
+      "endpoint": "https://eu.api.konghq.com/v1/mcp-servers",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "AI",
+      "feature": "Agents",
+      "endpoint": "https://eu.api.konghq.com/v1/agents",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Gateway",
+      "feature": "Control planes",
+      "endpoint": "https://eu.api.konghq.com/v2/control-planes",
+      "status": 200,
+      "count": 1
+    },
+    {
+      "area": "Gateway",
+      "feature": "Dedicated Cloud Gateway networks",
+      "endpoint": "https://eu.api.konghq.com/v1/cloud-gateways/networks",
+      "status": 404
+    },
+    {
+      "area": "Other",
+      "feature": "Event Gateways",
+      "endpoint": "https://eu.api.konghq.com/v1/event-gateways",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Other",
+      "feature": "Mesh control planes",
+      "endpoint": "https://eu.api.konghq.com/v1/mesh/control-planes",
+      "status": 200,
+      "count": 0
+    },
+    {
+      "area": "Access Management",
+      "feature": "Users",
+      "endpoint": "https://global.api.konghq.com/v3/users",
+      "status": 200,
+      "count": 1
+    },
+    {
+      "area": "Access Management",
+      "feature": "Teams",
+      "endpoint": "https://global.api.konghq.com/v3/teams",
+      "status": 200,
+      "count": 9
+    },
+    {
+      "area": "Access Management",
+      "feature": "System accounts",
+      "endpoint": "https://global.api.konghq.com/v3/system-accounts",
+      "status": 200,
+      "count": 1
+    },
+    {
+      "area": "Access Management",
+      "feature": "Identity provider",
+      "endpoint": "https://global.api.konghq.com/v3/identity-provider",
+      "status": 404
+    },
+    {
+      "area": "Audit",
+      "feature": "Audit log webhook",
+      "endpoint": "https://global.api.konghq.com/v2/audit-log-webhook",
+      "status": 200,
+      "enabled": true
+    }
+  ]
+}
