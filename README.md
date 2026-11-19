@@ -36,7 +36,10 @@ Secrets never go in this repo. `KCONNECT_TOKEN` and `GEMINI_API_KEY` come from t
 6. **Token and cost accounting is accurate.** Gemini prompt tokens matched 8/8, cost matched the formula, and hidden reasoning tokens are counted.
 7. **Gateway overhead is about 1 ms.** Auth and ACL behaved correctly (401/403).
 8. **Per-request AI audit data is good** (consumer, model, tokens, cost), and prompts are not stored by default. Admin audit logs are available only by webhook.
+9. **The semantic prompt guard blocks nothing with a plausible-looking config.** Setting only `search.threshold` leaves the real threshold (`vectordb.threshold`) empty. With `vectordb.threshold` 0.4 it blocked 30/30 attacks (direct and paraphrased) with 0/25 false positives.
+10. **The semantic cache leaks answers between users** with its default route-wide scope: consumer B got consumer A's answer about a different account. A loose threshold also returns wrong answers.
+11. **Admin audit events are signed and fast (about 1 s), but incomplete.** Consumer create and delete showed only an authentication event, a 401 produced no event, and when the receiver failed Konnect disabled the webhook and dropped events until it was re-enabled by hand.
 
 ## Cleanup
 
-Delete all Konnect entities tagged `validation`.
+Delete all Konnect entities tagged `validation`, the audit-log webhook, and in Supabase the `kongai` schema, the `kongai_user` role and the `kongai-audit-receiver` function.
