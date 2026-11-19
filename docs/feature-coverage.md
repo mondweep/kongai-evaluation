@@ -4,7 +4,7 @@
 
 ## Summary
 
-We have tested 11 of the 32 Konnect menu items hands-on, several only in part. Three more were only seen, and 18 haven't been touched. (Updated after the Metering & Billing test; it started at 8 hands-on.) The depth is all in the AI Gateway plugins on the serverless gateway (eight `ai-*` plugins, auth, ACL, audit, failover), plus the Dev Portal and Konnect's MCP server. Those plugins don't have their own menu item. Catalog, Identity, the Observability dashboards and most of Access Management haven't been evaluated at all.
+After closing gaps 2 to 8, 22 of the 32 Konnect menu items have been tested hands-on (5 of them only in part, and 2 can't run on serverless). Three were only seen, MCP Registries has no API on this trial, and six haven't been touched: Cost Analytics, Metering Settings, Observability Summary and Reports, Groups and Identity Providers. (It started at 8 hands-on, and was 11 after Metering & Billing.) Gap results: [gaps-evaluation.md](gaps-evaluation.md). The depth is all in the AI Gateway plugins on the serverless gateway (eight `ai-*` plugins, auth, ACL, audit, failover), plus the Dev Portal and Konnect's MCP server. Those plugins don't have their own menu item. Catalog, Identity, the Observability dashboards and most of Access Management haven't been evaluated at all.
 
 Sources: this repo ([results.md](results.md), [validation-plan.md](validation-plan.md), [devportal-demo.md](devportal-demo.md)) [ruv-stack-evaluation.md](ruv-stack-evaluation.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) and [mcp-management.md](mcp-management.md) (merged from PRs #1 to #3), plus a read-only API probe of the trial org ([results/coverage-api-probe.json](../results/coverage-api-probe.json), script [scripts/coverage/probe.py](../scripts/coverage/probe.py)). The menu list combines a menu from another Konnect org with the trial's own menu. Labels can differ between orgs.
 
@@ -14,37 +14,37 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 
 | Area | Feature | Status | Evidence | Link |
 | --- | --- | --- | --- | --- |
-| Catalog | Services | Not evaluated | 0 catalog services in the trial org | |
-| Catalog | MCP Registries | Not evaluated | No registry API found on the trial. It may be a newer or paid feature | |
-| Catalog | Integrations | Not evaluated | 16 listed. Only the built-ins (gateway, API products, analytics, mesh) are on | |
-| Catalog | Scorecards | Not evaluated | 0 scorecards | |
-| Catalog | Resources | Seen | Gateway services appear here automatically | |
+| Catalog | Services | Hands-on | Two catalog services mapped to gateway services, plus an API mapping | [gaps-evaluation.md](gaps-evaluation.md) gap 8 |
+| Catalog | MCP Registries | Can't run | No registry API on the trial (404 on EU and global). The catalog MCP entry was tested under AI > MCP Servers | [gaps-evaluation.md](gaps-evaluation.md) gap 4 |
+| Catalog | Integrations | Seen | 16 listed. 12 need third-party authorisation and weren't connected | [gaps-evaluation.md](gaps-evaluation.md) gap 8 |
+| Catalog | Scorecards | Partial | Scorecard from the Kong best-practices template selects services by label. No scores after a few minutes | [gaps-evaluation.md](gaps-evaluation.md) gap 8 |
+| Catalog | Resources | Hands-on | All 11 gateway services discovered automatically | [gaps-evaluation.md](gaps-evaluation.md) gap 8 |
 | Dev Portal | Portals | Hands-on | Demo portal with a published API, pages and portal MCP server. The portal MCP endpoint was probed read-only from a local machine | [devportal-demo.md](devportal-demo.md), [ruv-stack-evaluation.md](ruv-stack-evaluation.md) section 5 |
-| Dev Portal | Application Auth | Partial | A key-auth strategy exists, but the API was published with no auth. App registration, DCR and OIDC weren't tried | [devportal-demo.md](devportal-demo.md) |
+| Dev Portal | Application Auth | Partial | On a separate eval portal: strategy, auto-added `konnect-application-auth` (401 without a key), developer, app and approved registration via API. Key issue needs the portal itself, so it wasn't run | [gaps-evaluation.md](gaps-evaluation.md) gap 6 |
 | Metering & Billing | Metering | Hands-on | `metering-and-billing` plugin feeds token and request events. Totals matched the request log exactly. Ignores `subject.field`, bills rejected requests by default | [metering-evaluation.md](metering-evaluation.md) |
 | Metering & Billing | Product Catalog | Hands-on | Feature, plan with unit price and a 1,000-token metered entitlement. Over-limit flagged in seconds, but the gateway still served the customer | [metering-evaluation.md](metering-evaluation.md) |
 | Metering & Billing | Billing | Partial | Built-in Sandbox app means no Stripe is needed. A usage charge was created, but the first invoice only comes at period end, so none was produced | [metering-evaluation.md](metering-evaluation.md) |
 | Metering & Billing | Cost Analytics | Not evaluated | | |
 | Metering & Billing | Settings | Not evaluated | | |
 | Observability | Summary | Not evaluated | | |
-| Observability | Dashboards | Not evaluated | 0 custom dashboards | |
-| Observability | Explorer | Not evaluated | | |
+| Observability | Dashboards | Hands-on | Five-tile dashboard (AI cost, tokens, MCP tools, latency, errors) created through `/v2/dashboards` | [gaps-evaluation.md](gaps-evaluation.md) gap 5 |
+| Observability | Explorer | Hands-on | LLM, MCP and API usage queries run through Konnect's MCP server. No public REST endpoint | [gaps-evaluation.md](gaps-evaluation.md) gap 5 |
 | Observability | Logs | Hands-on | Used as evidence: no prompt text stored by default (D4), retention 30 days (A4), MCP calls logged per tool | [results.md](results.md), [ruv-stack-evaluation.md](ruv-stack-evaluation.md) |
-| Observability | Reports | Not evaluated | | |
+| Observability | Reports | Not evaluated | No API found | |
 | Observability | Requests | Hands-on | Each AI request logged with consumer, model, tokens, cost and latency (A2), queried through `/v2/api-requests` | [results.md](results.md) |
-| Observability | Debugger | Not evaluated | | |
-| Identity | Identity (Kong Identity) | Not evaluated | 0 auth servers | |
+| Observability | Debugger | Hands-on | 45 s session on the serverless gateway captured per-plugin spans | [gaps-evaluation.md](gaps-evaluation.md) gap 5 |
+| Identity | Identity (Kong Identity) | Hands-on | Auth server and per-agent clients; the gateway does client credentials. Client deletion took 232 s to bite | [gaps-evaluation.md](gaps-evaluation.md) gap 3 |
 | AI | Models | Hands-on, can't run | AI Model `my-model` created, but no proxy URL appeared because it needs a self-hosted data plane. The same idea works on serverless through AI Proxy Advanced `model_alias` | [virtual-model-evaluation.md](virtual-model-evaluation.md) |
 | AI | Providers | Hands-on, can't run | Created with the models above. Same limit | [virtual-model-evaluation.md](virtual-model-evaluation.md) |
-| AI | MCP Servers | Partial | The Konnect MCP Servers entity is untested. The gateway-side AI MCP Proxy plugin was tested: per-tool ACL gave 403, calls logged per tool, the handshake uses up rate-limit quota | [ruv-stack-evaluation.md](ruv-stack-evaluation.md) |
-| AI | Agents | Not evaluated | 0 agents | |
+| AI | MCP Servers | Hands-on | Catalog entry with tools works, but links only to AI Gateway 2.x MCP servers. `ai-mcp-proxy` conversion mode works, with per-consumer tool lists, but the REST route behind it bypasses the ACL | [gaps-evaluation.md](gaps-evaluation.md) gap 4, [ruv-stack-evaluation.md](ruv-stack-evaluation.md) |
+| AI | Agents | Hands-on | Agent registered in `/v1/agents` and tied to a Kong Identity client | [gaps-evaluation.md](gaps-evaluation.md) gap 3 |
 | AI | Gateways | Partial | AI gateway created and then deleted, never got nodes. All hands-on tests ran on the serverless API gateway | [virtual-model-evaluation.md](virtual-model-evaluation.md) |
 | Access Management | Users | Seen | 1 user (owner) | |
-| Access Management | Agents | Not evaluated | | |
+| Access Management | Agents | Hands-on | Kong Identity principals of type agent, with gateway-checked API keys | [gaps-evaluation.md](gaps-evaluation.md) gap 2 |
 | Access Management | Groups | Not evaluated | Only the default teams exist | |
 | Access Management | Identity Providers | Not evaluated | No SSO set up | |
-| Access Management | Token Vault | Not evaluated | Relevant: the provider key was readable in plain text in plugin config (S3c) | [results.md](results.md) |
-| Access Management | Virtual Keys | Not evaluated | | |
+| Access Management | Token Vault | Partial | Secret stored write-only; one credential per provider. Only AI Gateway 2.x can use it. The Konnect config-store vault fixes S3c on serverless today | [gaps-evaluation.md](gaps-evaluation.md) gap 2 |
+| Access Management | Virtual Keys | Hands-on | Principal API keys checked by `key-auth`. Revocation took 288 s to bite | [gaps-evaluation.md](gaps-evaluation.md) gap 2 |
 | Cost Management | Cost Management | Seen | Gateway AI calls appear as `ai.usage.v1` events with no plugin. Budgets not tested. Related: token and cost limits (C1 to C3) and per-model cost caps were tested at the gateway | [results.md](results.md), [virtual-model-evaluation.md](virtual-model-evaluation.md) |
 
 ### Tested but not a menu item
@@ -52,7 +52,7 @@ Status: **Hands-on** means we ran it and have results. **Partial** means part of
 | Capability | Status | Evidence | Link |
 | --- | --- | --- | --- |
 | AI Gateway plugins on serverless | Hands-on | ai-proxy, ai-proxy-advanced (failover, model alias), ai-prompt-guard, ai-semantic-prompt-guard, ai-semantic-cache, ai-rate-limiting-advanced, ai-mcp-proxy. ai-sanitizer with the PII service run locally (D2: misses NI numbers and most postcodes, alters 9/25 benign prompts) | [results.md](results.md) |
-| Other `ai-*` plugins | Not evaluated | 23 are available. Not yet tried: prompt decorator, template and compressor, request and response transformers, RAG injector, AWS and Azure guardrails | |
+| Other `ai-*` plugins | Hands-on | Decorator, template, request and response transformers, custom guardrail and Lakera fail modes tested. A failing custom-guardrail expression fails open. Compressor, RAG injector, semantic response guard and cloud guardrails need external services | [gaps-evaluation.md](gaps-evaluation.md) gap 7 |
 | Gateway auth, ACL, overhead | Hands-on | 401 and 403 correct, about 1 ms overhead, client key forwarded unless `hide_credentials` is on | [results.md](results.md) |
 | Admin audit log webhook | Hands-on | Signed events arrive in about 1 s, but they don't say what changed. A 401 produced no event. Events were dropped while the webhook was disabled | [results.md](results.md) |
 | System accounts | Hands-on | System account scoped to one control plane, which gave portals a 403 | [mcp-management.md](mcp-management.md) |
@@ -71,12 +71,12 @@ These limits are confirmed by tests or API calls unless marked "docs" or "unveri
 - **Data residency:** serverless says "same region not guaranteed" (docs), so A3 can't be shown on this tier.
 - **Billing:** no Stripe needed, because a built-in Sandbox app handles payment, tax and invoicing. The first invoice only comes at the end of the billing period.
 - **Entitlement enforcement:** the `entitlement-enforcement` plugin needs Redis, which serverless doesn't have. Without it the plugin lets everyone through, or blocks everyone, depending on `fail_policy`.
-- **Debugger, Identity, Token Vault, Virtual Keys, MCP Registries:** it's unverified whether these work on a trial or with serverless. MCP Registries had no API endpoint on this org.
+- **Token Vault, catalog MCP implementations:** need AI Gateway 2.x on a hybrid data plane. Identity, Virtual Keys and the Debugger do work on serverless. MCP Registries have no API on this org.
 - **From the cloud sandbox:** `*.kongportals.com` and `*.mcp.konghq.com` are blocked, so portal-MCP and Konnect-MCP probes have to run on a local machine.
 
 ## Prioritised plan for the gaps
 
-The order follows the five risk claims and what a client is likely to ask about first. Nothing below has been created yet. Every step that writes to Konnect waits for the owner's OK, and each would use its own tag so cleanup is one delete by tag.
+The order follows the five risk claims and what a client is likely to ask about first. Items 1 to 8 have now been run: see [metering-evaluation.md](metering-evaluation.md) and [gaps-evaluation.md](gaps-evaluation.md). Every step that writes to Konnect waits for the owner's OK, and each would use its own tag so cleanup is one delete by tag.
 
 | # | Gap | What we'd test | Creates in Konnect | Effort |
 | --- | --- | --- | --- | --- |

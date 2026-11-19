@@ -1,0 +1,513 @@
+{
+  "resources_discovered": [
+    {
+      "name": "aiplug-eval",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "appauth-eval-httpbin",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "mcpreg-eval-orders",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "agent-id-ai",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "vault-eval-ai",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "meter-ai",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "mcp-demo-httpbin",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "demo-ai",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "demo-httpbin",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "val-ai",
+      "type": "gateway_svc"
+    },
+    {
+      "name": "val-mock-backend",
+      "type": "gateway_svc"
+    }
+  ],
+  "create catalog-eval-ai-chat": {
+    "status": 201,
+    "body": {
+      "id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+      "name": "catalog-eval-ai-chat",
+      "description": "Eval catalog entry for gateway service aiplug-eval",
+      "display_name": "AI chat (eval)",
+      "labels": {
+        "eval": "catalog-eval"
+      },
+      "custom_fields": {
+        "owner": null,
+        "cost_center": null,
+        "slack_channel": null,
+        "jira_project": null,
+        "product_manager": null,
+        "git_repo": null,
+        "dashboard": null
+      },
+      "created_at": "2026-11-19T13:53:59.260Z",
+      "updated_at": "2026-11-19T13:53:59.260Z"
+    }
+  },
+  "map catalog-eval-ai-chat": {
+    "status": 201,
+    "body": {
+      "id": "7e40cef1-4c96-4bc4-a6e3-976add1f9fb3",
+      "resource": {
+        "type": "gateway_svc",
+        "config": {
+          "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554",
+          "gateway_service_id": "93a9764b-46d8-47d1-af9f-46d671ed8cc9"
+        },
+        "id": "O1mc0nx6wS7jbzF1",
+        "name": "aiplug-eval",
+        "integration": {
+          "name": "gateway-manager",
+          "display_name": "API Gateway",
+          "instance": {
+            "id": "633f9792-3b19-404b-a4cb-62b8baa42a01",
+            "name": "gateway-manager",
+            "display_name": "API Gateway"
+          }
+        }
+      },
+      "service": {
+        "id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+        "name": "catalog-eval-ai-chat",
+        "display_name": "AI chat (eval)"
+      },
+      "created_at": "2026-11-19T13:54:00.735Z"
+    }
+  },
+  "create catalog-eval-orders-mcp": {
+    "status": 201,
+    "body": {
+      "id": "1e4f1019-a572-4f7d-93a7-236105456a72",
+      "name": "catalog-eval-orders-mcp",
+      "description": "Eval catalog entry for gateway service mcpreg-eval-orders",
+      "display_name": "Orders MCP (eval)",
+      "labels": {
+        "eval": "catalog-eval"
+      },
+      "custom_fields": {
+        "owner": null,
+        "cost_center": null,
+        "slack_channel": null,
+        "jira_project": null,
+        "product_manager": null,
+        "git_repo": null,
+        "dashboard": null
+      },
+      "created_at": "2026-11-19T13:54:01.242Z",
+      "updated_at": "2026-11-19T13:54:01.242Z"
+    }
+  },
+  "map catalog-eval-orders-mcp": {
+    "status": 201,
+    "body": {
+      "id": "cd5e2fb7-5432-42bb-b538-7aa74b645116",
+      "resource": {
+        "type": "gateway_svc",
+        "config": {
+          "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554",
+          "gateway_service_id": "1456c805-2f8d-4a47-819a-98dbb14f103e"
+        },
+        "id": "4YVO7t_bKGBaoEps",
+        "name": "mcpreg-eval-orders",
+        "integration": {
+          "name": "gateway-manager",
+          "display_name": "API Gateway",
+          "instance": {
+            "id": "633f9792-3b19-404b-a4cb-62b8baa42a01",
+            "name": "gateway-manager",
+            "display_name": "API Gateway"
+          }
+        }
+      },
+      "service": {
+        "id": "1e4f1019-a572-4f7d-93a7-236105456a72",
+        "name": "catalog-eval-orders-mcp",
+        "display_name": "Orders MCP (eval)"
+      },
+      "created_at": "2026-11-19T13:54:02.709Z"
+    }
+  },
+  "api-mapping": {
+    "status": 201,
+    "body": {
+      "id": "669a16e8-de93-41c9-ab5e-7c78e7bda9a8",
+      "service_id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+      "api_id": "e26d0735-e0b3-46da-8bc0-ccacddfab81f",
+      "created_at": "2026-11-19T13:54:03.598Z",
+      "updated_at": "2026-11-19T13:54:03.598Z"
+    }
+  },
+  "scorecard": {
+    "status": 201,
+    "body": {
+      "id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+      "name": "catalog-eval best practices",
+      "description": "Eval scorecard",
+      "score": null,
+      "entity_selector": {
+        "selector": "label",
+        "selector_parameters": {
+          "value": "catalog-eval",
+          "operator": "eq",
+          "label_key": "eval"
+        }
+      },
+      "scorecard_template": "kong_best_practices",
+      "created_at": "2026-11-19T13:54:39.981Z",
+      "updated_at": "2026-11-19T13:54:39.981Z",
+      "criteria": [
+        {
+          "id": "2f064bdc-5dea-4eb1-9a67-28257c84a9e0",
+          "name": "Error rate under 5% (30d)",
+          "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+          "integration": "gateway-manager",
+          "enabled": true,
+          "template_name": "gateway_manager_error_rate",
+          "template_parameters": {
+            "threshold": 5,
+            "relative_window": "30d"
+          },
+          "section_name": "Observability",
+          "created_at": "2026-11-19T13:54:39.981Z",
+          "updated_at": "2026-11-19T13:54:39.981Z"
+        },
+        {
+          "id": "84aad633-de22-4b4d-9157-e96158d3a244",
+          "name": "p95 latency under 1500 ms (30d)",
+          "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+          "integration": "gateway-manager",
+          "enabled": true,
+          "template_name": "gateway_manager_response_latency",
+          "template_parameters": {
+            "metric": "response_latency_p95",
+            "threshold": 1500,
+            "relative_window": "30d"
+          },
+          "section_name": "Observability",
+          "created_at": "2026-11-19T13:54:39.981Z",
+          "updated_at": "2026-11-19T13:54:39.981Z"
+        },
+        {
+          "id": "61836933-77a4-4321-a6e4-35d4ccf18d3a",
+          "name": "Has a Authentication plugin",
+          "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+          "integration": "gateway-manager",
+          "enabled": true,
+          "template_name": "gateway_manager_has_plugin",
+          "template_parameters": {
+            "category": "Authentication"
+          },
+          "section_name": "Gateway Configuration",
+          "created_at": "2026-11-19T13:54:39.981Z",
+          "updated_at": "2026-11-19T13:54:39.981Z"
+        }
+      ]
+    }
+  },
+  "scores catalog-eval-ai-chat": {
+    "status": 200,
+    "body": {
+      "data": [],
+      "meta": {
+        "page": {
+          "total": 0,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "scores catalog-eval-orders-mcp": {
+    "status": 200,
+    "body": {
+      "data": [],
+      "meta": {
+        "page": {
+          "total": 0,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "scorecard services": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+          "name": "catalog-eval-ai-chat",
+          "description": "Eval catalog entry for gateway service aiplug-eval",
+          "display_name": "AI chat (eval)",
+          "labels": {
+            "eval": "catalog-eval"
+          },
+          "custom_fields": {
+            "owner": null,
+            "cost_center": null,
+            "slack_channel": null,
+            "jira_project": null,
+            "product_manager": null,
+            "git_repo": null,
+            "dashboard": null
+          },
+          "created_at": "2026-11-19T13:53:59.260Z",
+          "updated_at": "2026-11-19T13:53:59.260Z",
+          "score": null
+        },
+        {
+          "id": "1e4f1019-a572-4f7d-93a7-236105456a72",
+          "name": "catalog-eval-orders-mcp",
+          "description": "Eval catalog entry for gateway service mcpreg-eval-orders",
+          "display_name": "Orders MCP (eval)",
+          "labels": {
+            "eval": "catalog-eval"
+          },
+          "custom_fields": {
+            "owner": null,
+            "cost_center": null,
+            "slack_channel": null,
+            "jira_project": null,
+            "product_manager": null,
+            "git_repo": null,
+            "dashboard": null
+          },
+          "created_at": "2026-11-19T13:54:01.242Z",
+          "updated_at": "2026-11-19T13:54:01.242Z",
+          "score": null
+        }
+      ],
+      "meta": {
+        "page": {
+          "total": 2,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "scorecard criteria": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "id": "2f064bdc-5dea-4eb1-9a67-28257c84a9e0",
+          "name": "Error rate under 5% (30d)",
+          "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+          "integration": "gateway-manager",
+          "enabled": true,
+          "template_name": "gateway_manager_error_rate",
+          "template_parameters": {
+            "threshold": 5,
+            "relative_window": "30d"
+          },
+          "section_name": "Observability",
+          "created_at": "2026-11-19T13:54:39.981Z",
+          "updated_at": "2026-11-19T13:54:39.981Z",
+          "evaluation": null
+        },
+        {
+          "id": "84aad633-de22-4b4d-9157-e96158d3a244",
+          "name": "p95 latency under 1500 ms (30d)",
+          "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+          "integration": "gateway-manager",
+          "enabled": true,
+          "template_name": "gateway_manager_response_latency",
+          "template_parameters": {
+            "metric": "response_latency_p95",
+            "threshold": 1500,
+            "relative_window": "30d"
+          },
+          "section_name": "Observability",
+          "created_at": "2026-11-19T13:54:39.981Z",
+          "updated_at": "2026-11-19T13:54:39.981Z",
+          "evaluation": null
+        },
+        {
+          "id": "61836933-77a4-4321-a6e4-35d4ccf18d3a",
+          "name": "Has a Authentication plugin",
+          "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+          "integration": "gateway-manager",
+          "enabled": true,
+          "template_name": "gateway_manager_has_plugin",
+          "template_parameters": {
+            "category": "Authentication"
+          },
+          "section_name": "Gateway Configuration",
+          "created_at": "2026-11-19T13:54:39.981Z",
+          "updated_at": "2026-11-19T13:54:39.981Z",
+          "evaluation": null
+        }
+      ],
+      "meta": {
+        "page": {
+          "total": 3,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "scores ai-chat": {
+    "status": 200,
+    "body": {
+      "data": [],
+      "meta": {
+        "page": {
+          "total": 0,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "scores orders-mcp": {
+    "status": 200,
+    "body": {
+      "data": [],
+      "meta": {
+        "page": {
+          "total": 0,
+          "size": 100,
+          "number": 1
+        }
+      }
+    }
+  },
+  "criteria_later": {
+    "data": [
+      {
+        "id": "2f064bdc-5dea-4eb1-9a67-28257c84a9e0",
+        "name": "Error rate under 5% (30d)",
+        "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+        "integration": "gateway-manager",
+        "enabled": true,
+        "template_name": "gateway_manager_error_rate",
+        "template_parameters": {
+          "threshold": 5,
+          "relative_window": "30d"
+        },
+        "section_name": "Observability",
+        "created_at": "2026-11-19T13:54:39.981Z",
+        "updated_at": "2026-11-19T13:54:39.981Z",
+        "evaluation": null
+      },
+      {
+        "id": "84aad633-de22-4b4d-9157-e96158d3a244",
+        "name": "p95 latency under 1500 ms (30d)",
+        "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+        "integration": "gateway-manager",
+        "enabled": true,
+        "template_name": "gateway_manager_response_latency",
+        "template_parameters": {
+          "metric": "response_latency_p95",
+          "threshold": 1500,
+          "relative_window": "30d"
+        },
+        "section_name": "Observability",
+        "created_at": "2026-11-19T13:54:39.981Z",
+        "updated_at": "2026-11-19T13:54:39.981Z",
+        "evaluation": null
+      },
+      {
+        "id": "61836933-77a4-4321-a6e4-35d4ccf18d3a",
+        "name": "Has a Authentication plugin",
+        "scorecard_id": "7431d615-a6a9-43b4-b8ae-23de5bd1c266",
+        "integration": "gateway-manager",
+        "enabled": true,
+        "template_name": "gateway_manager_has_plugin",
+        "template_parameters": {
+          "category": "Authentication"
+        },
+        "section_name": "Gateway Configuration",
+        "created_at": "2026-11-19T13:54:39.981Z",
+        "updated_at": "2026-11-19T13:54:39.981Z",
+        "evaluation": null
+      }
+    ],
+    "meta": {
+      "page": {
+        "total": 3,
+        "size": 100,
+        "number": 1
+      }
+    }
+  },
+  "services_later": {
+    "data": [
+      {
+        "id": "df707df4-b286-43b4-9e4e-0c5b835ff4e2",
+        "name": "catalog-eval-ai-chat",
+        "description": "Eval catalog entry for gateway service aiplug-eval",
+        "display_name": "AI chat (eval)",
+        "labels": {
+          "eval": "catalog-eval"
+        },
+        "custom_fields": {
+          "owner": null,
+          "cost_center": null,
+          "slack_channel": null,
+          "jira_project": null,
+          "product_manager": null,
+          "git_repo": null,
+          "dashboard": null
+        },
+        "created_at": "2026-11-19T13:53:59.260Z",
+        "updated_at": "2026-11-19T13:53:59.260Z",
+        "score": null
+      },
+      {
+        "id": "1e4f1019-a572-4f7d-93a7-236105456a72",
+        "name": "catalog-eval-orders-mcp",
+        "description": "Eval catalog entry for gateway service mcpreg-eval-orders",
+        "display_name": "Orders MCP (eval)",
+        "labels": {
+          "eval": "catalog-eval"
+        },
+        "custom_fields": {
+          "owner": null,
+          "cost_center": null,
+          "slack_channel": null,
+          "jira_project": null,
+          "product_manager": null,
+          "git_repo": null,
+          "dashboard": null
+        },
+        "created_at": "2026-11-19T13:54:01.242Z",
+        "updated_at": "2026-11-19T13:54:01.242Z",
+        "score": null
+      }
+    ],
+    "meta": {
+      "page": {
+        "total": 2,
+        "size": 100,
+        "number": 1
+      }
+    }
+  }
+}

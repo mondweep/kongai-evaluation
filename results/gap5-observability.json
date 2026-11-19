@@ -1,0 +1,230 @@
+{
+  "create": {
+    "status": 201,
+    "body": {
+      "name": "obs-eval AI and MCP overview",
+      "definition": {
+        "tiles": [
+          {
+            "type": "chart",
+            "layout": {
+              "position": {
+                "col": 0,
+                "row": 0
+              },
+              "size": {
+                "cols": 3,
+                "rows": 2
+              }
+            },
+            "definition": {
+              "query": {
+                "datasource": "llm_usage",
+                "metrics": [
+                  "cost"
+                ],
+                "dimensions": [
+                  "consumer"
+                ],
+                "time_range": {
+                  "type": "relative",
+                  "time_range": "24h"
+                },
+                "filters": [
+                  {
+                    "field": "control_plane",
+                    "operator": "in",
+                    "value": [
+                      "968bf452-4a30-4573-a9e1-41d3c7de5554"
+                    ]
+                  }
+                ]
+              },
+              "chart": {
+                "type": "horizontal_bar",
+                "chart_title": "AI cost by consumer (24h)"
+              }
+            }
+          },
+          {
+            "type": "chart",
+            "layout": {
+              "position": {
+                "col": 3,
+                "row": 0
+              },
+              "size": {
+                "cols": 3,
+                "rows": 2
+              }
+            },
+            "definition": {
+              "query": {
+                "datasource": "llm_usage",
+                "metrics": [
+                  "total_tokens"
+                ],
+                "dimensions": [
+                  "time",
+                  "ai_request_model"
+                ],
+                "time_range": {
+                  "type": "relative",
+                  "time_range": "24h"
+                },
+                "granularity": "hourly"
+              },
+              "chart": {
+                "type": "timeseries_line",
+                "chart_title": "Tokens by requested model"
+              }
+            }
+          },
+          {
+            "type": "chart",
+            "layout": {
+              "position": {
+                "col": 0,
+                "row": 2
+              },
+              "size": {
+                "cols": 3,
+                "rows": 2
+              }
+            },
+            "definition": {
+              "query": {
+                "datasource": "agentic_usage",
+                "metrics": [
+                  "request_count"
+                ],
+                "dimensions": [
+                  "mcp_tool_name"
+                ],
+                "time_range": {
+                  "type": "relative",
+                  "time_range": "24h"
+                }
+              },
+              "chart": {
+                "type": "donut",
+                "chart_title": "MCP tool calls"
+              }
+            }
+          },
+          {
+            "type": "chart",
+            "layout": {
+              "position": {
+                "col": 3,
+                "row": 2
+              },
+              "size": {
+                "cols": 3,
+                "rows": 2
+              }
+            },
+            "definition": {
+              "query": {
+                "datasource": "api_usage",
+                "metrics": [
+                  "response_latency_p95"
+                ],
+                "dimensions": [
+                  "route"
+                ],
+                "time_range": {
+                  "type": "relative",
+                  "time_range": "24h"
+                },
+                "limit": 10
+              },
+              "chart": {
+                "type": "vertical_bar",
+                "chart_title": "p95 latency by route"
+              }
+            }
+          },
+          {
+            "type": "chart",
+            "layout": {
+              "position": {
+                "col": 0,
+                "row": 4
+              },
+              "size": {
+                "cols": 2,
+                "rows": 1
+              }
+            },
+            "definition": {
+              "query": {
+                "datasource": "api_usage",
+                "metrics": [
+                  "error_rate"
+                ],
+                "time_range": {
+                  "type": "relative",
+                  "time_range": "24h"
+                }
+              },
+              "chart": {
+                "type": "single_value",
+                "chart_title": "Error rate (24h)",
+                "decimal_points": 2
+              }
+            }
+          }
+        ]
+      },
+      "labels": {
+        "eval": "obs-eval"
+      },
+      "id": "758b045d-7ef6-44de-b470-2ad9e78ebc12",
+      "created_by": "aed2e9a9-f20d-4d2b-ae7a-1e9458d0a110",
+      "created_at": "2026-11-19T13:48:27.059Z",
+      "updated_at": "2026-11-19T13:48:27.059Z",
+      "favorite": false,
+      "popularity": 0
+    }
+  },
+  "get": 200,
+  "dashboard_id": "758b045d-7ef6-44de-b470-2ad9e78ebc12",
+  "explorer_via_konnect_mcp": {
+    "public_rest": "No Explorer/Reports/Debugger endpoints in the public Konnect OpenAPI spec (probed /v1|v2 explore, reports, debug-sessions: 404).",
+    "llm_usage_by_consumer_24h": "works; returns tokens, request count and cost per consumer (val-gold, val-cost etc.); 1,117 AI requests had no consumer",
+    "agentic_usage_by_tool_and_consumer_1h": {
+      "mcp-admin": {
+        "get_order": 5,
+        "cancel_order": 5,
+        "(no tool, e.g. initialize/list)": 10
+      },
+      "mcp-reader": {
+        "get_order": 5,
+        "(no tool)": 10
+      },
+      "note": "reader's ACL-denied cancel_order calls (403) are not attributed to the tool name"
+    },
+    "api_usage_p95_by_route_24h": "works"
+  },
+  "debugger": {
+    "session_id": "01a1f410-a803-7c01-9295-5b11d99a4776",
+    "created_via": "Konnect MCP server CreateDebugSession",
+    "filter": "http.path == /mcpreg-eval/mcp, 45 s, max 30 samples",
+    "target_compat": [
+      "traces",
+      "logs",
+      "payload_sanitization"
+    ],
+    "traces_seen": 8,
+    "top_spans_avg_ms": {
+      "kong (whole)": 274.38,
+      "tls_handshake": 124.13,
+      "io.http.request (MCP inner REST call)": 98.35,
+      "wait_for_client_read": 96.64,
+      "phase.access": 50.91,
+      "plugin ai-mcp-proxy (access)": 50.01,
+      "key-auth": 0.42
+    }
+  }
+}
