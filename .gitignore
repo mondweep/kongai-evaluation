@@ -4,3 +4,4 @@ reqs.json
 __pycache__/
 *.env
 .env*
+_site/

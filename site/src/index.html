@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kong AI Gateway, Tested</title>
+<meta name="description" content="An independent, hands-on evaluation of Kong Konnect's AI Gateway: five AI-risk claims, 28 of 32 features, virtual models, MCP and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="#top"><span class="brand-dot"></span>Kong AI Gateway, Tested</a>
+  <nav id="nav" aria-label="Sections">
+    <a href="#claims">Claims</a>
+    <a href="#defaults">Defaults</a>
+    <a href="#cost">Cost</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#more">Beyond Kong</a>
+    <a href="#findings">Findings</a>
+    <a href="#library">Write-ups</a>
+  </nav>
+  <button id="theme" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">◐</button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow" id="hero-meta"></p>
+    <h1 id="hero-title"></h1>
+    <p class="lede" id="hero-lede"></p>
+    <div class="stats" id="hero-stats"></div>
+    <div class="hero-cta">
+      <a class="btn primary" href="#claims">See the verdicts</a>
+      <a class="btn" id="repo-link" target="_blank" rel="noopener">View the repository</a>
+    </div>
+  </section>
+
+  <section id="claims" class="band">
+    <div class="section-head">
+      <h2>The five claims, tested</h2>
+      <p>Pick a risk to see the evidence behind the verdict.</p>
+    </div>
+    <div class="claims-layout">
+      <div class="claim-tabs" id="claim-tabs" role="tablist"></div>
+      <article class="claim-panel" id="claim-panel" role="tabpanel"></article>
+    </div>
+  </section>
+
+  <section id="defaults">
+    <div class="section-head">
+      <h2>The defaults are where it goes wrong</h2>
+      <p id="defaults-intro"></p>
+    </div>
+    <div class="toggle-wrap">
+      <span class="tlabel" id="lbl-default">Kong defaults</span>
+      <button class="switch" id="harden" role="switch" aria-checked="false" aria-label="Show recommended settings"><span></span></button>
+      <span class="tlabel" id="lbl-hard">Our recommended settings</span>
+    </div>
+    <div class="defaults-grid" id="defaults-grid"></div>
+  </section>
+
+  <section id="cost" class="band">
+    <div class="section-head">
+      <h2>Counting is exact. Limits are soft.</h2>
+      <p id="limits-intro"></p>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <h3>How far past the limit did spending get?</h3>
+        <div class="limit-chart" id="limit-chart"></div>
+        <p class="note">1.0× is the configured limit. Source: <a data-doc="report.md">test report</a>.</p>
+      </div>
+      <div class="card budget" id="budget"></div>
+    </div>
+    <div class="card" id="revocation-card">
+      <div class="row-between">
+        <div>
+          <h3>Revoked, but still working</h3>
+          <p class="muted" id="revocation-intro"></p>
+        </div>
+        <button class="btn primary" id="race">▶ Play</button>
+      </div>
+      <div id="race-clock" class="race-clock">0 s</div>
+      <div id="race-lanes"></div>
+    </div>
+  </section>
+
+  <section id="coverage">
+    <div class="section-head">
+      <h2>How much of Konnect we tried</h2>
+      <p id="coverage-intro"></p>
+    </div>
+    <div class="coverage-top">
+      <div class="donut-wrap"><svg id="coverage-donut" viewBox="0 0 120 120" role="img"></svg></div>
+      <div>
+        <div class="chips" id="coverage-filters"></div>
+        <p class="muted small">Click a tile for the evidence.</p>
+      </div>
+    </div>
+    <div class="tiles" id="coverage-tiles"></div>
+    <div class="tile-detail" id="tile-detail" hidden></div>
+  </section>
+
+  <section id="more" class="band">
+    <div class="section-head">
+      <h2>Beyond the five claims</h2>
+      <p>What else we evaluated, and how Kong fits with the rest of an AI stack.</p>
+    </div>
+    <div class="subtabs" id="subtabs" role="tablist">
+      <button role="tab" data-tab="vm" aria-selected="true">Virtual models</button>
+      <button role="tab" data-tab="metallm">MetaLLM</button>
+      <button role="tab" data-tab="mcp">Managing Konnect by chat</button>
+      <button role="tab" data-tab="ruv">rUv agent stack</button>
+      <button role="tab" data-tab="all">All evaluations</button>
+    </div>
+    <div class="subpanel" id="sub-vm"></div>
+    <div class="subpanel" id="sub-metallm" hidden></div>
+    <div class="subpanel" id="sub-mcp" hidden></div>
+    <div class="subpanel" id="sub-ruv" hidden></div>
+    <div class="subpanel" id="sub-all" hidden></div>
+  </section>
+
+  <section id="findings">
+    <div class="section-head">
+      <h2>Every headline finding</h2>
+      <p>Search or filter the findings. Each links to its write-up.</p>
+    </div>
+    <div class="finder">
+      <input id="find-q" type="search" placeholder="Search, e.g. failover, PII, budget" aria-label="Search findings">
+      <div class="chips" id="find-sections"></div>
+    </div>
+    <ol class="finding-list" id="finding-list"></ol>
+  </section>
+
+  <section id="library" class="band">
+    <div class="section-head">
+      <h2>Read the write-ups</h2>
+      <p>The full reports from the repository, with identifiers removed.</p>
+    </div>
+    <div class="library" id="library-list"></div>
+    <h3 class="method-h">How we did it</h3>
+    <div class="method" id="method"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Independent evaluation on a Konnect trial. Not affiliated with or endorsed by Kong Inc. or Cognitum. Built from the repository on every merge. <a id="foot-repo" target="_blank" rel="noopener">Source</a></p>
+</footer>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-backdrop" data-close></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <span id="drawer-title">Write-up</span>
+      <div>
+        <a class="btn small" id="drawer-gh" target="_blank" rel="noopener">On GitHub</a>
+        <button class="icon-btn" data-close aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="drawer-body prose" id="drawer-body"></div>
+  </aside>
+</div>
+
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/purify.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
