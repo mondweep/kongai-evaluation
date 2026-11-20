@@ -3,9 +3,9 @@ import json, os, urllib.request, urllib.error
 
 EU = "https://eu.api.konghq.com"
 GLOBAL = "https://global.api.konghq.com"
-CP = "968bf452-4a30-4573-a9e1-41d3c7de5554"
+CP = "YOUR-CONTROL-PLANE-ID"
 CE = f"{EU}/v2/control-planes/{CP}/core-entities"
-PROXY = "https://6efbd575d6.eu.serverless.gateways.konggateway.com"
+PROXY = "https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com"
 TAG = "metering-eval"
 
 

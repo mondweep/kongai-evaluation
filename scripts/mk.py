@@ -1,11 +1,11 @@
 import json,os,sys,urllib.request
-B="https://eu.api.konghq.com/v2/control-planes/968bf452-4a30-4573-a9e1-41d3c7de5554/core-entities/"
+B="https://eu.api.konghq.com/v2/control-planes/YOUR-CONTROL-PLANE-ID/core-entities/"
 def call(m,p,d=None):
     r=urllib.request.Request(B+p,method=m,data=json.dumps(d).encode() if d is not None else None,headers={"Authorization":"Bearer "+os.environ["KCONNECT_TOKEN"],"content-type":"application/json"})
     try:
         with urllib.request.urlopen(r) as f: t=f.read(); return json.loads(t) if t else {}
     except urllib.error.HTTPError as e: print("ERR",m,p,e.code,e.read()[:600].decode()); raise
-GW="https://6efbd575d6.eu.serverless.gateways.konggateway.com"
+GW="https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com"
 def proxy(name="mock",path="/mock-llm/v1/chat/completions"):
     return {"route_type":"llm/v1/chat","auth":{"header_name":"Authorization","header_value":"Bearer dummy"},
       "logging":{"log_statistics":True,"log_payloads":False},

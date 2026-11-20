@@ -1,5 +1,5 @@
 import json, os, urllib.request
-B="https://eu.api.konghq.com/v2/control-planes/968bf452-4a30-4573-a9e1-41d3c7de5554/core-entities"
+B="https://eu.api.konghq.com/v2/control-planes/YOUR-CONTROL-PLANE-ID/core-entities"
 def k(method, path, body=None):
     req=urllib.request.Request(B+"/"+path, method=method, data=json.dumps(body).encode() if body is not None else None,
         headers={"Authorization":"Bearer "+os.environ["KCONNECT_TOKEN"],"content-type":"application/json"})
@@ -7,7 +7,7 @@ def k(method, path, body=None):
         with urllib.request.urlopen(req) as r: t=r.read(); return r.status, (json.loads(t) if t else None)
     except urllib.error.HTTPError as e: return e.code, json.loads(e.read() or b'null')
 TAG=["virtual-model-demo"]
-PROXY="https://6efbd575d6.eu.serverless.gateways.konggateway.com"
+PROXY="https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com"
 def targets(order=("gemini","mock"), weights=(100,10), mock_fail=False, alias="my-model"):
     T={"gemini":{"route_type":"llm/v1/chat","model":{"provider":"gemini","name":"gemini-2.5-flash","model_alias":alias,
                "options":{"input_cost":0.30,"output_cost":2.50}},

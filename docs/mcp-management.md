@@ -53,7 +53,7 @@ All steps ran through the MCP server's `execute` tool from a conversation. Entit
 | 2 | Create service `mcp-demo-httpbin` -> `https://httpbin.org/anything` | 201 Created |
 | 3 | Add route `mcp-demo-route`, GET `/mcp-demo` | 201 Created |
 | 4 | Add `rate-limiting` to the service, 5/minute, policy `local` | 201 Created |
-| 5 | Show everything tagged `mcp-demo` with the proxy URL | 1 service, 1 route, 1 plugin; proxy `https://6efbd575d6.eu.serverless.gateways.konggateway.com/mcp-demo` |
+| 5 | Show everything tagged `mcp-demo` with the proxy URL | 1 service, 1 route, 1 plugin; proxy `https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com/mcp-demo` |
 | 6 | List Dev Portals | **403** "You do not have permission", as intended |
 
 The route went live within about 20 seconds and returned 200.

@@ -2,7 +2,7 @@ import fs from 'fs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 const keys = JSON.parse(fs.readFileSync('./keys.json'));
-const url = new URL('https://6efbd575d6.eu.serverless.gateways.konggateway.com/ruv-mcp');
+const url = new URL('https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com/ruv-mcp');
 async function run(agent, calls) {
   const c = new Client({ name: 'rl-test', version: '0' });
   const out = [];
