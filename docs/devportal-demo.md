@@ -6,7 +6,7 @@ Konnect trial, EU region. Every entity is tagged `devportal-demo` and named with
 
 | Item | Detail |
 |---|---|
-| Portal | "Wipro Demo Portal" (`wipro-demo-portal`), public, no developer sign-in: https://c07265dd25b4.eu.kongportals.com |
+| Portal | "Wipro Demo Portal" (`wipro-demo-portal`), public, no developer sign-in |
 | Pages | `/` (home) and `/apis`. A new portal returns 404 at its root until a published page with slug `/` exists |
 | API | "Demo HTTPBin API" 1.0.0, linked to gateway service `demo-httpbin` (route `/demo-httpbin`), published to the portal |
 | Portal MCP server | Switched on. It first needed Connected Apps enabled for the portal (`PATCH /v1/connected-apps/portals/{id}` with `enabled` and `default_url`) |

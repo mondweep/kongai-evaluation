@@ -1,5 +1,5 @@
 import json,urllib.request,time
-GW="https://6efbd575d6.eu.serverless.gateways.konggateway.com"
+GW="https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com"
 def send(t):
     r=urllib.request.Request(GW+"/chat-cache",data=json.dumps({"messages":[{"role":"user","content":t}]}).encode(),headers={"content-type":"application/json"})
     try:

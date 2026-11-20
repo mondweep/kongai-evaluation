@@ -62,7 +62,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mcpreg-eval/mcp"
+          "url": "https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com/mcpreg-eval/mcp"
         }
       ],
       "packages": [],
@@ -167,7 +167,7 @@
           "prompts": [],
           "remotes": [
             {
-              "url": "https://6efbd575d6.eu.serverless.gateways.konggateway.com/mcpreg-eval/mcp",
+              "url": "https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com/mcpreg-eval/mcp",
               "type": "streamable-http"
             }
           ],
@@ -243,7 +243,7 @@
       "status": 404,
       "title": "Not Found",
       "instance": "kong:trace:945036498762226939",
-      "detail": "AI Gateway MCP server (ID: ece04f64-66a0-4210-aeb3-17545571d85b) not found in gateway (ID: 968bf452-4a30-4573-a9e1-41d3c7de5554)"
+      "detail": "AI Gateway MCP server (ID: ece04f64-66a0-4210-aeb3-17545571d85b) not found in gateway (ID: YOUR-CONTROL-PLANE-ID)"
     }
   }
 }

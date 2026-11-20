@@ -105,7 +105,7 @@
       "updated_at": "2026-11-19T13:49:51.609Z",
       "service": {
         "id": "0dbd9176-ab40-4031-8b32-ce97462f06ff",
-        "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554"
+        "control_plane_id": "YOUR-CONTROL-PLANE-ID"
       }
     }
   },

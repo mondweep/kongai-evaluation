@@ -1,5 +1,5 @@
 import json,sys,urllib.request,time,concurrent.futures as cf
-GW="https://6efbd575d6.eu.serverless.gateways.konggateway.com"
+GW="https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com"
 keys=json.load(open("keys.json"))
 def send(key,ct=100,route="/chat-rl"):
     r=urllib.request.Request(GW+route,data=json.dumps({"messages":[{"role":"user","content":"count to three"}]}).encode(),headers={"content-type":"application/json","apikey":key,"x-mock-completion-tokens":str(ct)})

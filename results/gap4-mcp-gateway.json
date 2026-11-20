@@ -187,7 +187,7 @@
       "status": 404,
       "title": "Not Found",
       "instance": "kong:trace:17343406563247336171",
-      "detail": "AI Gateway MCP server (ID: 8a41738d-d5aa-4b9a-a56e-b422e8e8df64) not found in gateway (ID: 968bf452-4a30-4573-a9e1-41d3c7de5554)"
+      "detail": "AI Gateway MCP server (ID: 8a41738d-d5aa-4b9a-a56e-b422e8e8df64) not found in gateway (ID: YOUR-CONTROL-PLANE-ID)"
     }
   ],
   "impls_after": [

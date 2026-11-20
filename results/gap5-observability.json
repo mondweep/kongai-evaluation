@@ -35,7 +35,7 @@
                     "field": "control_plane",
                     "operator": "in",
                     "value": [
-                      "968bf452-4a30-4573-a9e1-41d3c7de5554"
+                      "YOUR-CONTROL-PLANE-ID"
                     ]
                   }
                 ]

@@ -1,5 +1,5 @@
 import json, time, urllib.request, sys
-URL="https://6efbd575d6.eu.serverless.gateways.konggateway.com/vm-chat"
+URL="https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com/vm-chat"
 def call(model="my-model", text="Reply with the single word: pong", key="vm-demo-key-3141"):
     body={"messages":[{"role":"user","content":text}]}
     if model is not None: body["model"]=model

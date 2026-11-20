@@ -2,6 +2,8 @@
 
 Kong markets its AI Gateway (Konnect) as addressing five risks: data exposure, uncontrolled costs, compliance and audit, operational risk, and security. This repository holds a hands-on test of those claims, plus a wider evaluation: how much of Konnect works on a trial, how Kong fits with rUv's agent stack, and how Kong's virtual models compare with Cognitum's MetaLLM. Marketing pages are treated as claims to test, not as evidence. The summary is under [What we evaluated](#what-we-evaluated).
 
+**Interactive site:** https://mondweep.github.io/kongai-evaluation/ (built from this repo by [site/](site/) on every merge to `main`).
+
 Documents:
 
 - [docs/report.md](docs/report.md): **the report**: verdicts, key findings and recommended production settings

@@ -1,0 +1,175 @@
+{
+  "_note": "Curated numbers and wording for the site's charts. Every figure comes from a write-up in docs/; the 'source' fields say which. Tables (risk verdicts, coverage, findings, virtual-model runs, MetaLLM calls) are read straight from the docs and results at build time.",
+  "date": "19 November 2026",
+  "env": "Kong Konnect trial, EU region, one serverless gateway (Kong 3.16), synthetic data only",
+  "hero": {
+    "title": "We put Kong's AI Gateway claims to the test",
+    "lede": "Kong says its AI Gateway tames five AI risks. We built a test for each claim, ran it hands-on, and kept going until 28 of Konnect's 32 menu items had been exercised. Here is what held up, what only works once you change the defaults, and what doesn't work at all.",
+    "stats": [
+      {"value": 5, "label": "AI-risk claims tested", "suffix": ""},
+      {"value": 28, "label": "of 32 Konnect features tried hands-on", "suffix": ""},
+      {"value": 22, "label": "headline findings", "suffix": ""},
+      {"value": 1, "label": "gateway overhead", "suffix": " ms"}
+    ]
+  },
+  "verdictScale": {
+    "Demonstrated, with a caveat": 3,
+    "Demonstrated, not with the defaults": 2,
+    "Partly demonstrated": 2
+  },
+  "risks": {
+    "Data exposure": {
+      "icon": "shield",
+      "claim": "Kong stops sensitive data from reaching LLM providers.",
+      "metrics": [
+        {"label": "Structured PII blocked by Prompt Guard", "value": 24, "of": 25},
+        {"label": "Unstructured PII blocked by Prompt Guard", "value": 0, "of": 15},
+        {"label": "Prompts fully cleaned by AI Sanitizer", "value": 14, "of": 25},
+        {"label": "UK NI numbers caught by AI Sanitizer", "value": 0, "of": 5}
+      ],
+      "fix": "Turn on hide_credentials, add custom patterns for UK identifiers, and check every message role, not just the user's.",
+      "doc": "report.md"
+    },
+    "Uncontrolled costs": {
+      "icon": "coin",
+      "claim": "Token and cost limits keep AI spend under control.",
+      "metrics": [
+        {"label": "Prompt-token counts matching Google's", "value": 8, "of": 8},
+        {"label": "Concurrent requests that passed a limit meant to stop them", "value": 10, "of": 10}
+      ],
+      "fix": "Trust the accounting, not the limits. Set limits below the real budget and keep provider-side caps.",
+      "doc": "report.md"
+    },
+    "Compliance and audit": {
+      "icon": "scroll",
+      "claim": "A full audit trail and governance of AI usage.",
+      "metrics": [
+        {"label": "AI requests logged with consumer, model, tokens and cost", "value": 100, "of": 100, "unit": "%"},
+        {"label": "Admin changes that said what changed", "value": 0, "of": 3}
+      ],
+      "fix": "Alert when the audit webhook goes inactive and keep your own copy of events. Use decK or kongctl plans for a reviewed record of changes.",
+      "doc": "report.md"
+    },
+    "Operational risk": {
+      "icon": "pulse",
+      "claim": "Load balancing and failover keep AI services available.",
+      "metrics": [
+        {"label": "Requests served with one target down, default settings", "value": 50, "of": 100, "unit": "%"},
+        {"label": "Same, with non_idempotent plus HTTP codes", "value": 100, "of": 100, "unit": "%"}
+      ],
+      "fix": "Add non_idempotent and the 429/5xx codes to failover_criteria. DNS failures are never retried.",
+      "doc": "report.md"
+    },
+    "Security": {
+      "icon": "lock",
+      "claim": "Protection against prompt injection and unauthorised access.",
+      "metrics": [
+        {"label": "Direct injections blocked by the regex guard", "value": 14, "of": 15},
+        {"label": "Reworded injections blocked by the regex guard", "value": 0, "of": 15},
+        {"label": "All attacks blocked by the semantic guard (threshold 0.4)", "value": 30, "of": 30}
+      ],
+      "fix": "Use the semantic guard with vectordb.threshold set explicitly and tested. Never share the semantic cache across users.",
+      "doc": "report.md"
+    }
+  },
+  "defaults": {
+    "intro": "Most of Kong's controls work, but only after you change a default. Flip the switch to see the same tests with the settings we recommend.",
+    "rows": [
+      {"name": "Failover when one LLM target returns 500", "default": "50% of requests fail", "defaultBad": true, "hardened": "100% served", "setting": "failover_criteria: http_500 + non_idempotent", "doc": "report.md"},
+      {"name": "Virtual-model fallback", "default": "0 of 6 succeed", "defaultBad": true, "hardened": "5 of 6 (the 6th failed at Gemini)", "setting": "explicit failover_criteria", "doc": "virtual-model-evaluation.md"},
+      {"name": "Semantic injection guard", "default": "0 of 30 attacks blocked", "defaultBad": true, "hardened": "30 of 30 blocked, 0 false positives", "setting": "vectordb.threshold: 0.4", "doc": "report.md"},
+      {"name": "Client's gateway key", "default": "Forwarded to the LLM provider", "defaultBad": true, "hardened": "Stripped at the gateway", "setting": "key-auth hide_credentials: true", "doc": "report.md"},
+      {"name": "Semantic cache", "default": "User B gets user A's answer", "defaultBad": true, "hardened": "Partitioned per consumer", "setting": "scope the cache per consumer", "doc": "report.md"},
+      {"name": "AI Sanitizer when the PII service is down", "default": "Fails closed (HTTP 500)", "defaultBad": false, "hardened": "Keep it that way. stop_on_error: false lets PII through silently", "setting": "stop_on_error: true", "doc": "report.md"},
+      {"name": "Provider API key", "default": "Plain text in plugin config", "defaultBad": true, "hardened": "Vault reference", "setting": "Konnect config-store vault", "doc": "gaps-evaluation.md"}
+    ]
+  },
+  "limits": {
+    "intro": "Kong's token and cost counting is exact, but its limits are soft. Requests already in flight all get through, so a burst sails past the cap.",
+    "bars": [
+      {"label": "Token limit, one request at a time", "x": 1.18},
+      {"label": "Cost limit, one request at a time", "x": 1.09},
+      {"label": "10 concurrent requests", "x": 3.9},
+      {"label": "30 concurrent requests", "x": 2.4}
+    ],
+    "doc": "report.md"
+  },
+  "budget": {
+    "title": "New: cost budgets report overspending, they don't stop it",
+    "body": "Konnect's Cost Management budgets can only be advisory on this org: posture 'enforce' is rejected with HTTP 400. We set a tiny daily budget, pushed spend far past it, and the gateway kept answering.",
+    "limit": 0.000001,
+    "consumed": 50.91,
+    "afterRequests": [200, 200, 200, 200],
+    "doc": "remaining-evaluation.md"
+  },
+  "revocation": {
+    "intro": "How long did a revoked credential keep working? Press play to race them.",
+    "items": [
+      {"label": "Account removed from a team (gateway reads)", "seconds": 25, "doc": "remaining-evaluation.md"},
+      {"label": "Kong Identity client deleted", "seconds": 232, "doc": "gaps-evaluation.md"},
+      {"label": "Virtual key revoked, or agent deactivated", "seconds": 288, "doc": "gaps-evaluation.md"}
+    ]
+  },
+  "guards": {
+    "intro": "Kong's Prompt Guard and rUv's AIDefence scanned the same 95 synthetic prompts. Neither is enough alone.",
+    "sets": [
+      {"set": "Direct injection", "of": 15, "kong": 14, "aidefence": 11, "either": 15},
+      {"set": "Reworded, encoded, foreign or indirect", "of": 15, "kong": 0, "aidefence": 5, "either": 5},
+      {"set": "Structured PII", "of": 25, "kong": 24, "aidefence": 9, "either": null},
+      {"set": "Benign prompts wrongly blocked", "of": 25, "kong": 0, "aidefence": 0, "either": 0}
+    ],
+    "doc": "ruv-stack-evaluation.md"
+  },
+  "metallm": {
+    "calls": 12,
+    "spend": 0.0231,
+    "failedSpend": 0.0166,
+    "issues": [
+      "Leaked the vendor model ID (z-ai/glm-5.3-flash), although the spec says it never does",
+      "Billed failed calls: 72% of the spend went on errors",
+      "The cache crossed tiers: a 'high' request got a cached 'low' answer",
+      "This key never left the low tier, so escalation couldn't be tested"
+    ],
+    "stacked": "Kong in front of MetaLLM worked with no code changes, and Kong's cost estimate matched Cognitum's receipts exactly.",
+    "doc": "metallm-findings.md"
+  },
+  "mcp": {
+    "intro": "An agent managed Konnect in plain English through Kong's hosted MCP server, using a system account scoped to one control plane.",
+    "steps": [
+      {"ask": "List control planes and their services", "reply": "One control plane with 4 existing services", "ok": true},
+      {"ask": "Create a service called mcp-demo-httpbin pointing at httpbin.org/anything", "reply": "201 Created", "ok": true},
+      {"ask": "Add a route mcp-demo-route for GET /mcp-demo", "reply": "201 Created", "ok": true},
+      {"ask": "Rate-limit the service to 5 requests a minute", "reply": "201 Created", "ok": true},
+      {"ask": "Show me everything tagged mcp-demo", "reply": "1 service, 1 route, 1 plugin. Live within about 20 seconds", "ok": true},
+      {"ask": "List the Dev Portals", "reply": "403: You do not have permission. The scoped account kept the agent in its lane", "ok": false}
+    ],
+    "findings": [
+      "The documented global endpoint fails for an EU org. Use eu.mcp.konghq.com.",
+      "The audit log recorded the agent signing in, not the three things it created.",
+      "About 1,417 Konnect operations sit behind five meta-tools, so least privilege matters."
+    ],
+    "doc": "mcp-management.md"
+  },
+  "ruv": {
+    "intro": "rUv's stack (ruflo, agentic-flow, Cognitum One) and Kong sit at different layers. They complement each other.",
+    "layers": [
+      {"name": "Agent harness", "who": "ruflo, agentic-flow, ruOS", "does": "Choose agents and models, keep memory, police themselves from inside the agent"},
+      {"name": "Network chokepoint", "who": "Kong AI Gateway", "does": "Keys, budgets, audit and access control enforced outside the agent, where it can't switch them off"},
+      {"name": "Model providers", "who": "Gemini, OpenAI, Anthropic, MetaLLM", "does": "Answer the requests. Agents never hold their keys"}
+    ],
+    "points": [
+      "agentic-flow and Claude Code work through Kong in Anthropic and OpenAI formats, with tool calls and streaming.",
+      "One Kong route serves one model, so either agentic-flow's router or Kong must own model choice.",
+      "Kong as a governed MCP server: per-tool ACLs work, but the MCP handshake uses up rate-limit quota."
+    ],
+    "doc": "ruv-stack-evaluation.md"
+  },
+  "method": [
+    {"title": "Plan first", "body": "Each claim became a test with a written pass/fail bar before anything ran."},
+    {"title": "Grade the evidence", "body": "Claimed, documented, demonstrated or attested. Nothing here is attested."},
+    {"title": "Mock LLM", "body": "An echo mock on the gateway showed exactly what left it, at no cost. Real Gemini calls only where it mattered."},
+    {"title": "Synthetic data", "body": "Every PII, injection and benign prompt was generated. No real personal data."},
+    {"title": "Tag everything", "body": "Each round tagged what it created, so cleanup is one delete per tag."},
+    {"title": "Secrets out", "body": "Tokens in environment variables only. This site is built with a check that refuses to publish anything credential-like."}
+  ]
+}

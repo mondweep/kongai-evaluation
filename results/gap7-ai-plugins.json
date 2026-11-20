@@ -15,7 +15,7 @@
         {
           "finish_reason": "stop",
           "message": {
-            "content": "RECEIVED:{\"messages\":[{\"content\":\"EVAL-SYSTEM: answer in one line.\",\"role\":\"system\"},{\"content\":\"hello\",\"role\":\"user\"},{\"content\":\"EVAL-SUFFIX: cite no personal data.\",\"role\":\"user\"}],\"model\":\"gpt-4o-mini\"} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=c86cf46809e1670d00f9a77782cb7428;authorization=Bearer dummy-not-a-real-key;content-length=197;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.19;x-forwarded-prefix=/aiplug/decorator;x-forwarded-port=443;x-forwarded-path=/aiplug/decorator;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.19;",
+            "content": "RECEIVED:{\"messages\":[{\"content\":\"EVAL-SYSTEM: answer in one line.\",\"role\":\"system\"},{\"content\":\"hello\",\"role\":\"user\"},{\"content\":\"EVAL-SUFFIX: cite no personal data.\",\"role\":\"user\"}],\"model\":\"gpt-4o-mini\"} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=c86cf46809e1670d00f9a77782cb7428;authorization=Bearer dummy-not-a-real-key;content-length=197;host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.19;x-forwarded-prefix=/aiplug/decorator;x-forwarded-port=443;x-forwarded-path=/aiplug/decorator;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.19;",
             "role": "assistant"
           },
           "index": 0
@@ -40,7 +40,7 @@
         {
           "finish_reason": "stop",
           "message": {
-            "content": "RECEIVED:{\"messages\":[{\"content\":\"Write a greeting for Ada in French\",\"role\":\"user\"}],\"model\":\"gpt-4o-mini\"} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=3e85754fc9d5a73f954b5e3a6873fc69;authorization=Bearer dummy-not-a-real-key;content-length=99;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.224;x-forwarded-prefix=/aiplug/template;x-forwarded-port=443;x-forwarded-path=/aiplug/template;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.224;",
+            "content": "RECEIVED:{\"messages\":[{\"content\":\"Write a greeting for Ada in French\",\"role\":\"user\"}],\"model\":\"gpt-4o-mini\"} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=3e85754fc9d5a73f954b5e3a6873fc69;authorization=Bearer dummy-not-a-real-key;content-length=99;host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.224;x-forwarded-prefix=/aiplug/template;x-forwarded-port=443;x-forwarded-path=/aiplug/template;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.224;",
             "role": "assistant"
           },
           "index": 0
@@ -78,7 +78,7 @@
         "Content-Type": "application/json",
         "Host": "httpbin.org",
         "User-Agent": "Python-urllib/3.13",
-        "X-Forwarded-Host": "6efbd575d6.eu.serverless.gateways.konggateway.com",
+        "X-Forwarded-Host": "YOUR-GATEWAY.eu.serverless.gateways.konggateway.com",
         "X-Forwarded-Path": "/aiplug/reqxform",
         "X-Forwarded-Prefix": "/aiplug/reqxform",
         "X-Kong-Request-Id": "dc6dd273b8f9680a301fad1b1cfbe476"
@@ -121,7 +121,7 @@
         {
           "finish_reason": "stop",
           "message": {
-            "content": "RECEIVED:{\"model\": \"gpt-4o-mini\", \"messages\": [{\"role\": \"user\", \"content\": \"What is 2+2?\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=f1f00866e5365c2997a7b06f17d7ab45;authorization=Bearer dummy-not-a-real-key;content-length=83;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.21;x-forwarded-prefix=/aiplug/judge;x-forwarded-port=443;x-forwarded-path=/aiplug/judge;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.21;",
+            "content": "RECEIVED:{\"model\": \"gpt-4o-mini\", \"messages\": [{\"role\": \"user\", \"content\": \"What is 2+2?\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=f1f00866e5365c2997a7b06f17d7ab45;authorization=Bearer dummy-not-a-real-key;content-length=83;host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.21;x-forwarded-prefix=/aiplug/judge;x-forwarded-port=443;x-forwarded-path=/aiplug/judge;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.21;",
             "role": "assistant"
           },
           "index": 0
@@ -146,7 +146,7 @@
         {
           "finish_reason": "stop",
           "message": {
-            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"a harmless question\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=4997a1434a5e00026d7c7d045f193b5b;authorization=Bearer dummy-not-a-real-key;content-length=84;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.21;x-forwarded-prefix=/aiplug/custom;x-forwarded-port=443;x-forwarded-path=/aiplug/custom;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.21;",
+            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"a harmless question\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=4997a1434a5e00026d7c7d045f193b5b;authorization=Bearer dummy-not-a-real-key;content-length=84;host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.21;x-forwarded-prefix=/aiplug/custom;x-forwarded-port=443;x-forwarded-path=/aiplug/custom;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.21;",
             "role": "assistant"
           },
           "index": 0
@@ -171,7 +171,7 @@
         {
           "finish_reason": "stop",
           "message": {
-            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"this contains forbidden-word here\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=5b0e5653b3eff34ab16e974805045e3b;authorization=Bearer dummy-not-a-real-key;content-length=98;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.132;x-forwarded-prefix=/aiplug/custom;x-forwarded-port=443;x-forwarded-path=/aiplug/custom;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.132;",
+            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"this contains forbidden-word here\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=5b0e5653b3eff34ab16e974805045e3b;authorization=Bearer dummy-not-a-real-key;content-length=98;host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.132;x-forwarded-prefix=/aiplug/custom;x-forwarded-port=443;x-forwarded-path=/aiplug/custom;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.132;",
             "role": "assistant"
           },
           "index": 0
@@ -205,7 +205,7 @@
         {
           "finish_reason": "stop",
           "message": {
-            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"hello\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=772606294bdc6f1eb17ed25968170f0f;authorization=Bearer dummy-not-a-real-key;content-length=70;host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-host=6efbd575d6.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.128;x-forwarded-prefix=/aiplug/lakera-open;x-forwarded-port=443;x-forwarded-path=/aiplug/lakera-open;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.128;",
+            "content": "RECEIVED:{\"model\":\"gpt-4o-mini\",\"messages\":[{\"content\":\"hello\",\"role\":\"user\"}]} HEADERS:accept-encoding=identity;content-type=application/json;user-agent=Python-urllib/3.13;connection=keep-alive;x-kong-request-id=772606294bdc6f1eb17ed25968170f0f;authorization=Bearer dummy-not-a-real-key;content-length=70;host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-host=YOUR-GATEWAY.eu.serverless.gateways.konggateway.com;x-forwarded-proto=https;x-real-ip=160.79.106.128;x-forwarded-prefix=/aiplug/lakera-open;x-forwarded-port=443;x-forwarded-path=/aiplug/lakera-open;via=1.1 kong/3.16.0.2-enterprise-edition;x-forwarded-for=160.79.106.128;",
             "role": "assistant"
           },
           "index": 0

@@ -3,8 +3,8 @@
     "event": {
       "data": {
         "client_ip": "<redacted>",
-        "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554",
-        "request_host": "6efbd575d6.eu.serverless.gateways.konggateway.com",
+        "control_plane_id": "YOUR-CONTROL-PLANE-ID",
+        "request_host": "YOUR-GATEWAY.eu.serverless.gateways.konggateway.com",
         "request_method": "POST",
         "request_size_bytes": 262,
         "request_uri": "/meter-ai/chat",
@@ -35,7 +35,7 @@
       "data": {
         "ai_plugin_id": "5e4c745f-bfad-4291-93a2-95ed1b076907",
         "api_request_id": "2093d67dd4bd807d8b25b168b59c6e04",
-        "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554",
+        "control_plane_id": "YOUR-CONTROL-PLANE-ID",
         "http_status": 403,
         "model": "UNSPECIFIED",
         "provider": "UNSPECIFIED",
@@ -60,7 +60,7 @@
       "data": {
         "ai_plugin_id": "5e4c745f-bfad-4291-93a2-95ed1b076907",
         "api_request_id": "b44c9c341fa7ce7ad96d890841ff7e63",
-        "control_plane_id": "968bf452-4a30-4573-a9e1-41d3c7de5554",
+        "control_plane_id": "YOUR-CONTROL-PLANE-ID",
         "http_status": 403,
         "model": "UNSPECIFIED",
         "provider": "UNSPECIFIED",

@@ -3,7 +3,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 const keys = JSON.parse(fs.readFileSync('./keys.json'));
 for (const agent of ['ruv-agent-a', 'ruv-agent-b']) {
-  const t = new StreamableHTTPClientTransport(new URL('https://6efbd575d6.eu.serverless.gateways.konggateway.com/ruv-mcp'), { requestInit: { headers: { apikey: keys[agent] } } });
+  const t = new StreamableHTTPClientTransport(new URL('https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com/ruv-mcp'), { requestInit: { headers: { apikey: keys[agent] } } });
   const c = new Client({ name: 'sdk-test', version: '0' });
   await c.connect(t);
   const tools = (await c.listTools()).tools.map(x => x.name);

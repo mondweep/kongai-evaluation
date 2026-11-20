@@ -1,6 +1,6 @@
 import json,sys,urllib.request,time
 from corpus import *
-GW="https://6efbd575d6.eu.serverless.gateways.konggateway.com"
+GW="https://YOUR-GATEWAY.eu.serverless.gateways.konggateway.com"
 def send(route,text,headers={}):
     r=urllib.request.Request(GW+route,data=json.dumps({"messages":[{"role":"user","content":text}]}).encode(),headers={"content-type":"application/json",**headers})
     try:

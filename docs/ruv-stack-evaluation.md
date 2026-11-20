@@ -66,7 +66,7 @@ AIDefence caught leetspeak, base64, Spanish and hidden-in-a-document attacks tha
 
 ### 5. Dev Portal MCP server (Wipro Demo Portal, read-only probes)
 
-Probed `https://c07265dd25b4.eu.kongportals.com/api/v3/mcp` with the MCP SDK client (`ruv-stack/portal-tools.mjs`, `portal-call.mjs`). Nothing was written.
+Probed `https://YOUR-PORTAL.eu.kongportals.com/api/v3/mcp` with the MCP SDK client (`ruv-stack/portal-tools.mjs`, `portal-call.mjs`). Nothing was written.
 
 - **It's a "code mode" server.** It exposes 3 meta-tools rather than ~22 tools: `search` (find tools), `get_schema` (their parameters) and `execute` (run a Python block that chains `await call_tool(...)` calls on Kong's side). Server reports itself as `portal-mcp` 3.4.2. An agent needs to be comfortable writing small Python snippets; Claude and ruflo agents are, simpler agents may not be.
 - **Anonymous read works on a public portal.** With no login, an agent could list the published API (Demo HTTPBin API), its spec versions, the portal pages, and run full-text search across operations and docs (it found `POST /anything`, "Echo a JSON body").
